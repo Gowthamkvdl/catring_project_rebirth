@@ -14,7 +14,7 @@ import UserProfile from "./routes/userProfilePage/UserProfile";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage";
 import PageNotFound from "./routes/pageNotFound/PageNotFound";
 import { listPageLoader, singlePageLoader } from "./lib/loader";
-import HomePage from "./routes/homePage/HomePage"; 
+import HomePage from "./routes/homePage/homePage"; 
 
 function App() {
   const router = createBrowserRouter([
