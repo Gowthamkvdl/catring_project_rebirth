@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./homePage.css";
 import homeImg from "../../assets/lifting.svg";
-import Input from "../../components/input/Input";
+import Input from "../../components/input/input";
 import ArrowBtn from "../../components/arrowBtn/arrowBtn";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
