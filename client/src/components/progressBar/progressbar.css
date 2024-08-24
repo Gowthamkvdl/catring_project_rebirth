@@ -1,0 +1,13 @@
+.progressbar .barBg{
+    width: 100%;
+    background-color: #0099ff56;
+    height: 7px;
+    border-radius: 10px;
+}
+.progressbar .bar{
+    transition: .5s ease-in-out;
+    background-color: #0099ff;
+    height: 7px;
+    filter: drop-shadow(0 0 1px #0080ff);
+    border-radius: 8px;
+}

@@ -1,0 +1,23 @@
+/* .updateProfile .change-password {
+    animation-name: passwordChange;
+    animation-duration: 1s;
+}
+
+@keyframes passwordChange {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+} */
+
+.title{
+    color: var(--light);
+}
+
+.modal-body{
+    color: var(--light);
+}

@@ -1,0 +1,32 @@
+Hides the Google branding
+.goog-te-gadget {
+  display: none !important;
+}
+
+/* Custom styles for the language dropdown */
+.goog-te-combo {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #333;
+  padding: 5px;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+
+
+
+/* Style the container of the Google Translate element */
+#google_translate_element {
+    color: var(--background);
+    padding: 0;
+    margin: 0;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Hide the Google Translate toolbar */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+} 

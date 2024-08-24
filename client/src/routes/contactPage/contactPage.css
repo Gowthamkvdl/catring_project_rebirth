@@ -1,0 +1,21 @@
+.rocket{
+    margin: 3px !important;
+}
+.text-start svg{
+    margin-top: -12.5px;
+}
+.align-items-center svg{
+    margin-top: -12.5px;
+}
+
+label{
+    font-size: inherit;
+}
+
+input, textarea, select{
+    background-color: white !important;
+}
+
+.contact{
+    color: var(--light);
+}

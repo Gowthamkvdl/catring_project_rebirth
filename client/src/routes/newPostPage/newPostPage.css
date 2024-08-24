@@ -1,0 +1,38 @@
+
+.newPostPage{
+color: #212529 !important;
+}
+
+.newPostPage label{
+     font-size: 15.5px;
+}
+
+
+.newPostPage input{
+     background-color: antiquewhite;
+     /* outline: none; */
+}
+.newPostPage input:focus{
+     background-color: antiquewhite;
+     /* border: none; */
+     /* outline: none; */
+}
+.newPostPage input:active{
+     background-color: antiquewhite;
+     border: none;
+     outline: none;
+}
+.newPostPage textarea{
+     background-color: antiquewhite;
+     outline: none;
+}
+.newPostPage textarea:focus{
+     background-color: antiquewhite;
+     /* border: none; */
+     outline: none;
+}
+.newPostPage textarea:active{
+     background-color: antiquewhite;
+     border: none;
+     outline: none;
+}

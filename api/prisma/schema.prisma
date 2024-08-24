@@ -1,0 +1,102 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  postId              String       @id @default(auto()) @map("_id") @db.ObjectId
+  eventName           String
+  startDate           String
+  startTime           String
+  salary              Int
+  city                String
+  workingDays         Int
+  noOfStaffsReq       Int
+  noOfStaffsSatisfied Int?         @default(0)
+  disabled            Boolean      @default(false)
+  address             String
+  description         String?
+  createdAt           DateTime     @default(now())
+  cater               Cater        @relation(fields: [caterId], references: [id], onDelete: Cascade)
+  caterId             String       @db.ObjectId
+  savedPosts          SavedPosts[]
+}
+
+model SavedPosts {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  server    Server   @relation(fields: [postId], references: [id])
+  post      Post     @relation(fields: [postId], references: [postId], onDelete: Cascade)
+  serverId  String   @db.ObjectId
+  postId    String   @db.ObjectId
+  createdAt DateTime @default(now())
+
+  @@unique([serverId, postId])
+}
+
+model Server {
+  name          String
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  phone         String       @unique
+  age           String
+  city          String
+  avatar        String?
+  address       String?
+  averageRating Float?       @default(0.0)
+  totalRating   Int          @default(0)
+  honorScore    Int          @default(100)
+  createdAt     DateTime     @default(now())
+  savedPosts    SavedPosts[]
+  starRating    ServerStarRating[]
+}
+
+model Cater {
+  name          String
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  phone         String   @unique
+  age           String
+  city          String
+  avatar        String?
+  address       String?
+  averageRating Float?   @default(0.0)
+  totalRating   Int      @default(0)
+  honorScore    Int      @default(100)
+  createdAt     DateTime @default(now())
+  post          Post[]
+  starRating    CaterStarRating[]
+}
+
+model CaterStarRating {
+  starRatingId String   @id @default(auto()) @map("_id") @db.ObjectId
+  cater        Cater    @relation(fields: [userId], references: [id])
+  userId       String   @db.ObjectId
+  giverId      String
+  starCount    Int
+  createdAt    DateTime @default(now())
+}
+
+model ServerStarRating {
+  starRatingId String   @id @default(auto()) @map("_id") @db.ObjectId
+  server       Server      @relation(fields: [userId], references: [id])
+  userId       String   @db.ObjectId
+  giverId      String
+  starCount    Int
+  createdAt    DateTime @default(now())
+}
+
+model Otp {
+  otpId     String   @id @default(auto()) @map("_id") @db.ObjectId
+  phone     String
+  otp       String
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+}

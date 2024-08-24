@@ -1,0 +1,25 @@
+.honorScore{
+    background-color: var(--light);
+    color: var(--dark);
+    padding: 0px 4px 0 4px ;
+    border-radius: 4px ;
+    margin-top:5px;
+}
+
+.small-font{
+    opacity: .7 !important;
+}
+
+.profile{
+    color: var(--light);
+}
+
+.profilePic img{
+    height: 200px;
+    width: 200px;
+    margin: 0 auto 0 auto;
+    overflow: hidden;
+    object-position: center;
+    object-fit: cover;
+}
+
