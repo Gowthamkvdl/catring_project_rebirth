@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./homePage.css";
 import homeImg from "../../assets/lifting.svg";
-import Input from "../../components/input/input";
+import Input from "../../components/input/Input";
 import ArrowBtn from "../../components/arrowBtn/arrowBtn";
 import { useNavigate } from "react-router-dom";
-// import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 
 
 const HomePage = () => {
   const navigate = useNavigate();
-  // const {currentUser} = useContext(AuthContext)
+  const {currentUser} = useContext(AuthContext)
   const handleClick = (e) => {
     e.preventDefault(e.target);
     navigate("new-post");
@@ -31,7 +31,7 @@ const HomePage = () => {
             servers.
           </p>
           <div className="row mx-2 mx-md-0 gap-4 mt-2">
-            {/* {currentUser?.category === "server" && ( */}
+            {currentUser?.category === "server" && (
               <div className="col-12 box-shadow border rounded-4 p-3">
                 <h3 className="mb-3">For Server Staff:</h3>
                 <div className="body-text mb-2">
@@ -39,8 +39,8 @@ const HomePage = () => {
                 </div>
                 <Input />
               </div>
-         {/* )} */}
-            {/* {currentUser?.category === "cater" && ( */}
+            )}
+            {currentUser?.category === "cater" && (
               <div className="col-12 box-shadow border rounded-4 p-3">
                 <h3 className="">For Contractors:</h3>
                 <div className="body-text mb-2">
@@ -49,7 +49,7 @@ const HomePage = () => {
                 </div>
                 <ArrowBtn text="Post Event" handleClick={handleClick} />
               </div>
-            {/* )} */}
+            )}
           </div>
         </div>
       </div>
