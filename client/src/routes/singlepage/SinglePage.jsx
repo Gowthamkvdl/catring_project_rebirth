@@ -157,7 +157,7 @@ const SinglePage = () => {
                   </div>
                 </Link>
               </div>
-              <h4 className="mt-2 fs-1 ">
+              <h4 className="mt-2 fs-2 ">
                 {post?.eventName}
                 <div className="float-end fw-bold p-1 bg-text text-dark rounded">
                   ₹{post?.salary}
