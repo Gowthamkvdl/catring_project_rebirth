@@ -3,7 +3,6 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AboutPage from "./routes/aboutPage/AboutPage";
 import Layout from "./components/layout/Layout";
-import HomePage from "./routes/homePage/HomePage"; 
 import ContactPage from "./routes/contactPage/ContactPage";
 import LoginPage from "./routes/loginPage/LoginPage";
 import RegisterPage from "./routes/registerPage/RegisterPage";
@@ -15,6 +14,7 @@ import UserProfile from "./routes/userProfilePage/UserProfile";
 import ProfileUpdatePage from "./routes/profileUpdatePage/ProfileUpdatePage";
 import PageNotFound from "./routes/pageNotFound/PageNotFound";
 import { listPageLoader, singlePageLoader } from "./lib/loader";
+import HomePage from "./routes/homePage/HomePage"; 
 
 function App() {
   const router = createBrowserRouter([
