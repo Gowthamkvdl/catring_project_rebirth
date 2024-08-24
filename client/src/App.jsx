@@ -4,8 +4,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AboutPage from "./routes/aboutPage/AboutPage";
 import Layout from "./components/layout/Layout";
 import ContactPage from "./routes/contactPage/ContactPage";
-import LoginPage from "./routes/loginPage/LoginPage";
-import RegisterPage from "./routes/registerPage/RegisterPage";
 import ListPage from "./routes/listPage/ListPage";
 import NewPostPage from "./routes/newPostPage/NewPostPage";
 import SinglePage from "./routes/singlepage/SinglePage";
@@ -34,14 +32,6 @@ function App() {
         {
           path: "/contact",
           element: <ContactPage />,
-        },
-        {
-          path: "/login",
-          element: <LoginPage />,
-        },
-        {
-          path: "/register",
-          element: <RegisterPage />,
         },
         {
           path: "/list",
