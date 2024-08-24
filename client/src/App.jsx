@@ -11,7 +11,7 @@ import NewPostPage from "./routes/newPostPage/NewPostPage";
 import SinglePage from "./routes/singlepage/SinglePage";
 import ProfilePage from "./routes/profilePage/profilePage";
 import UserProfile from "./routes/userProfilePage/UserProfile";
-import ProfileUpdatePage from "./routes/profileUpdatePage/ProfileUpdatePage";
+import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage";
 import PageNotFound from "./routes/pageNotFound/PageNotFound";
 import { listPageLoader, singlePageLoader } from "./lib/loader";
 import HomePage from "./routes/homePage/HomePage"; 
