@@ -59,7 +59,7 @@ export const register = async (req, res) => {
 
       return res
         .cookie("token", token, {
-          // httpOnly: true,  // This should be true in production
+          httpOnly: true,  // This should be true in production
           secure: true,
           sameSite: "None",
           maxAge: tokenDuration,
