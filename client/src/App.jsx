@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AboutPage from "./routes/aboutPage/AboutPage";
 import Layout from "./components/layout/Layout";
 import HomePage from "./routes/homePage/HomePage"; 
-import AboutPage from "./routes/aboutPage/AboutPage";
 import ContactPage from "./routes/contactPage/ContactPage";
 import LoginPage from "./routes/loginPage/LoginPage";
 import RegisterPage from "./routes/registerPage/RegisterPage";
