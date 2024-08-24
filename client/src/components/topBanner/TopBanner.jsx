@@ -6,6 +6,6 @@ const TopBanner = () => {
       <span className="text-adpative ms-1">CATERING BOYS</span>
     </div>
   );
-}
+}   
 
 export default TopBanner 
