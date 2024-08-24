@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./homePage.css";
 import homeImg from "../../assets/lifting.svg";
 import Input from "../../components/input/Input";
