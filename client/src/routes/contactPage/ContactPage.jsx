@@ -49,7 +49,7 @@ const ContactPage = () => {
                   width="20"
                   height="20"
                   fill="#0a5bd0"
-                  className="bi bi-envelope-fill me-1"
+                  className="bi bi-envelope-fill me-1 mt-0"
                   viewBox="0 0 16 16"
                 >
                   <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
@@ -95,7 +95,7 @@ const ContactPage = () => {
           <div className="col-xl-6 mx-auto mt-sm-0 mt-4 col-12">
             <h4 className=" mb-2 d-flex ">
               Send us a message
-              <div className="rocket mb-2">
+              <div className="rocket">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -119,7 +119,6 @@ const ContactPage = () => {
                   className="w-100 form-control shadow-none"
                 />
               </div>
-
               <div className="mb-3 ">
                 <label htmlFor="number">Your Phone Number</label>
                 <input
