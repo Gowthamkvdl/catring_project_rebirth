@@ -1,10 +1,9 @@
 services:
   - type: web
     name: your-service-name
-    env: node
-    buildCommand: npm run build
-    startCommand: npm start
+    env: static
+    staticPublishPath: dist  # Adjust to your build directory
     routes:
       - type: rewrite
-        source: /.*
+        source: /*
         destination: /index.html
