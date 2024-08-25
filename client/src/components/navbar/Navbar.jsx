@@ -521,27 +521,26 @@ const Navbar = () => {
                     newUser ? "d-none" : "d-block"
                   }`}
                 >
-                  <div className="img-container flex-grow-1 d-flex">
+                  <div className="img">
                     <img
                       src={lock}
                       className="login-img me-3"
                       alt="login img"
                     />
                   </div>
-                  <div className="texts flex-grow-1 d-flex flex-column justify-content-center">
+                  <div className="texts">
                     <div className="fs-2">Login With OTP</div>
                     <div className="fs-6 mb-5">
                       Opportunities Call, You Answer!
                     </div>
                   </div>
                 </div>
-
                 <form action="" onSubmit={handleCreateAccount} className=" ">
                   <div className={`${newUser ? "d-none" : "d-block"}`}>
                     <div className="row">
                       <div className="col-7">
                         <div className="d-flex ">
-                          <span className="fs-5  mt-2 me-1">+91</span>
+                          <span className="fs-5  mt-1 me-2">+91</span>
                           <div className="textInputWrapper mt-1">
                             <input
                               placeholder="Phone number"
