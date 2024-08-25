@@ -69,8 +69,11 @@ const Navbar = () => {
       });
     }
 
-    // 2. Incorrect Length
-    if (phone.length !== 10) {
+    // Remove +91 if present
+    let formattedPhone = phone.startsWith("+91") ? phone.slice(3) : phone;
+
+    // 2. Incorrect Length (after removing +91)
+    if (formattedPhone.length !== 10) {
       return toast.error("Invalid Phone Number: Must be exactly 10 digits", {
         id: "invalid-length",
       });
@@ -78,14 +81,14 @@ const Navbar = () => {
 
     // 3. Non-Numeric Characters
     const phoneNumberRegex = /^[0-9]+$/;
-    if (!phone.match(phoneNumberRegex)) {
+    if (!formattedPhone.match(phoneNumberRegex)) {
       return toast.error("Phone number must contain only digits", {
         id: "invalid-characters",
       });
     }
 
     // 5. All Same Digits
-    if (/^(\d)\1+$/.test(phone)) {
+    if (/^(\d)\1+$/.test(formattedPhone)) {
       return toast.error("Invalid Phone Number: Cannot be all the same digit", {
         id: "same-digits",
       });
@@ -94,11 +97,11 @@ const Navbar = () => {
     try {
       setSending(true);
       const response = await apiRequest.post("/otp/sendotp", {
-        phoneNumber: phone,
+        phoneNumber: formattedPhone,
       });
       console.log(response);
       toast.success("OTP sent successfully", {
-        id: "otp sent",
+        id: "otp-sent",
       });
     } catch (error) {
       console.log(error);
@@ -108,6 +111,7 @@ const Navbar = () => {
       setSending(false);
     }
   };
+
 
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
