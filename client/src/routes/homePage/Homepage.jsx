@@ -18,7 +18,7 @@ const HomePage = () => {
 
   return (
     <div className="row homepage pt-5 pt-md-0">
-      <div className="col-12 col-md-7 my-auto">
+      <div className="col-12 col-md-7 my-sm-auto mt-5">
         <div className="hero-section mt-lg-0 mt-3 flex-column d-flex justify-content-center align-item-center">
           <div className="hero-text mb-3">
             <span className="title-text">
