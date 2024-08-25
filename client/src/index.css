@@ -23,17 +23,17 @@ body {
 }
 
 .body-text {
-  font-size: 18px; /* Fixed font size */
-  line-height: 24px; /* Fixed line-height */
+  font-size: 22px; /* Fixed font size */
+  line-height: 28px; /* Fixed line-height */
 }
 
 .subtitle-text {
-  font-size: 24px; /* Fixed font size */
+  font-size: 28px; /* Fixed font size */
   line-height: 28px; /* Fixed line-height */
 }
 
 .title-text {
-  font-size: 32px; /* Fixed font size */
+  font-size: 36px; /* Fixed font size */
   line-height: 40px; /* Fixed line-height */
 }
 
