@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: your-service-name
+    name: cateringboys0
     env: static
     staticPublishPath: dist  # Adjust to your build directory
     routes:
