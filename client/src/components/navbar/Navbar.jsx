@@ -115,9 +115,12 @@ const Navbar = () => {
 
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
+
+    // Declare formattedPhone properly
+    const formattedPhone = phone.startsWith("+91") ? phone.slice(3) : phone;
+
     try {
       setChecking(true);
-      formattedPhone = phone.startsWith("+91") ? phone.slice(3) : phone;
 
       const response = await apiRequest.post("/otp/verifyotp", {
         phoneNumber: formattedPhone,
@@ -127,8 +130,8 @@ const Navbar = () => {
       // Check the response structure
       console.log("Response data:", response.data);
 
-      toast.success("OTP verified", {
-        id: "otp sent",
+      toast.success("OTP verified successfully", {
+        id: "otp-verified",
       });
 
       const newUser = response.data.newUser;
@@ -158,7 +161,13 @@ const Navbar = () => {
       }
     } catch (error) {
       console.log("Error:", error);
-      toast.error(error.response.data.message);
+      toast.error(
+        error?.response?.data?.message ||
+          "An error occurred during OTP verification",
+        {
+          id: "otp-verification-error",
+        }
+      );
     } finally {
       setChecking(false);
     }
