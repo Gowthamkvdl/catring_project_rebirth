@@ -199,6 +199,6 @@ a {
 
 .login-img {
   height: 100%; /* Makes the image match the height of its container */
-  object-fit: cover; /* Ensures the image covers the entire container without distortion */
+  object-fit: contain; /* Ensures the image covers the entire container without distortion */
   width: 100%; /* Ensures the image doesn't exceed its container's width */
 }
