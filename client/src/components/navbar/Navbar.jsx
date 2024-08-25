@@ -21,7 +21,7 @@ const Navbar = () => {
   const btn = useRef(null);
   const inputRef = useRef(null);
   const otpRef = useRef(null);
-  const [phone, setPhone] = useState("+91");
+  const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
   const [newUser, setNewUser] = useState(false);
   const [sending, setSending] = useState(false);
@@ -542,7 +542,7 @@ const Navbar = () => {
                         <div className="d-flex ">
                           <div className="textInputWrapper mt-1">
                             <input
-                              placeholder="Phone number"
+                              placeholder="Enter phone number"
                               type="text"
                               className="textInput text-dark fs-5"
                               defaultValue={phone}
