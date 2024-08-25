@@ -46,8 +46,8 @@ const ContactPage = () => {
               
               <p className="text-start mb-4"><svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
+                width="20"
+                height="20"
                 fill="#0a5bd0"
                 className="bi bi-envelope-fill me-1"
                 viewBox="0 0 16 16"
@@ -59,8 +59,8 @@ const ContactPage = () => {
               <p className="text-start mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
+                  width="20"
+                  height="20"
                   fill="#0a5bd0"
                   className="bi bi-telephone-fill me-1"
                   viewBox="0 0 16 16"
@@ -77,8 +77,8 @@ const ContactPage = () => {
               <p className="text-start mb-4 ">
                 <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="30" 
-                height="30"
+                width="20" 
+                height="20"
                 fill="#0a5bd0"
                 className="bi bi-geo-alt-fill me-1"
                 viewBox="0 0 16 16"
@@ -95,8 +95,8 @@ const ContactPage = () => {
               <div className="rocket mb-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
+                  width="20"
+                  height="20"
                   fill="#0a5bd0"
                   className="bi bi-send-fill mx-2 "
                   viewBox="0 0 16 16"
