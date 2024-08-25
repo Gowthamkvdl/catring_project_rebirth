@@ -119,7 +119,7 @@ const Navbar = () => {
       setChecking(true);
 
       const response = await apiRequest.post("/otp/verifyotp", {
-        phoneNumber: phone,
+        phoneNumber: formattedPhone,
         otp: otp,
       });
 
