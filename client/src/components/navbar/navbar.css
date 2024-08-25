@@ -192,3 +192,13 @@ a {
   filter: drop-shadow(0px 0px 2px var(--primary));
   /* transform: scale(1.2); */
 }
+
+.img-container {
+  flex-basis: auto; /* Ensures the image container doesn't shrink */
+}
+
+.login-img {
+  height: 100%; /* Makes the image match the height of its container */
+  object-fit: cover; /* Ensures the image covers the entire container without distortion */
+  width: 100%; /* Ensures the image doesn't exceed its container's width */
+}
