@@ -52,7 +52,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="col-12 col-md-5 d-flex justify-content-center align-items-center">
+      <div className="col-12 col-md-5">
         <img src={homeImg} alt="Lifting" className="img-fluid" />
       </div>
     </div>

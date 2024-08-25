@@ -64,7 +64,7 @@ const profilePage = () => {
 
   return (
     <div className="profile ">
-      <div className="row mx-0 ">
+      <div className="row mx-1 ">
         <div className="col-12 col-md-6 px-0">
           <h2 className="title text-uppercase">
             {user?.name ? user?.name : "USER"}'S PROFILE
