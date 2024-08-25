@@ -636,7 +636,7 @@ const Navbar = () => {
                         className="textInput text-dark fs-5 mt-4"
                       ></input>
                     </div>
-                    <div className="role d-flex mt-2">
+                    <div className="role d-flex gap-2 mt-2">
                       <label className="radio-button  text-dark">
                         <input type="radio" name="role" value="server"></input>
                         <span className="radio"></span>I want a job
