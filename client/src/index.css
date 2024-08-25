@@ -23,8 +23,8 @@ body {
 }
 
 .body-text {
-  font-size: calc(12px + 0.5vw); /* Slightly larger base size */
-  line-height: calc(26px + 0.5vw);
+  font-size: calc(16px + 0.5vw); /* Slightly larger base size */
+  line-height: calc(16px + 0.5vw);
 }
 
 .subtitle-text {
@@ -33,8 +33,8 @@ body {
 }
 
 .title-text {
-  font-size: calc(35px + 2vw);
-  line-height: calc(30px + 2vw);
+  font-size: calc(28px + 2vw);
+  line-height: calc(25px + 2vw);
 }
 
 
