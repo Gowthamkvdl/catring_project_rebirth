@@ -43,17 +43,19 @@ const ContactPage = () => {
               accusamus, quisquam nobis ipsum magni
             </p>
             <div className="">
-              
-              <p className="text-start mb-4"><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="#0a5bd0"
-                className="bi bi-envelope-fill me-1"
-                viewBox="0 0 16 16"
-              >
-                <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
-              </svg> gowthamkvdl@gmail.com</p>
+              <p className="text-start mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="#0a5bd0"
+                  className="bi bi-envelope-fill me-1"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
+                </svg>{" "}
+                gowthamkvdl@gmail.com
+              </p>
             </div>
             <div className="">
               <p className="text-start mb-4">
@@ -62,7 +64,7 @@ const ContactPage = () => {
                   width="20"
                   height="20"
                   fill="#0a5bd0"
-                  className="bi bi-telephone-fill me-1"
+                  className="bi bi-telephone-fill me-1 mt-0"
                   viewBox="0 0 16 16"
                 >
                   <path
@@ -76,15 +78,16 @@ const ContactPage = () => {
             <div className="">
               <p className="text-start mb-4 ">
                 <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20" 
-                height="20"
-                fill="#0a5bd0"
-                className="bi bi-geo-alt-fill me-1"
-                viewBox="0 0 16 16"
-              >
-                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-              </svg>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="#0a5bd0"
+                  className="bi bi-geo-alt-fill me-1  mt-0"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                </svg>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
                 explicabo!
               </p>
             </div>
@@ -98,7 +101,7 @@ const ContactPage = () => {
                   width="20"
                   height="20"
                   fill="#0a5bd0"
-                  className="bi bi-send-fill mx-2 "
+                  className="bi bi-send-fill mx-2  mt-0"
                   viewBox="0 0 16 16"
                 >
                   <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
