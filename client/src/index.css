@@ -23,7 +23,7 @@ body {
 }
 
 .body-text {
-  font-size: clamp(16px, calc(1vw + 1em), 24px);
+  font-size: calc(12px + 0.5vw); /* Slightly larger base size */
   line-height: calc(26px + 0.5vw);
 }
 
@@ -33,10 +33,22 @@ body {
 }
 
 .title-text {
-  font-size: calc(28px + 2vw);
-  line-height: calc(25px + 2vw);
+  font-size: calc(35px + 2vw);
+  line-height: calc(30px + 2vw);
 }
 
+/* Optional: Ensure minimum sizes */
+@media (max-width: 500px) {
+  .body-text {
+    font-size: 18px;
+  }
+  .subtitle-text {
+    font-size: 26px;
+  }
+  .title-text {
+    font-size: 38px;
+  }
+}
 
 /* width */
 ::-webkit-scrollbar {
