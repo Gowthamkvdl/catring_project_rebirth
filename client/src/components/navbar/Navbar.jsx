@@ -272,8 +272,8 @@ const Navbar = () => {
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="30"
-                        height="30"
+                        width="25"
+                        height="25"
                         fill="currentColor"
                         className="bi bi-house mx-auto mb-1"
                         viewBox="0 0 16 16"
@@ -300,8 +300,8 @@ const Navbar = () => {
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="30"
-                        height="30"
+                        width="25"
+                        height="25"
                         fill="currentColor"
                         className="bi bi-info-circle mx-auto mb-1"
                         viewBox="0 0 16 16"
@@ -334,8 +334,8 @@ const Navbar = () => {
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          width="30"
-                          height="30"
+                          width="25"
+                          height="25"
                           fill="currentColor"
                           className="bi bi-search mx-auto mb-1"
                           viewBox="0 0 16 16"
@@ -364,8 +364,8 @@ const Navbar = () => {
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          width="30"
-                          height="30"
+                          width="25"
+                          height="25"
                           fill="currentColor"
                           className="bi bi-plus-circle mx-auto mb-1"
                           viewBox="0 0 16 16"
@@ -394,8 +394,8 @@ const Navbar = () => {
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="30"
-                        height="30"
+                        width="25"
+                        height="25"
                         fill="currentColor"
                         className="bi bi-envelope mx-auto mb-1"
                         viewBox="0 0 16 16"
@@ -422,8 +422,8 @@ const Navbar = () => {
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="30"
-                        height="30"
+                        width="25"
+                        height="25"
                         fill="currentColor"
                         className="bi bi-person mx-auto mb-1"
                         viewBox="0 0 16 16"
