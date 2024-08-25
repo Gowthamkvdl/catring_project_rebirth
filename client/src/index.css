@@ -23,7 +23,7 @@ body {
 }
 
 .body-text {
-  font-size: calc(16px + 0.5vw); /* Slightly larger base size */
+  font-size: clamp(16px, calc(1vw + 1em), 24px);
   line-height: calc(22px + 0.5vw);
 }
 
