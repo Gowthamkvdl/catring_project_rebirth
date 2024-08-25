@@ -6,6 +6,8 @@ import otpRoute from "./routes/otp.route.js";
 import postRoute from "./routes/post.route.js"
 import userRoute from "./routes/user.route.js"
 import cors from "cors";
+import mongoSanitize from "express-mongo-sanitize";
+import xss from "xss-clean";
 const PORT = 3000;
 const app = express();
 
@@ -13,6 +15,13 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+
+// Data sanitization against NoSQL query injection
+app.use(mongoSanitize())
+// Data sanitization against site script xss
+app.use(xss())
+
+
 app.use("/api/auth", authRoute);
 app.use("/api/otp", otpRoute);
 app.use("/api/post", postRoute)
