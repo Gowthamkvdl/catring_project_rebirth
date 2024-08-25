@@ -69,8 +69,8 @@ const Filter = ({ query, setQuery }) => {
           <div className="me-2 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="30"
+              width="25"
+              height="25"
               fill="currentColor"
               class="bi bi-search mt-1"
               viewBox="0 0 16 16"
@@ -83,7 +83,7 @@ const Filter = ({ query, setQuery }) => {
               type="text"
               name="location"
               onChange={handleChange}
-              className="inputBox fs-5 box-shadow mt-2"
+              className="inputBox body-text box-shadow mt-2"
               placeholder="Search job by city or location..."
               list="locations"
               defaultValue={query.location}
