@@ -117,7 +117,7 @@ const Navbar = () => {
     e.preventDefault();
     try {
       setChecking(true);
-      let formattedPhone = phone.startsWith("+91") ? phone.slice(3) : phone;
+      formattedPhone = phone.startsWith("+91") ? phone.slice(3) : phone;
 
       const response = await apiRequest.post("/otp/verifyotp", {
         phoneNumber: formattedPhone,
