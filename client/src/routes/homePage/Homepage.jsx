@@ -18,7 +18,7 @@ const HomePage = () => {
 
   return (
     <div className="row homepage pt-5 pt-md-0">
-      <div className="col-12 col-md-7 my-sm-auto mt-3">
+      <div className="col-12 col-md-7 my-sm-auto h-25 h-sm-auto mt-3">
         <div className="hero-section mt-lg-0 mt-3 flex-column d-flex justify-content-center align-item-center">
           <div className="hero-text mb-3">
             <span className="title-text">
@@ -53,7 +53,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="col-12 col-md-5 d-flex justify-content-center align-items-center">
+      <div className="col-12 col-md-5 h-25 h-sm-auto d-flex justify-content-center align-items-center">
         <img src={homeImg} alt="Lifting" className="img-fluid" />
       </div>
     </div>
