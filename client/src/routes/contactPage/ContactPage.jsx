@@ -34,8 +34,8 @@ const ContactPage = () => {
   return (
     <div className="contact navbarHeight mb-5">
       <div className="wrapper">
-        <h1 className="title">Contact</h1>
-        <div className="row  mt-4">
+        <h1 className="subtitle-text">Contact</h1>
+        <div className="row ">
           <div className="col-xl-6 mx-auto col-12">
             <p className="text-start mb-4 body-text">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -93,14 +93,14 @@ const ContactPage = () => {
             </div>
           </div>
           <div className="col-xl-6 mx-auto mt-sm-0 mt-4 col-12">
-            <h4 className=" mb-2 d-flex ">
+            <h4 className=" mb-2 d-flex subtitle-text ">
               Send us a message
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
                 fill="#0a5bd0"
-                class="bi bi-chat me-1  mt-0"
+                class="bi bi-chat ms-1  mt-0"
                 viewBox="0 0 16 16"
               >
                 <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
