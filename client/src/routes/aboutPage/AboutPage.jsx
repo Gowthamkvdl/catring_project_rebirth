@@ -14,7 +14,9 @@ const AboutPage = () => {
               <img src={story} className="img-fluid " alt="" />
             </div>
             <div className="col-12 col-md-6 px-0">
-              <div className=" fs-3 ">The Challenges We Address</div>
+              <div className=" fs-3 subtitle-text ">
+                The Challenges We Address
+              </div>
               <div className="mt-2">
                 <h1 className="title-text mb-3 px-0">Our Story</h1>
                 <p className="body-text">

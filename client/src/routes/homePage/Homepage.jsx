@@ -33,7 +33,7 @@ const HomePage = () => {
           <div className="row mx-1 mx-md-0 gap-4 mt-2">
             {currentUser?.category === "server" && (
               <div className="col-12 box-shadow border rounded-4 p-3">
-                <h3 className="mb-2">For Server Staff:</h3>
+                <h3 className="mb-2 subtitle-text">For Server Staff:</h3>
                 <div className="body-text mb-2">
                   Our platform allows you to connect with top contractors
                 </div>
@@ -42,7 +42,7 @@ const HomePage = () => {
             )}
             {currentUser?.category === "cater" && (
               <div className="col-12 box-shadow border rounded-4 p-3">
-                <h3 className="">For Contractors:</h3>
+                <h3 className="subtitle-text">For Contractors:</h3>
                 <div className="body-text mb-2">
                   Our platform connects you with experienced servers and staff
                   who are ready to work.
