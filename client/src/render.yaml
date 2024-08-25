@@ -2,7 +2,7 @@ services:
   - type: web
     name: cateringboys0
     env: static
-    staticPublishPath: dist  # Adjust to your build directory
+    staticPublishPath: dist  
     routes:
       - type: rewrite
         source: /*
