@@ -30,7 +30,7 @@ const HomePage = () => {
             server staff but also creates abundant job opportunities for
             servers.
           </p>
-          <div className="row mx-md-0 gap-4 mt-2">
+          <div className="row mx-1 mx-md-0 gap-4 mt-2">
             {currentUser?.category === "server" && (
               <div className="col-12 box-shadow border rounded-4 p-3">
                 <h3 className="mb-2">For Server Staff:</h3>
