@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./homePage.css";
 import homeImg from "../../assets/lifting.svg";
 import Input from "../../components/input/input";
@@ -6,20 +6,19 @@ import ArrowBtn from "../../components/arrowBtn/arrowBtn";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-
 const HomePage = () => {
   const navigate = useNavigate();
-  const {currentUser} = useContext(AuthContext)
+  const { currentUser } = useContext(AuthContext);
+
   const handleClick = (e) => {
-    e.preventDefault(e.target);
+    e.preventDefault();
     navigate("new-post");
   };
 
-
   return (
     <div className="row homepage pt-3 mt-sm-5">
-      <div className="col-12 col-md-7 h-25 h-sm-auto mt-3">
-        <div className="hero-section mt-lg-0 mt-3 flex-column d-flex justify-content-center align-item-center">
+      <div className="col-12 col-md-7 mt-3">
+        <div className="hero-section mt-lg-0 mt-3 flex-column d-flex justify-content-center align-items-center">
           <div className="hero-text mb-3">
             <span className="title-text">
               Effortless Connections for Exceptional Events.
@@ -53,7 +52,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="col-12 col-md-5 h-25 h-sm-auto d-flex d-md-block justify-content-center align-items-center">
+      <div className="col-12 col-md-5 d-flex justify-content-center align-items-center">
         <img src={homeImg} alt="Lifting" className="img-fluid" />
       </div>
     </div>
