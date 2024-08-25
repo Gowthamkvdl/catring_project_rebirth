@@ -24,7 +24,7 @@ body {
 
 .body-text {
   font-size: calc(16px + 0.5vw); /* Slightly larger base size */
-  line-height: calc(16px + 0.5vw);
+  line-height: calc(20px + 0.5vw);
 }
 
 .subtitle-text {
