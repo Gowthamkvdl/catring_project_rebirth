@@ -23,32 +23,33 @@ body {
 }
 
 .body-text {
-  font-size: calc(12px + 0.5vw); /* Slightly larger base size */
-  line-height: calc(26px + 0.5vw);
+  font-size: calc(14px + 0.3vw); /* Reduced scaling */
+  line-height: calc(20px + 0.3vw); /* Adjusted for better readability */
 }
 
 .subtitle-text {
-  font-size: calc(24px + 1vw);
-  line-height: calc(12px + 1vw);
+  font-size: calc(20px + 0.7vw); /* Reduced scaling */
+  line-height: calc(24px + 0.5vw); /* Adjusted line-height */
 }
 
 .title-text {
-  font-size: calc(35px + 2vw);
-  line-height: calc(30px + 2vw);
+  font-size: calc(28px + 1.5vw); /* Reduced scaling */
+  line-height: calc(34px + 1.5vw); /* Adjusted line-height */
 }
 
 /* Optional: Ensure minimum sizes */
 @media (max-width: 500px) {
   .body-text {
-    font-size: 18px;
+    font-size: 16px; /* Slightly smaller for better fit on small screens */
   }
   .subtitle-text {
-    font-size: 26px;
+    font-size: 22px; /* Adjusted minimum size */
   }
   .title-text {
-    font-size: 38px;
+    font-size: 32px; /* Adjusted minimum size */
   }
 }
+
 
 /* width */
 ::-webkit-scrollbar {
