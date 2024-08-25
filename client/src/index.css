@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: var(--background);
   color: var(--text);
   transition: 0.2s all ease-in-out;
