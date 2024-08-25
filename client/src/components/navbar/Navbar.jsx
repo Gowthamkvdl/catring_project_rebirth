@@ -540,7 +540,6 @@ const Navbar = () => {
                     <div className="row">
                       <div className="col-7">
                         <div className="d-flex ">
-                          <span className="fs-5  mt-1 me-2">+91</span>
                           <div className="textInputWrapper mt-1">
                             <input
                               placeholder="Phone number"
