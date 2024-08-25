@@ -23,32 +23,33 @@ body {
 }
 
 .body-text {
-  font-size: calc(14px + 0.3vw); /* Reduced scaling */
-  line-height: calc(20px + 0.3vw); /* Adjusted for better readability */
+  font-size: 16px; /* Fixed font size */
+  line-height: 24px; /* Fixed line-height */
 }
 
 .subtitle-text {
-  font-size: calc(20px + 0.7vw); /* Reduced scaling */
-  line-height: calc(24px + 0.5vw); /* Adjusted line-height */
+  font-size: 22px; /* Fixed font size */
+  line-height: 28px; /* Fixed line-height */
 }
 
 .title-text {
-  font-size: calc(28px + 1.5vw); /* Reduced scaling */
-  line-height: calc(34px + 1.5vw); /* Adjusted line-height */
+  font-size: 32px; /* Fixed font size */
+  line-height: 40px; /* Fixed line-height */
 }
 
-/* Optional: Ensure minimum sizes */
+/* Optional: Adjust sizes for smaller screens */
 @media (max-width: 500px) {
   .body-text {
-    font-size: 16px; /* Slightly smaller for better fit on small screens */
+    font-size: 14px; /* Adjusted for better fit on small screens */
   }
   .subtitle-text {
-    font-size: 22px; /* Adjusted minimum size */
+    font-size: 18px; /* Adjusted for small screens */
   }
   .title-text {
-    font-size: 32px; /* Adjusted minimum size */
+    font-size: 28px; /* Adjusted for small screens */
   }
 }
+
 
 
 /* width */
