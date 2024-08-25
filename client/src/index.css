@@ -40,13 +40,13 @@ body {
 /* Optional: Ensure minimum sizes */
 @media (max-width: 500px) {
   .body-text {
-    font-size: 18px;
+    font-size: 16px;
   }
   .subtitle-text {
-    font-size: 26px;
+    font-size: 20px;
   }
   .title-text {
-    font-size: 38px;
+    font-size: 28px;
   }
 }
 
