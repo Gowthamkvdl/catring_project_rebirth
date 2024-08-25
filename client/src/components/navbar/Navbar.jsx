@@ -259,7 +259,7 @@ const Navbar = () => {
             <div
               className={`offcanvas-body m-0 p-0 d-flex justify-content-center align-items-center`}
             >
-              <ul className="navbar-nav align-items-center w-100 gap-sm-3 justify-content-around  pt-3 pt-sm-0 justify-content-sm-end flex-grow-1">
+              <ul className="navbar-nav align-items-center w-100 gap-sm-3 justify-content-around  pt-2 pt-sm-0 justify-content-sm-end flex-grow-1">
                 <li className={`px-3 px-2 d-sm-block d-none`}>
                   <div className={`text-adaptive fs-2`}>Catring Boys</div>
                 </li>
