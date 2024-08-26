@@ -93,7 +93,7 @@ const profilePage = () => {
               toast
             </button> */}
           </h2>
-          <div className="profile bg-light text-dark mx-2 mx-md-0 py-4 rounded-4 box-shadow mt-4 row">
+          <div className="profile bg-light text-dark mx-1 mx-md-0 py-4 rounded-4 box-shadow mt-4 row">
             <div className="profilePic  d-flex pb-3  pt-2 p-md-0 pb-md-0  flex-column col-12 col-md-4">
               <img
                 src={currentUser?.avatar || dummyProfilePic}
