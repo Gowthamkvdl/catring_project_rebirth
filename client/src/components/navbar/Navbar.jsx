@@ -39,8 +39,8 @@ const Navbar = () => {
     }
     if (btn.current && !newUser) {
       btn.current.click();
-      setNewUser(false)
     }
+    setNewUser(false);
   }, [newUser, localStorage.getItem("user")]);
 
   const isActive = (path) => {
