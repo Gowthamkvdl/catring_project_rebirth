@@ -18,14 +18,22 @@ const HomePage = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsVisible(window.innerHeight >= 500); // Adjust the threshold as needed
+      const height = window.innerHeight;
+      const isKeyboardOpen = height < 500; // Adjust this threshold based on your needs
+
+      setIsVisible(!isKeyboardOpen);
     };
 
     window.addEventListener("resize", handleResize);
+
+    // Initial check to set visibility on page load
+    handleResize();
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [window.innerHeight]);
+  }, []);
+
 
   return (
     <div className="row homepage pt-3 mt-sm-5">
