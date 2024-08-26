@@ -116,20 +116,14 @@ const Navbar = () => {
       toast.success("OTP sent successfully", {
         id: "otp-sent",
       });
-
-      // Keep sending true for 30 seconds
-      setTimeout(() => {
-        setSending(false);
-      }, 5000);
-
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong!");
       setSent(true);
-      setSending(false); // Reset sending immediately in case of error
+    } finally {
+      setSending(false);
     }
   };
-
 
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
