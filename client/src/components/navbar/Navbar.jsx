@@ -30,19 +30,23 @@ const Navbar = () => {
   const [creating, setCreating] = useState(false);
 
   useEffect(() => {
-    if (btn.current && !localStorage.getItem("user")) {
+    const user = localStorage.getItem("user"); // Read once and store in a constant
+
+    if (btn.current && !user) {
       setSent(false);
       inputRef.current.value = "";
       otpRef.current.value = "";
       btn.current.click();
     }
+
     if (btn.current && !newUser) {
       btn.current.click();
     }
-    if(!localStorage.getItem("user")){
+
+    if (!user) {
       setNewUser(false);
     }
-  }, [newUser, localStorage.getItem("user")]); // This effect runs when `newUser` changes
+  }, [newUser]); // Dependency array only includes `newUser`
 
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
