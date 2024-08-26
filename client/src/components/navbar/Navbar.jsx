@@ -36,7 +36,8 @@ const Navbar = () => {
       inputRef.current.value = "";
       otpRef.current.value = "";
       btn.current.click();
-    } else if (btn.current && !newUser) {
+    } 
+    if(btn.current && !newUser) {
       btn.current.click();
     }
   }, [newUser, user]);
