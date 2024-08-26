@@ -213,7 +213,7 @@ const SinglePage = () => {
             </div>
             <div className="col-md-3 col-12">
               <div className="join-btn">
-                <button className="btn btn-primary w-100 mb-1">Join Now</button>
+                <button className="btn btn-primary w-100 mb-1">I'm Interested</button>
               </div>
             </div>
           </div>
