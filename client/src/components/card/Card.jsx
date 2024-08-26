@@ -34,7 +34,7 @@ const Card = ({ item }) => {
           <div className="userInfo bg-primary text-light rounded-top-4 px-3 pt-2 pb-1 mb-2 fs-5 d-flex align-items-center gap-2">
             <img
               src={item?.cater.avatar ? item?.cater.avatar : dummyProfilePic}
-              className="cardProPic mb-2"
+              className="cardProPic mb-1"
               alt=""
             />
             <span className="text-uppercase body-text mt-1">
