@@ -197,7 +197,7 @@ a {
   border: 2px solid var(--primary) !important;
 }
 
-.form-check-input:checked + .custom-radio {
+.form-check-input:checked {
   border-color: var(--primary); /* Border color when checked */
   background-color: var(--primary); /* Background color when checked */
 }
