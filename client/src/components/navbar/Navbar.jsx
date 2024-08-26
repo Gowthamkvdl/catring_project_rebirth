@@ -30,19 +30,6 @@ const Navbar = () => {
   const [checking, setChecking] = useState(false);
   const [creating, setCreating] = useState(false);
 
-  // useEffect(() => {
-  //   if (btn.current && !user) {
-  //     setSent(false);
-  //     inputRef.current.value = "";
-  //     otpRef.current.value = "";
-  //     btn.current.click();
-  //   }
-  //   if (btn.current && !newUser) {
-  //     btn.current.click();
-  //   }
-  // }, [newUser, user]); // This effect runs when `newUser` changes
-
-
   useEffect(() => {
     if (btn.current && !localStorage.getItem("user")) {
       setSent(false);
@@ -52,6 +39,7 @@ const Navbar = () => {
     }
     if (btn.current && !newUser) {
       btn.current.click();
+      setNewUser(false)
     }
   }, [newUser, localStorage.getItem("user")]);
 
@@ -673,7 +661,7 @@ const Navbar = () => {
                           value="server"
                         ></input>
                         <label
-                          className="form-check-label text-dark"
+                          className="form-check-label text-dark mt-1"
                           for="roleServer"
                         >
                           I want a job
@@ -688,7 +676,7 @@ const Navbar = () => {
                           value="cater"
                         ></input>
                         <label
-                          className="form-check-label text-dark"
+                          className="form-check-label text-dark mt-1"
                           for="roleCater"
                         >
                           I want to hire
