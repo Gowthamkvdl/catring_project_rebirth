@@ -209,7 +209,6 @@ a {
 
 .group .input {
  font-size: 16px;
- padding: 10px 10px 10px 5px;
  display: block;
  width: 200px;
  border: none;
@@ -228,7 +227,7 @@ a {
  position: absolute;
  pointer-events: none;
  left: 5px;
- top: 10px;
+ top: 0px;
  transition: 0.2s ease all;
  -moz-transition: 0.2s ease all;
  -webkit-transition: 0.2s ease all;
@@ -237,7 +236,7 @@ a {
 .group .input:focus ~ label {
  top: -20px;
  font-size: 14px;
- color: #5264AE;
+ color:var(--primary);
 }
 
 .group .bar {
@@ -252,7 +251,7 @@ a {
  width: 0;
  bottom: 1px;
  position: absolute;
- background: #5264AE;
+ background: var(--primary);
  transition: 0.2s ease all;
  -moz-transition: 0.2s ease all;
  -webkit-transition: 0.2s ease all;
@@ -286,7 +285,7 @@ a {
 
 @keyframes inputHighlighter {
  from {
-  background: #5264AE;
+  background: var(--primary);
  }
 
  to {
