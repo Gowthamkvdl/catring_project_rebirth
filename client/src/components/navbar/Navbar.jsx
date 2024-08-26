@@ -578,21 +578,26 @@ const Navbar = () => {
                       <div className="col-5">
                         <button
                           disabled={sending}
-                          className={`btn btn-primary w-100 d-flex align-items-center ${
+                          className={`btn btn-primary w-100 ${
                             sent ? "mb-0" : "mb-4"
                           } `}
                           onClick={handleSendOtp}
                         >
-                          {sending && (
-                            <div className="loading-indicator me-1">
-                              <img src={rollingLoading} alt="Loading..."></img>
-                            </div>
-                          )}
-                          {sending
-                            ? "Sending..."
-                            : sent
-                            ? "Resend"
-                            : "Send OTP"}
+                          <div className="mx-auto d-flex align-items-center ">
+                            {sending && (
+                              <div className="loading-indicator me-1">
+                                <img
+                                  src={rollingLoading}
+                                  alt="Loading..."
+                                ></img>
+                              </div>
+                            )}
+                            {sending
+                              ? "Sending..."
+                              : sent
+                              ? "Resend"
+                              : "Send OTP"}
+                          </div>
                         </button>
                       </div>
                       {/* <span
@@ -616,15 +621,17 @@ const Navbar = () => {
                       </div>
                       <button
                         disabled={checking}
-                        className="btn btn-primary w-100 mt-3  d-flex align-items-center"
+                        className="btn btn-primary w-100 mt-3 "
                         onClick={handleVerifyOtp}
                       >
-                        {checking && (
-                          <div className="loading-indicator me-1">
-                            <img src={rollingLoading} alt="Loading..."></img>
-                          </div>
-                        )}
-                        {checking ? "Verifying..." : "Verify OTP"}
+                        <div className="mx-auto d-flex align-items-center">
+                          {checking && (
+                            <div className="loading-indicator me-1">
+                              <img src={rollingLoading} alt="Loading..."></img>
+                            </div>
+                          )}
+                          {checking ? "Verifying..." : "Verify OTP"}
+                        </div>
                       </button>
                     </div>
                   </div>
@@ -708,15 +715,17 @@ const Navbar = () => {
 
                     <button
                       disabled={creating}
-                      className="btn btn-primary w-100 mt-4  d-flex align-items-center"
+                      className="btn btn-primary w-100 mt-4"
                       type="submit"
                     >
-                      {creating && (
-                        <div className="loading-indicator me-1">
-                          <img src={rollingLoading} alt="Loading..."></img>
-                        </div>
-                      )}
-                      {creating ? "Creating..." : "Create Account"}
+                      <div className="mx-auto  d-flex align-items-center">
+                        {creating && (
+                          <div className="loading-indicator me-1">
+                            <img src={rollingLoading} alt="Loading..."></img>
+                          </div>
+                        )}
+                        {creating ? "Creating..." : "Create Account"}
+                      </div>
                     </button>
                   </div>
                 </form>
