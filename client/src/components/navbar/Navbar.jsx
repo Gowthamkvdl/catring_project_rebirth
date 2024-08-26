@@ -578,13 +578,13 @@ const Navbar = () => {
                       <div className="col-5">
                         <button
                           disabled={sending}
-                          className={`btn btn-primary w-100 d-flex justify-content-evenly align-items-center ${
+                          className={`btn btn-primary w-100 d-flex align-items-center ${
                             sent ? "mb-0" : "mb-4"
                           } `}
                           onClick={handleSendOtp}
                         >
                           {sending && (
-                            <div className="loading-indicator ms-1">
+                            <div className="loading-indicator me-1">
                               <img src={rollingLoading} alt="Loading..."></img>
                             </div>
                           )}
@@ -616,11 +616,11 @@ const Navbar = () => {
                       </div>
                       <button
                         disabled={checking}
-                        className="btn btn-primary w-100 mt-3  d-flex justify-content-evenly align-items-center"
+                        className="btn btn-primary w-100 mt-3  d-flex align-items-center"
                         onClick={handleVerifyOtp}
                       >
                         {checking && (
-                          <div className="loading-indicator ms-1">
+                          <div className="loading-indicator me-1">
                             <img src={rollingLoading} alt="Loading..."></img>
                           </div>
                         )}
@@ -708,11 +708,11 @@ const Navbar = () => {
 
                     <button
                       disabled={creating}
-                      className="btn btn-primary w-100 mt-4  d-flex justify-content-evenly align-items-center"
+                      className="btn btn-primary w-100 mt-4  d-flex align-items-center"
                       type="submit"
                     >
                       {creating && (
-                        <div className="loading-indicator ms-1">
+                        <div className="loading-indicator me-1">
                           <img src={rollingLoading} alt="Loading..."></img>
                         </div>
                       )}
