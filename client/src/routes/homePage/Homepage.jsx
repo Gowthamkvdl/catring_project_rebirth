@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./homePage.css";
 import homeImg from "../../assets/lifting.svg";
 import Input from "../../components/input/input";
@@ -9,11 +9,23 @@ import { AuthContext } from "../../context/AuthContext";
 const HomePage = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
+  const [isVisible, setIsVisible] = useState(true);
 
   const handleClick = (e) => {
     e.preventDefault();
     navigate("new-post");
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsVisible(window.innerHeight >= 500); // Adjust the threshold as needed
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [window.innerHeight]);
 
   return (
     <div className="row homepage pt-3 mt-sm-5">
@@ -53,7 +65,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="col-12 col-md-5">
-        <img src={homeImg} alt="Lifting" className="img-fluid" />
+        <img src={homeImg} alt="Lifting" className={`img-fluid ${isVisible ? "" : "d-none"}`} />
       </div>
     </div>
   );
