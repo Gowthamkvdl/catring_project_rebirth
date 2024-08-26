@@ -75,7 +75,7 @@ const Card = ({ item }) => {
         )}
         <div className="m-3 ">
           <div className="eventName">
-            <div className="location pb-2">
+            <div className="location pb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
