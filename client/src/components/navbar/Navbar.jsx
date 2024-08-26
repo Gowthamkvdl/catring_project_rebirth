@@ -666,7 +666,7 @@ const Navbar = () => {
                     <div className="role d-flex gap-3 mt-3">
                       <div className="form-check">
                         <input
-                          className="form-check-input shadow-none"
+                          className="form-check-input"
                           type="radio"
                           name="role"
                           id="roleServer"
@@ -681,7 +681,7 @@ const Navbar = () => {
                       </div>
                       <div className="form-check">
                         <input
-                          className="form-check-input shadow-none"
+                          className="form-check-input "
                           type="radio"
                           name="role"
                           id="roleCater"
