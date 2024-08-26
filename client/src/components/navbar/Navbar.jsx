@@ -546,20 +546,20 @@ const Navbar = () => {
             <div className="modal-content">
               <div className="modal-body p-3 h-100 box-shadow">
                 <div
-                  className={`d-flex align-items-stretch ${
+                  className={`d-flex mb-4 align-items-center-center ${
                     newUser ? "d-none" : "d-block"
                   }`}
                 >
-                  <div className="img">
+                  <div className="img my-auto">
                     <img
                       src={lock}
                       className="login-img me-3"
                       alt="login img"
                     />
                   </div>
-                  <div className="texts">
+                  <div className="texts my-auto">
                     <div className="fs-2">Login With OTP</div>
-                    <div className="fs-6 mb-5">
+                    <div className="fs-6">
                       Opportunities Call, You Answer!
                     </div>
                   </div>
