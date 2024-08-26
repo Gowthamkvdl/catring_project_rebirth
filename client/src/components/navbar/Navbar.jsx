@@ -661,9 +661,9 @@ const Navbar = () => {
                           id="roleServer"
                           value="server"
                           required
-                        ></input>
+                        />
                         <label
-                          className="form-check-label text-dark mb-1"
+                          className="form-check-label text-dark"
                           for="roleServer"
                         >
                           I want a job
@@ -671,15 +671,15 @@ const Navbar = () => {
                       </div>
                       <div className="form-check">
                         <input
-                          className="form-check-input "
+                          className="form-check-input"
                           type="radio"
                           name="role"
                           id="roleCater"
                           value="cater"
                           required
-                        ></input>
+                        />
                         <label
-                          className="form-check-label text-dark mb-1"
+                          className="form-check-label text-dark"
                           for="roleCater"
                         >
                           I want to hire
