@@ -55,7 +55,7 @@ const profilePage = () => {
 
   const handleLogout = async () => {
     try {
-      setLoading;(true)
+      setLoading(true)
       await apiRequest.post("/auth/logout");
       console.log("Removing user from localStorage");
       localStorage.removeItem("user");
@@ -69,7 +69,7 @@ const profilePage = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading;(false)
+      setLoading(false)
     }
   };
 
