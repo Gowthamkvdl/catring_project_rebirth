@@ -89,14 +89,14 @@ const profilePage = () => {
             >
               Edit
             </button>
-            <button className="float-end btn btn-danger" onClick={handleLogout}>
-              <div className="mx-auto d-flex align-items-center">
+            <button className="btn btn-danger float-end" onClick={handleLogout}>
+              <div className="d-flex justify-content-center align-items-center">
                 {loading && (
-                  <div className="loading-indicator me-1">
-                    <img src={rollingLoading} alt="Loading..."></img>
+                  <div className="loading-indicator me-1  d-flex align-items-center">
+                    <img src={rollingLoading} alt="Loading..." />
                   </div>
                 )}
-                Logout
+                <span>Logout</span>
               </div>
             </button>
             {/* <button className="float-end btn btn-danger" onClick={handleToast}>

@@ -580,23 +580,22 @@ const Navbar = () => {
                           disabled={sending}
                           className={`btn btn-primary w-100 ${
                             sent ? "mb-0" : "mb-4"
-                          } `}
+                          }`}
                           onClick={handleSendOtp}
                         >
-                          <div className="mx-auto d-flex align-items-center ">
+                          <div className="d-flex justify-content-center align-items-center">
                             {sending && (
-                              <div className="loading-indicator me-1">
-                                <img
-                                  src={rollingLoading}
-                                  alt="Loading..."
-                                ></img>
+                              <div className="loading-indicator me-1 d-flex align-items-center">
+                                <img src={rollingLoading} alt="Loading..." />
                               </div>
                             )}
-                            {sending
-                              ? "Sending..."
-                              : sent
-                              ? "Resend"
-                              : "Send OTP"}
+                            <span>
+                              {sending
+                                ? "Sending..."
+                                : sent
+                                ? "Resend"
+                                : "Send OTP"}
+                            </span>
                           </div>
                         </button>
                       </div>
@@ -621,16 +620,18 @@ const Navbar = () => {
                       </div>
                       <button
                         disabled={checking}
-                        className="btn btn-primary w-100 mt-3 "
+                        className="btn btn-primary w-100 mt-3"
                         onClick={handleVerifyOtp}
                       >
-                        <div className="mx-auto d-flex align-items-center">
+                        <div className="d-flex justify-content-center align-items-center">
                           {checking && (
-                            <div className="loading-indicator me-1">
-                              <img src={rollingLoading} alt="Loading..."></img>
+                            <div className="loading-indicator me-1 d-flex align-items-center">
+                              <img src={rollingLoading} alt="Loading..." />
                             </div>
                           )}
-                          {checking ? "Verifying..." : "Verify OTP"}
+                          <span>
+                            {checking ? "Verifying..." : "Verify OTP"}
+                          </span>
                         </div>
                       </button>
                     </div>
@@ -718,13 +719,15 @@ const Navbar = () => {
                       className="btn btn-primary w-100 mt-4"
                       type="submit"
                     >
-                      <div className="mx-auto  d-flex align-items-center">
+                      <div className="d-flex justify-content-center align-items-center">
                         {creating && (
-                          <div className="loading-indicator me-1">
-                            <img src={rollingLoading} alt="Loading..."></img>
+                          <div className="loading-indicator me-1 d-flex align-items-center">
+                            <img src={rollingLoading} alt="Loading..." />
                           </div>
                         )}
-                        {creating ? "Creating..." : "Create Account"}
+                        <span>
+                          {creating ? "Creating..." : "Create Account"}
+                        </span>
                       </div>
                     </button>
                   </div>
