@@ -157,7 +157,7 @@ const Navbar = () => {
       setNewUser(newUser);
 
       // Check if the button exists and newUser is false
-      if (btn.current && !newUser) {
+      if (btn.current && newUser) {
         btn.current.click();
       }
     } catch (error) {
