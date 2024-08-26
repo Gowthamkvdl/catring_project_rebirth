@@ -40,7 +40,7 @@ const Navbar = () => {
     if (btn.current && !newUser) {
       btn.current.click();
     }
-  }, [newUser, localStorage.getItem("user")]); // This effect runs when `newUser` changes
+  }, [newUser, user]); // This effect runs when `newUser` changes
 
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
