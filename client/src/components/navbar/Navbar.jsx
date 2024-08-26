@@ -48,6 +48,19 @@ const Navbar = () => {
     }
   }, [newUser]); // Dependency array only includes `newUser`
 
+  useEffect(() => {
+    if (btn.current && !localStorage.getItem("user")) {
+      setSent(false);
+      inputRef.current.value = "";
+      otpRef.current.value = "";
+      btn.current.click();
+    }
+
+    if (!localStorage.getItem("user")) {
+      setNewUser(false);
+    }
+  }, [localStorage.getItem("user")]);
+
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
   };
