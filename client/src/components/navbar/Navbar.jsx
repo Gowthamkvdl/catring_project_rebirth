@@ -43,7 +43,6 @@ const Navbar = () => {
     if (btn.current && !newUser) {
       btn.current.click();
     }
-
   }, [newUser]); // Dependency array only includes `newUser`
 
   useEffect(() => {
@@ -54,7 +53,6 @@ const Navbar = () => {
       btn.current.click();
       setNewUser(false);
     }
-
   }, [localStorage.getItem("user")]);
 
   const isActive = (path) => {
@@ -566,14 +564,27 @@ const Navbar = () => {
                       <div className="col-7">
                         <div className="d-flex ">
                           <div className="textInputWrapper mt-1">
-                            <input
+                            <div class="group">
+                              <input
+                                required=""
+                                type="text"
+                                class="input"
+                                defaultValue={phone}
+                                onChange={handlePhoneChange}
+                                ref={inputRef}
+                              ></input>
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Phone number</label>
+                            </div>
+                            {/* <input
                               placeholder="Enter phone number"
                               type="text"
                               className="textInput text-dark fs-5"
                               defaultValue={phone}
                               onChange={handlePhoneChange}
                               ref={inputRef}
-                            ></input>
+                            ></input> */}
                           </div>
                         </div>
                       </div>
