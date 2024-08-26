@@ -631,6 +631,7 @@ const Navbar = () => {
                         name="name"
                         type="text"
                         className="textInput text-dark fs-5 mt-3"
+                        required
                       ></input>
                     </div>
                     <div className="textInputWrapper">
@@ -639,6 +640,7 @@ const Navbar = () => {
                         placeholder="Age"
                         type="number"
                         className="textInput text-dark fs-5 mt-4"
+                        required
                       ></input>
                     </div>
                     <div className="textInputWrapper">
@@ -647,6 +649,7 @@ const Navbar = () => {
                         placeholder="City"
                         type="text"
                         className="textInput text-dark fs-5 mt-4"
+                        required
                       ></input>
                     </div>
                     <div className="role d-flex gap-3 mt-3">
@@ -657,6 +660,7 @@ const Navbar = () => {
                           name="role"
                           id="roleServer"
                           value="server"
+                          required
                         ></input>
                         <label
                           className="form-check-label text-dark mb-1"
@@ -672,6 +676,7 @@ const Navbar = () => {
                           name="role"
                           id="roleCater"
                           value="cater"
+                          required
                         ></input>
                         <label
                           className="form-check-label text-dark mb-1"
