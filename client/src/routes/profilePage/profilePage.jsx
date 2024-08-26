@@ -91,7 +91,7 @@ const profilePage = () => {
             >
               Edit
             </button>
-            <button className="float-end btn btn-danger d-flex justify-content-evenly" onClick={handleLogout}>
+            <button className="float-end btn btn-danger d-flex justify-content-evenly align-items-center" onClick={handleLogout}>
               {loading && (
                 <div className="loading-indicator ms-1">
                   <img src={rollingLoading} alt="Loading..."></img>
