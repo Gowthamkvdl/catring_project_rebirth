@@ -193,3 +193,6 @@ a {
   /* transform: scale(1.2); */
 }
 
+.form-check-input{
+  border: 2px solid var(--primary) !important;
+}

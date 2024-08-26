@@ -18,7 +18,6 @@ const Navbar = () => {
   const { currentUser, updateUser } = useContext(AuthContext);
   const offcanvasRef = useRef(null); // Create a ref for the offcanvas element
   const closeButtonRef = useRef(null); // Create a ref for the close button
-  const [user, setUser] = useState(localStorage.getItem("user"));
   const btn = useRef(null);
   const inputRef = useRef(null);
   const otpRef = useRef(null);
@@ -40,8 +39,7 @@ const Navbar = () => {
     if (btn.current && !newUser) {
       btn.current.click();
     }
-    setNewUser(false);
-  }, [newUser, localStorage.getItem("user")]);
+  }, [newUser, localStorage.getItem("user")]); // This effect runs when `newUser` changes
 
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
