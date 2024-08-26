@@ -19,7 +19,7 @@ const HomePage = () => {
   useEffect(() => {
     const handleResize = () => {
       const height = window.innerHeight;
-      const isKeyboardOpen = height < 500; // Adjust this threshold based on your needs
+      const isKeyboardOpen = height < 650; // Adjust this threshold based on your needs
 
       setIsVisible(!isKeyboardOpen);
     };
