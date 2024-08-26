@@ -195,7 +195,7 @@ a {
 
 .form-check-input{
   border: 2px solid var(--primary) !important;
-  transition: 0.3s all ease-in-out;
+  transition: 0.1s all ease-in-out;
 }
 
 .form-check-input:checked {
