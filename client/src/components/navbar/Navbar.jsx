@@ -36,11 +36,11 @@ const Navbar = () => {
       inputRef.current.value = "";
       otpRef.current.value = "";
       btn.current.click();
-    } 
-    if(btn.current && !newUser) {
+    }
+    if (btn.current && newUser) {
       btn.current.click();
     }
-  }, [newUser, user]);
+  }, [newUser, user]); // This effect runs when `newUser` changes
 
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
