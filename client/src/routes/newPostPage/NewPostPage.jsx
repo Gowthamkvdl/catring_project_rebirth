@@ -5,10 +5,12 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useEffect, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import rollingLoading from "../../assets/rollingLoading.svg";
+
 
 const NewPostPage = () => {
   const [error, setError] = useState("");
-  const [isLodading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const today = new Date().toISOString().split("T")[0];
   const {currentUser, updateUser} = useContext(AuthContext);
@@ -129,7 +131,7 @@ const NewPostPage = () => {
               </label>
               <div className="col-sm-5">
                 <input
-                required
+                  required
                   type="date"
                   className="form-control shadow-none"
                   id="startDate"
@@ -142,7 +144,7 @@ const NewPostPage = () => {
               </label>
               <div className="col-sm-5">
                 <input
-                required
+                  required
                   type="time"
                   className="form-control shadow-none"
                   id="startTime"
@@ -185,19 +187,27 @@ const NewPostPage = () => {
                 Event Description (Optional)
               </label>
               <textarea
-                rows={2} 
+                rows={2}
                 id="eventDescription"
                 name="description"
                 className="form-control shadow-none"
               ></textarea>
             </div>
             <button
-              disabled={isLodading}
+              disabled={isLoading}
               type="submit"
               className="btn w-100 fs-4 btn-primary my-2"
             >
-              Post Event
+              <div className="d-flex justify-content-center align-items-center">
+                {isLoading && (
+                  <div className="loading-indicator me-1  d-flex align-items-center">
+                    <img src={rollingLoading} alt="Loading..." />
+                  </div>
+                )}
+                <span>Post Event</span>
+              </div>
             </button>
+
             {error && <span className="content text-dark">{error}</span>}
           </div>
         </div>
