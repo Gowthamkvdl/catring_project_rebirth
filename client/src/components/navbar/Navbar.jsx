@@ -30,8 +30,21 @@ const Navbar = () => {
   const [checking, setChecking] = useState(false);
   const [creating, setCreating] = useState(false);
 
+  // useEffect(() => {
+  //   if (btn.current && !user) {
+  //     setSent(false);
+  //     inputRef.current.value = "";
+  //     otpRef.current.value = "";
+  //     btn.current.click();
+  //   }
+  //   if (btn.current && !newUser) {
+  //     btn.current.click();
+  //   }
+  // }, [newUser, user]); // This effect runs when `newUser` changes
+
+
   useEffect(() => {
-    if (btn.current && !user) {
+    if (btn.current && !localStorage.getItem("user")) {
       setSent(false);
       inputRef.current.value = "";
       otpRef.current.value = "";
@@ -40,7 +53,7 @@ const Navbar = () => {
     if (btn.current && !newUser) {
       btn.current.click();
     }
-  }, [newUser, user]); // This effect runs when `newUser` changes
+  }, [newUser, localStorage.getItem("user")]);
 
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
@@ -610,7 +623,7 @@ const Navbar = () => {
                       </button>
                     </div>
                   </div>
-                  <div className={` ${!newUser ? "d-block" : "d-none"}`}>
+                  <div className={` ${newUser ? "d-block" : "d-none"}`}>
                     <div className="d-flex align-items-stretch">
                       <div className="img">
                         <img
