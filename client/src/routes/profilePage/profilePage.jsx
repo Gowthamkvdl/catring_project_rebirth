@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./profilePage.css";
+import rollingLoading from "../../assets/rollingLoading.svg";
 import dummyProfilePic from "../../assets/dummyProfilePic.jpg";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -16,6 +17,7 @@ const profilePage = () => {
   const [events, setEvents] = useState(null);
   const [myEventsLoading, setMyEventsLoading] = useState(false);
   const [savedEventsLoading, setSavedEventsLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate();
   const handleEdit = () => {
@@ -53,6 +55,7 @@ const profilePage = () => {
 
   const handleLogout = async () => {
     try {
+      setLoading;(true)
       await apiRequest.post("/auth/logout");
       console.log("Removing user from localStorage");
       localStorage.removeItem("user");
@@ -65,6 +68,8 @@ const profilePage = () => {
       // navigate(0);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading;(false)
     }
   };
 
@@ -87,6 +92,11 @@ const profilePage = () => {
               Edit
             </button>
             <button className="float-end btn btn-danger" onClick={handleLogout}>
+              {loading && (
+                <div className="loading-indicator">
+                  <img src={rollingLoading} alt="Loading..."></img>
+                </div>
+              )}
               Logout
             </button>
             {/* <button className="float-end btn btn-danger" onClick={handleToast}>
