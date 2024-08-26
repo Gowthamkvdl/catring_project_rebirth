@@ -198,6 +198,6 @@ a {
 }
 
 .form-check-input:checked {
-  border-color: var(--primary); /* Border color when checked */
-  background-color: var(--primary); /* Background color when checked */
+  border: 4px solid var(--primary) !important;
+  background-color: var(--secondery); /* Background color when checked */
 }
