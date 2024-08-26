@@ -177,9 +177,9 @@ a {
   transition: all 0.2s ease-in-out;
 }
 
-.phone-nav-item p {
+/* .phone-nav-item p { */
   /* display: none; */
-}
+/* }  */
 
 .phone-nav-item.active {
   border-bottom: 2px solid black;

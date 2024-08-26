@@ -18,6 +18,7 @@ const Navbar = () => {
   const { currentUser, updateUser } = useContext(AuthContext);
   const offcanvasRef = useRef(null); // Create a ref for the offcanvas element
   const closeButtonRef = useRef(null); // Create a ref for the close button
+  const [user, setUser] = useState(localStorage.getItem("user"));
   const btn = useRef(null);
   const inputRef = useRef(null);
   const otpRef = useRef(null);
@@ -30,16 +31,15 @@ const Navbar = () => {
   const [creating, setCreating] = useState(false);
 
   useEffect(() => {
-    if (btn.current && !localStorage.getItem("user")) {
+    if (btn.current && !user) {
       setSent(false);
       inputRef.current.value = "";
       otpRef.current.value = "";
       btn.current.click();
-    }
-    if (btn.current && !newUser) {
+    } else if (btn.current && !newUser) {
       btn.current.click();
     }
-  }, [newUser, localStorage.getItem("user")]); // This effect runs when `newUser` changes
+  }, [newUser, user]);
 
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
@@ -111,7 +111,6 @@ const Navbar = () => {
       setSending(false);
     }
   };
-
 
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
@@ -650,17 +649,39 @@ const Navbar = () => {
                         className="textInput text-dark fs-5 mt-4"
                       ></input>
                     </div>
-                    <div className="role d-flex gap-2 mt-2">
-                      <label className="radio-button  text-dark">
-                        <input type="radio" name="role" value="server"></input>
-                        <span className="radio"></span>I want a job
-                      </label>
-
-                      <label className="radio-button text-dark">
-                        <input type="radio" name="role" value="cater"></input>
-                        <span className="radio "></span>I want to hire
-                      </label>
+                    <div className="role d-flex gap-3 mt-3">
+                      <div className="form-check">
+                        <input
+                          className="form-check-input shadow-none"
+                          type="radio"
+                          name="role"
+                          id="roleServer"
+                          value="server"
+                        ></input>
+                        <label
+                          className="form-check-label text-dark"
+                          for="roleServer"
+                        >
+                          I want a job
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input
+                          className="form-check-input shadow-none"
+                          type="radio"
+                          name="role"
+                          id="roleCater"
+                          value="cater"
+                        ></input>
+                        <label
+                          className="form-check-label text-dark"
+                          for="roleCater"
+                        >
+                          I want to hire
+                        </label>
+                      </div>
                     </div>
+
                     <button
                       disabled={creating}
                       className="btn btn-primary w-100 mt-4"
