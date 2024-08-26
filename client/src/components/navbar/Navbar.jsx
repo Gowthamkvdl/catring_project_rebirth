@@ -7,11 +7,10 @@ import Theme from "../theme/Theme";
 import apiRequest from "../../lib/apiRequest";
 import toast from "react-hot-toast";
 import dummyProfilePic from "../../assets/dummyProfilePic.jpg";
+import rollingLoading from "../../assets/rollingLoading.svg";
 import ScrollToTop from "../scrollToTop/ScrollToTop";
 import lock from "../../assets/lock.svg";
 import trust from "../../assets/trust.svg";
-import home from "../../assets/home.svg";
-import search from "../../assets/search.svg";
 
 const Navbar = () => {
   const location = useLocation();
@@ -579,11 +578,16 @@ const Navbar = () => {
                       <div className="col-5">
                         <button
                           disabled={sending}
-                          className={`btn btn-primary w-100 ${
+                          className={`btn btn-primary w-100 d-flex justify-content-evenly align-items-center ${
                             sent ? "mb-0" : "mb-4"
                           } `}
                           onClick={handleSendOtp}
                         >
+                          {sending && (
+                            <div className="loading-indicator ms-1">
+                              <img src={rollingLoading} alt="Loading..."></img>
+                            </div>
+                          )}
                           {sending
                             ? "Sending..."
                             : sent
@@ -612,9 +616,14 @@ const Navbar = () => {
                       </div>
                       <button
                         disabled={checking}
-                        className="btn btn-primary w-100 mt-3"
+                        className="btn btn-primary w-100 mt-3  d-flex justify-content-evenly align-items-center"
                         onClick={handleVerifyOtp}
                       >
+                        {checking && (
+                          <div className="loading-indicator ms-1">
+                            <img src={rollingLoading} alt="Loading..."></img>
+                          </div>
+                        )}
                         {checking ? "Verifying..." : "Verify OTP"}
                       </button>
                     </div>
@@ -699,9 +708,14 @@ const Navbar = () => {
 
                     <button
                       disabled={creating}
-                      className="btn btn-primary w-100 mt-4"
+                      className="btn btn-primary w-100 mt-4  d-flex justify-content-evenly align-items-center"
                       type="submit"
                     >
+                      {creating && (
+                        <div className="loading-indicator ms-1">
+                          <img src={rollingLoading} alt="Loading..."></img>
+                        </div>
+                      )}
                       {creating ? "Creating..." : "Create Account"}
                     </button>
                   </div>
