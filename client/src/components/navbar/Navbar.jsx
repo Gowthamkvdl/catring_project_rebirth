@@ -653,7 +653,7 @@ const Navbar = () => {
                       ></input>
                     </div>
                     <div className="role d-flex gap-3 mt-3">
-                      <div className="form-check d-flex justify-content-center align-items-center">
+                      <div className="form-check d-flex gap-2 justify-content-center align-items-center">
                         <input
                           className="form-check-input "
                           type="radio"
@@ -669,7 +669,7 @@ const Navbar = () => {
                           I want a job
                         </label>
                       </div>
-                      <div className="form-check d-flex justify-content-center align-items-center">
+                      <div className="form-check d-flex gap-2 justify-content-center align-items-center">
                         <input
                           className="form-check-input "
                           type="radio"
