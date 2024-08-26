@@ -565,7 +565,7 @@ const Navbar = () => {
                         <div className="d-flex ">
                           <div className="textInputWrapper mt-1">
                             <input
-                              placeholder="Enter phone number"
+                              placeholder="Phone number"
                               type="text"
                               className="textInput text-dark fs-5"
                               defaultValue={phone}
