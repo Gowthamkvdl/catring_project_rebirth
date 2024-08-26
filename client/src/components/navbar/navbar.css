@@ -196,3 +196,8 @@ a {
 .form-check-input{
   border: 2px solid var(--primary) !important;
 }
+
+.form-check-input:checked + .custom-radio {
+  border-color: var(--primary); /* Border color when checked */
+  background-color: var(--primary); /* Background color when checked */
+}
