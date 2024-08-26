@@ -7,29 +7,28 @@ import { AuthContext } from "../../context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
 import Card from "../../components/card/Card";
 import Loader from "../../components/loader/Loader";
-import toast from "react-hot-toast"
+import toast from "react-hot-toast";
 import DisplayStarRating from "react-star-ratings";
 import CardSkeleton from "../../components/cardSkeleton/CardSkeleton";
 
-
 const profilePage = () => {
-  const { currentUser, updateUser } = useContext(AuthContext); 
+  const { currentUser, updateUser } = useContext(AuthContext);
   const [events, setEvents] = useState(null);
   const [myEventsLoading, setMyEventsLoading] = useState(false);
   const [savedEventsLoading, setSavedEventsLoading] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const handleEdit = () => {
     navigate("/update-profile");
   };
 
-
-
   const showMyEvents = async () => {
     try {
       setMyEventsLoading(true);
-      const events = await apiRequest.get("/user/profilePosts/"+currentUser?.UserId);
+      const events = await apiRequest.get(
+        "/user/profilePosts/" + currentUser?.UserId
+      );
       const myEvents = events.data.userPosts;
       setEvents(myEvents);
     } catch (error) {
@@ -42,9 +41,11 @@ const profilePage = () => {
   const showSavedPosts = async () => {
     try {
       setSavedEventsLoading(true);
-      const events = await apiRequest.get("/user/profilePosts/"+currentUser?.UserId);
+      const events = await apiRequest.get(
+        "/user/profilePosts/" + currentUser?.UserId
+      );
       const savedEvents = events.data.savedPost;
-      setEvents(savedEvents.filter((post)=> post.disabled === false));
+      setEvents(savedEvents.filter((post) => post.disabled === false));
     } catch (error) {
       console.log(error);
     } finally {
@@ -52,10 +53,9 @@ const profilePage = () => {
     }
   };
 
-
   const handleLogout = async () => {
     try {
-      setLoading(true)
+      setLoading(true);
       await apiRequest.post("/auth/logout");
       console.log("Removing user from localStorage");
       localStorage.removeItem("user");
@@ -69,15 +69,13 @@ const profilePage = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
-
-
   const handleToast = () => {
-    toast.success("hello")
-  }
+    toast.success("hello");
+  };
 
   return (
     <div className="profile bg-white">
@@ -91,13 +89,15 @@ const profilePage = () => {
             >
               Edit
             </button>
-            <button className="float-end btn btn-danger d-flex align-items-center" onClick={handleLogout}>
-              {loading && (
-                <div className="loading-indicator me-1">
-                  <img src={rollingLoading} alt="Loading..."></img>
-                </div>
-              )}
-              Logout
+            <button className="float-end btn btn-danger" onClick={handleLogout}>
+              <div className="mx-auto d-flex align-items-center">
+                {loading && (
+                  <div className="loading-indicator me-1">
+                    <img src={rollingLoading} alt="Loading..."></img>
+                  </div>
+                )}
+                Logout
+              </div>
             </button>
             {/* <button className="float-end btn btn-danger" onClick={handleToast}>
               toast
