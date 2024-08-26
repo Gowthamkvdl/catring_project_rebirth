@@ -37,15 +37,13 @@ const Navbar = () => {
       inputRef.current.value = "";
       otpRef.current.value = "";
       btn.current.click();
+      setNewUser(false);
     }
 
     if (btn.current && !newUser) {
       btn.current.click();
     }
 
-    if (!user) {
-      setNewUser(false);
-    }
   }, [newUser]); // Dependency array only includes `newUser`
 
   useEffect(() => {
@@ -54,11 +52,9 @@ const Navbar = () => {
       inputRef.current.value = "";
       otpRef.current.value = "";
       btn.current.click();
-    }
-
-    if (!localStorage.getItem("user")) {
       setNewUser(false);
     }
+
   }, [localStorage.getItem("user")]);
 
   const isActive = (path) => {
