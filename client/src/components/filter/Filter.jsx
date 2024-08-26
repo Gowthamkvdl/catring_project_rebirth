@@ -70,7 +70,7 @@ const Filter = ({ query, setQuery }) => {
             type="text"
             name="location"
             onChange={handleChange}
-            className="inputBox body-text box-shadow mt-2"
+            className="inputBox body-text box-shadow mt-2" 
             placeholder="Search job by city or location..."
             list="locations"
             defaultValue={query.location}
