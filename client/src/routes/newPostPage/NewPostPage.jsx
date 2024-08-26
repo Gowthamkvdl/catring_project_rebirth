@@ -64,7 +64,7 @@ const NewPostPage = () => {
   return (
     <div className="newPostPage mb-5">
       <form action="" onSubmit={handleSubmit}>
-        <div className="row p-lg-3 py-3 bg-white box-shadow rounded-4 newPostPage ">
+        <div className="row p-lg-3 py-3 bg-white box-shadow rounded-4 newPostPage mx-1">
           <h3 className="title-bg-white">Post New Event</h3>
           <div className="col-12 px-2 col-lg-7">
             <div className="mb-3 d-flex gap-3">
