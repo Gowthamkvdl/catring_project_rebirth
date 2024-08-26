@@ -546,9 +546,7 @@ const Navbar = () => {
             <div className="modal-content">
               <div className="modal-body p-3 h-100 box-shadow">
                 <div
-                  className={`d-flex mb-4 align-items-center-center ${
-                    newUser ? "d-none" : "d-block"
-                  }`}
+                  className={`d-flex mb-4  ${newUser ? "d-none" : "d-block"}`}
                 >
                   <div className="img my-auto">
                     <img
@@ -559,9 +557,7 @@ const Navbar = () => {
                   </div>
                   <div className="texts my-auto">
                     <div className="fs-2">Login With OTP</div>
-                    <div className="fs-6">
-                      Opportunities Call, You Answer!
-                    </div>
+                    <div className="fs-6">Opportunities Call, You Answer!</div>
                   </div>
                 </div>
                 <form action="" onSubmit={handleCreateAccount} className=" ">
@@ -626,17 +622,17 @@ const Navbar = () => {
                     </div>
                   </div>
                   <div className={` ${newUser ? "d-block" : "d-none"}`}>
-                    <div className="d-flex align-items-stretch">
+                    <div className="d-flex mb-4 ">
                       <div className="img">
                         <img
                           src={trust}
                           className="trust-img me-3"
-                          alt="trust img"
+                          alt="trust img my-auto"
                         />
                       </div>
-                      <div className={`texts`}>
+                      <div className={`texts my-auto`}>
                         <div className="fs-3 ">Enter your details</div>
-                        <div className="fs-6 mb-3">
+                        <div className="fs-6">
                           Trust Us with Your Future - Your Job, Our Promise!
                         </div>
                       </div>
