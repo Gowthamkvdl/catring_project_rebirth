@@ -233,7 +233,7 @@ a {
  -webkit-transition: 0.2s ease all;
 }
 
-.group .input:focus ~ label {
+.group .input:focus ~ label .input:valid ~ label {
  top: -20px;
  font-size: 14px;
  color:var(--primary);
