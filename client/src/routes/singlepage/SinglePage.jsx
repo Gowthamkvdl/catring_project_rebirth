@@ -188,11 +188,11 @@ const SinglePage = () => {
               </div>
             </div>
           </div>
-          <div className="address mb-1">
+          <div className="address mb-1 body-text">
             <span className="fw-medium">Address</span>: {post?.address}
           </div>
 
-          <div className="extra d-flex mt-2 bg-text flex-column rounded-3 py-1">
+          <div className="extra d-flex body-text mt-2 bg-text flex-column rounded-3 py-1">
             <div className="workingHrs  small-text fs-6 p-2 rounded">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -237,14 +237,16 @@ const SinglePage = () => {
             </div>
           </div>
           <hr />
-          <div className="eventDesc fs-6 mt-2">
-            <span className="body-text fw-medium">Description:</span>
+          <div className="eventDesc body-text fs-6 mt-2">
+            <span className=" fw-medium">Description:</span>
             <p className="p-0 ">{post?.description}</p>
           </div>
-          <div className="bar row d-flex align-items-center">
+          <div className="bar body-text row d-flex align-items-center">
             <div className="col-md-9 col-12">
-              <span className="body-text fw-medium">Number of Staff Required</span>:{" "}
-              <span className="body-text">{post?.noOfStaffsReq}</span>
+              <span className=" fw-medium">
+                Number of Staff Required
+              </span>
+              : <span className="">{post?.noOfStaffsReq}</span>
               <div className="mb-0 mt-2 float-end">
                 Status of Recruitment:{" "}
                 <span className="fw-medium">
@@ -268,8 +270,8 @@ const SinglePage = () => {
           <hr />
           <div className="single-page-contact">
             <h2 className="fs-3 subtitle-text ">Contact</h2>
-            <p className="m-0 fs-normal">
-              <span className="fw-medium body-text">Phone:</span>{" "}
+            <p className="m-0 fs-normal body-text">
+              <span className="fw-medium ">Phone:</span>{" "}
               {post?.cater?.phone}{" "}
             </p>
             <div className="d-flex mt-1 gap-2 mb-2 w-100">
