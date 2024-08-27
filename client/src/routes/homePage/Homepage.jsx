@@ -34,7 +34,6 @@ const HomePage = () => {
     };
   }, []);
 
-
   return (
     <div className="row homepage pt-3 mt-sm-5">
       <div className="col-12 col-md-7 h-25 h-sm-auto mt-3">
@@ -72,8 +71,13 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="col-12 col-md-5">
-        <img src={homeImg} alt="Lifting" className={`img-fluid ${isVisible ? "" : "d-none"}`} />
+      <div className="col-12 col-md-5 d-flex justify-content-center align-items-center">
+        <img
+          src={homeImg}
+          alt="Lifting"
+          className={`img-fluid ${isVisible ? "" : "d-none"}`}
+          style={{ height: "auto", maxHeight: "100%", width: "100%", objectFit: "contain" }}
+        />
       </div>
     </div>
   );
