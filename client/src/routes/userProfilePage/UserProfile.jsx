@@ -76,7 +76,7 @@ const profilePage = () => {
                 alt=""
                 className="img-fluid px-md-2 mb-2 rounded-4"
               />
-              <div className=" starRating d-flex flex-column align-items-center justify-content-center">
+              <div className="mt-1 starRating d-flex flex-column align-items-center justify-content-center">
                 <DisplayStarRating
                   rating={user?.averageRating}
                   numberOfStars={5}
@@ -86,13 +86,13 @@ const profilePage = () => {
                 />
                 <p className="content m-0 mt-0 mx-2">
                   Total rating :{" "}
-                  <span> 
+                  <span>
                     {user?.totalRating <= 0
-                      ? "0 (No rating)" 
-                      : user?.totalRating} 
+                      ? "0 (No rating)"
+                      : user?.totalRating}
                   </span>
                 </p>
-                <span className=" honorScore">
+                <span className=" honorScore bg-light-blue">
                   Honor Score:{" "}
                   <span className="fw-bold">{user?.honorScore}</span>
                 </span>
@@ -141,7 +141,7 @@ const profilePage = () => {
             </div>
           </div>
         </div>
-        <div className="col-12 col-md-6 mb-4 mt-2 p-0 m-0 px-md-4" >
+        <div className="col-12 col-md-6 mb-4 mt-2 p-0 m-0 px-md-4">
           <h4 className="text-uppercase">
             {user?.name ? user?.name : "USER"}'s Events
           </h4>

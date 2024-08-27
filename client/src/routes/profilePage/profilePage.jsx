@@ -110,7 +110,7 @@ const profilePage = () => {
                 alt=""
                 className="img-fluid mb-2 px-md-2 rounded-4"
               />
-              <div className=" starRating d-flex flex-column align-items-center justify-content-center">
+              <div className="mt-1 starRating d-flex flex-column align-items-center justify-content-center">
                 <DisplayStarRating
                   rating={currentUser?.averageRating}
                   numberOfStars={5}
