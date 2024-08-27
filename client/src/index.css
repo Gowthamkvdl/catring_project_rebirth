@@ -22,67 +22,22 @@ body {
   line-height: 10px !important;
 }
 
+
 .body-text {
-  font-size: 4.5vw; /* Responsive font size based on viewport width */
-  line-height: 6vw; /* Responsive line-height based on viewport width */
+  font-size: calc(1rem + 0.5vw); /* Responsive font size */
+  line-height: calc(1.5rem + 0.5vw); /* Responsive line-height */
 }
 
 .subtitle-text {
-  font-size: 6vw; /* Responsive font size based on viewport width */
-  line-height: 7vw; /* Responsive line-height based on viewport width */
+  font-size: calc(1.75rem + 0.5vw); /* Responsive font size */
+  line-height: calc(1.5rem + 0.5vw); /* Responsive line-height */
 }
 
 .title-text {
-  font-size: 8vw; /* Responsive font size based on viewport width */
-  line-height: 9vw; /* Responsive line-height based on viewport width */
+  font-size: calc(2.5rem + 0.5vw); /* Responsive font size */
+  line-height: calc(2.75rem + 0.5vw); /* Responsive line-height */
 }
 
-/* Media queries for tablet and desktop screens */
-@media (min-width: 768px) {
-  .body-text {
-    font-size: 2.5vw; /* Smaller adjustment for tablet-sized screens */
-    line-height: 3.5vw; 
-  }
-  .subtitle-text {
-    font-size: 4vw;
-    line-height: 5vw;
-  }
-  .title-text {
-    font-size: 5.5vw;
-    line-height: 6.5vw;
-  }
-}
-
-@media (min-width: 1024px) {
-  .body-text {
-    font-size: 2vw; /* Adjusted for larger desktop screens */
-    line-height: 3vw;
-  }
-  .subtitle-text {
-    font-size: 3vw;
-    line-height: 4vw;
-  }
-  .title-text {
-    font-size: 4vw;
-    line-height: 5vw;
-  }
-}
-
-/* Media queries for very large screens */
-@media (min-width: 1440px) {
-  .body-text {
-    font-size: 1.5vw; /* Further adjustment for very large screens */
-    line-height: 2.5vw;
-  }
-  .subtitle-text {
-    font-size: 2.5vw;
-    line-height: 3.5vw;
-  }
-  .title-text {
-    font-size: 3vw;
-    line-height: 4vw;
-  }
-}
 
 
 
