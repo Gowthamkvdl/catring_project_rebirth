@@ -102,7 +102,7 @@ const SinglePage = () => {
 
   return (
     <div className="singlePage ">
-      <div className="d-flex gap-1 justify-content-end mb-2">
+      <div className="d-flex gap-1 justify-content-end mb-2 mx-1">
         <button
           className="btn btn-primary d-flex justify-content-center align-items-center"
           onClick={handleShare}
@@ -141,7 +141,7 @@ const SinglePage = () => {
           </svg>
         </button>
       </div>
-      <div className="row text-dark box-shadow py-3 p-md-3 mx-1 rounded-3 bg-light">
+      <div className="row text-dark box-shadow py-3 p-md-3 mx-1 rounded-4 bg-light">
         <div className="col-md-7 col-12 h-auto">
           <div className="row">
             <div className="col-12 ">
@@ -172,11 +172,12 @@ const SinglePage = () => {
                   </div>
                 </div>
               </h4>
+              <hr />
               <div className="location mb-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="17"
+                  width="15"
+                  height="15"
                   fill="currentColor"
                   className="bi mb-2 bi-geo-alt-fill"
                   viewBox="0 0 16 16"
