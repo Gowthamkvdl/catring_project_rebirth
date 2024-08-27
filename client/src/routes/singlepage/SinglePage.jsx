@@ -205,7 +205,7 @@ const SinglePage = () => {
                 <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
               </svg>
-              Date : <span className="">{post?.startDate} </span>
+              Date: <span className="">{post?.startDate} </span>
             </div>
             <div className="workingHrs small-text fs-6 p-2 rounded">
               <svg
@@ -219,7 +219,7 @@ const SinglePage = () => {
                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
               </svg>
-              Time : <span className="">{post?.startTime} </span>
+              Time: <span className="">{post?.startTime} </span>
             </div>
             <div className="workingHrs  small-text fs-6 p-2 rounded">
               <svg
@@ -233,7 +233,7 @@ const SinglePage = () => {
                 <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0" />
                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
               </svg>{" "}
-              Total working days : <span className="">{post?.workingDays}</span>
+              Total working days: <span className="">{post?.workingDays}</span>
             </div>
           </div>
           <hr />
@@ -269,7 +269,7 @@ const SinglePage = () => {
           <div className="single-page-contact">
             <h2 className="fs-3 subtitle-text ">Contact</h2>
             <p className="m-0 fs-normal">
-              <span className="fw-medium body-text">Phone :</span>{" "}
+              <span className="fw-medium body-text">Phone:</span>{" "}
               {post?.cater?.phone}{" "}
             </p>
             <div className="d-flex mt-1 gap-2 mb-2 w-100">
