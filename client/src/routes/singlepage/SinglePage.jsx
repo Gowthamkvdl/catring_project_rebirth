@@ -164,7 +164,7 @@ const SinglePage = () => {
                   </div>
                 </Link>
               </div>
-              <h4 className="mt-3 fs-1 row">
+              <h4 className="mt-1 fs-1 row">
                 <div className="col-9 my-auto">{post?.eventName}</div>
                 <div className="col-3">
                   <div className="float-end fw-bold p-2 bg-text text-dark rounded">
@@ -236,11 +236,11 @@ const SinglePage = () => {
               Total working days : <span className="">{post?.workingDays}</span>
             </div>
           </div>
+          <hr />
           <div className="eventDesc fs-6 mt-2">
             <span className="body-text fw-medium">Description:</span>
             <p className="p-0 ">{post?.description}</p>
           </div>
-          <hr />
           <div className="bar row d-flex align-items-center">
             <div className="col-md-9 col-12">
               <span className="body-text fw-medium">Number of Staff Required</span>:{" "}
