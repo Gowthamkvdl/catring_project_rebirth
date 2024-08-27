@@ -54,16 +54,12 @@ const CardSkeleton = ({ NoOfCards }) => {
               </div>
               <h4 className="d-flex justify-content-between p-0 m-0">
                 <span className="event-name text-dark">
-                  <Skeleton width={180} />
+                  <Skeleton width={180}  />
                   <span className="fs-6 ms-1">
                     <Skeleton width={60} />
                   </span>
                 </span>
               </h4>
-            </div>
-
-            <div className="eventDesc text-dark">
-              <Skeleton width={250} height={20} />
             </div>
             <hr className="my-2" />
             <div className="content text-dark fs-6">
