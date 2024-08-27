@@ -3,7 +3,6 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import ProgressBar from "../progressBar/Progressbar";
 import DisplayStarRating from "react-star-ratings";
-import "./card.css";
 
 const CardSkeleton = ({ NoOfCards }) => {
   return Array(NoOfCards)
