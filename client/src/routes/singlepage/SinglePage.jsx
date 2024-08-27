@@ -9,8 +9,6 @@ import Progressbar from "../../components/progressBar/Progressbar";
 import shareIcon from "../../assets/share.svg";
 import WhatsappButton from "../../components/contactButtons/WhatsappButton";
 import CallButton from "../../components/contactButtons/CallButton";
-import GmailButton from "../../components/contactButtons/GmailButton";
-import BackBtn from "../../components/backBtn/BackBtn";
 
 const SinglePage = () => {
   const post = useLoaderData();
@@ -104,45 +102,45 @@ const SinglePage = () => {
 
   return (
     <div className="singlePage ">
-        <div className="d-flex gap-1 justify-content-end mb-2">
-          <button
-            className="btn btn-primary d-flex justify-content-center align-items-center"
-            onClick={handleShare}
-            title="Share post"
+      <div className="d-flex gap-1 justify-content-end mb-2">
+        <button
+          className="btn btn-primary d-flex justify-content-center align-items-center"
+          onClick={handleShare}
+          title="Share post"
+        >
+          <img src={shareIcon} alt="" />
+        </button>
+        <button
+          disabled={disabling}
+          type="button"
+          onClick={handleDisablePost}
+          className={`btn btn-secondary  ${
+            currentUser && post.caterId === currentUser.id ? "" : "d-none"
+          }`}
+        >
+          {postStatus ? "Enable Post" : "Disable Post"}
+        </button>
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+          className={`btn btn-danger ${
+            currentUser && post.caterId === currentUser.id ? "" : "d-none"
+          }`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-trash"
+            viewBox="0 0 16 16"
           >
-            <img src={shareIcon} alt="" />
-          </button>
-          <button
-            disabled={disabling}
-            type="button"
-            onClick={handleDisablePost}
-            className={`btn btn-secondary  ${
-              currentUser && post.caterId === currentUser.id ? "" : "d-none"
-            }`}
-          >
-            {postStatus ? "Enable Post" : "Disable Post"}
-          </button>
-          <button
-            type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-            className={`btn btn-danger ${
-              currentUser && post.caterId === currentUser.id ? "" : "d-none"
-            }`}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              class="bi bi-trash"
-              viewBox="0 0 16 16"
-            >
-              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-              <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-            </svg>
-          </button>
-        </div>
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+          </svg>
+        </button>
+      </div>
       <div className="row text-dark box-shadow py-3 p-md-3 mx-1 rounded-3 bg-light">
         <div className="col-md-7 col-12 h-auto">
           <div className="row">
@@ -166,61 +164,97 @@ const SinglePage = () => {
                   </div>
                 </Link>
               </div>
-              <h4 className="mt-2 fs-2 ">
-                {post?.eventName}
-                <div className="float-end fw-bold p-1 bg-text text-dark rounded">
-                  ₹{post?.salary}
+              <h4 className="mt-3 fs-1 row">
+                <div className="col-9">{post?.eventName}</div>
+                <div className="col-3">
+                  <div className="float-end fw-bold p-2 bg-text text-dark rounded">
+                    ₹{post?.salary}
+                  </div>
                 </div>
               </h4>
-              <div className="location mb-2">
+              <div className="location mb-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
+                  width="22"
+                  height="22"
                   fill="currentColor"
-                  className="bi mb-1 bi-geo-alt-fill"
+                  className="bi mb-2 bi-geo-alt-fill"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                 </svg>
-                <span className="text-dark fs-normal">{post?.city}</span>
+                <span className="text-dark fs-4">{post?.city}</span>
               </div>
             </div>
           </div>
-          <div className="eventDesc fs-normal">
-            <p className="p-0 mb-2">{post?.description}</p>
-            <div className=" fs-normal mb-2">
-              <b>Address</b> : {post?.address}
-              <br />
-              <b className="">Number of Staff Required</b> :{" "}
-              {post?.noOfStaffsReq}
-            </div>
+          <div className="address mb-1 fs-5 ">
+            <span className="fw-medium fs-5">Address</span>: {post?.address}
           </div>
 
-          <div className="extra d-flex gap-md-2 gap-1 flex-wrap my-2">
-            <div className="workingHrs bg-text small-text p-2 rounded">
-              Date : <b>{post?.startDate} </b>
+          <div className="extra d-flex mt-2 bg-text flex-column rounded-3 py-2">
+            <div className="workingHrs  small-text fs-6 p-2 rounded">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                fill="currentColor"
+                class="bi mb-1 me-1 bi-calendar-event"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+              </svg>
+              Date : <span className="">{post?.startDate} </span>
             </div>
-            <div className="workingHrs bg-text small-text p-2 rounded">
-              TIme : <b>{post?.startTime} </b>
+            <div className="workingHrs small-text fs-6 p-2 rounded">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                fill="currentColor"
+                class="bi bi-clock mb-1 me-1"
+                viewBox="0 0 16 16"
+              >
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+              </svg>
+              Time : <span className="">{post?.startTime} </span>
             </div>
-            <div className="workingHrs bg-text small-text p-2 rounded">
-              Working days : <b>{post?.workingDays}</b>
+            <div className="workingHrs  small-text fs-6 p-2 rounded">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                fill="currentColor"
+                class="bi bi-calendar-check mb-1 me-1"
+                viewBox="0 0 16 16"
+              >
+                <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0" />
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+              </svg>{" "}
+              Total working days : <span className="">{post?.workingDays}</span>
             </div>
           </div>
+          <div className="eventDesc fs-6 mt-2">
+            <span className="fs-5 fw-medium">Description:</span>:
+            <p className="p-0 ">{post?.description}</p>
+          </div>
+          <hr />
           <div className="bar row d-flex align-items-center">
             <div className="col-md-9 col-12">
+              <span className="fs-5 fw-medium">Number of Staff Required</span>:{" "}
+              {post?.noOfStaffsReq}
               <div className="mb-0 mt-2 float-end">
                 Status of Recruitment:{" "}
-                <b>
+                <span className="fw-medium fs-5">
                   {post?.noOfStaffsSatisfied}/{post?.noOfStaffsReq}
-                </b>
+                </span>
               </div>
               <Progressbar
                 width={(post?.noOfStaffsSatisfied / post?.noOfStaffsReq) * 100}
               />
             </div>
-            <div className="col-md-3 col-12">
+            <div className="col-md-3 col-12 mt-1">
               <div className="join-btn">
                 <button className="btn btn-primary w-100 mb-1">
                   I'm Interested
@@ -229,11 +263,13 @@ const SinglePage = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-5 col-12 h-auto mt-4">
+        <div className="col-md-5 col-12 h-auto ">
+          <hr />
           <div className="single-page-contact">
             <h2 className="fs-3 subtitle-text ">Contact</h2>
             <p className="m-0 fs-normal">
-              <b>Phone :</b> {post?.cater?.phone}{" "}
+              <span className="fw-medium fs-5">Phone :</span>{" "}
+              {post?.cater?.phone}{" "}
             </p>
             <div className="d-flex mt-1 gap-2 mb-2 w-100">
               <WhatsappButton
