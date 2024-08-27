@@ -578,7 +578,7 @@ const Navbar = () => {
                 <form action="" onSubmit={handleCreateAccount} className=" ">
                   <div className={`${newUser ? "d-none" : "d-block"}`}>
                     <div className="row">
-                      <div className="col-6">
+                      <div className="col-6 pe-0">
                         <div className="d-flex ">
                           <div className="textInputWrapper mt-1">
                             <input
