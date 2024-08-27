@@ -69,7 +69,7 @@ const profilePage = () => {
           <h2 className="title text-uppercase">
             {user?.name ? user?.name : "USER"}'S PROFILE
           </h2>
-          <div className="profile bg-light text-dark py-4 rounded-4 box-shadow mt-4 row">
+          <div className="profile bg-light text-dark py-4 mx-3 rounded-4 box-shadow mt-4 row">
             <div className="profilePic  d-flex p-5 pb-3 pt-2 p-md-0 pb-md-0  flex-column col-12 col-md-5">
               <img
                 src={user?.avatar || dummyProfilePic}
