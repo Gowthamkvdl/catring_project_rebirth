@@ -65,8 +65,6 @@ const Navbar = () => {
         setTimer((prevTimer) => prevTimer - 1);
       }, 1000);
       return () => clearInterval(countdown);
-    } else {
-      setSent(true); // Reset sent state after timer ends
     }
   }, [timer]);
 
