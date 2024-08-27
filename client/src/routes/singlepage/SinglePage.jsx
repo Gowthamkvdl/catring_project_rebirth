@@ -158,14 +158,14 @@ const SinglePage = () => {
                       className="navProPic"
                       alt=""
                     />
-                    <span className="name mx-2 fs-5 text-uppercase">
+                    <span className="name mx-2 body-text text-uppercase">
                       {post?.cater?.name}
                     </span>
                   </div>
                 </Link>
               </div>
               <h4 className="mt-3 fs-1 row">
-                <div className="col-9 d-flex align-items-center">{post?.eventName}</div>
+                <div className="col-9 my-auto">{post?.eventName}</div>
                 <div className="col-3">
                   <div className="float-end fw-bold p-2 bg-text text-dark rounded">
                     ₹{post?.salary}
@@ -184,7 +184,7 @@ const SinglePage = () => {
                 >
                   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                 </svg>
-                <span className="text-dark fs-5">{post?.city}</span>
+                <span className="text-dark body-text">{post?.city}</span>
               </div>
             </div>
           </div>
@@ -237,14 +237,14 @@ const SinglePage = () => {
             </div>
           </div>
           <div className="eventDesc fs-6 mt-2">
-            <span className="fs-5 fw-medium">Description:</span>
+            <span className="body-text fw-medium">Description:</span>
             <p className="p-0 ">{post?.description}</p>
           </div>
           <hr />
           <div className="bar row d-flex align-items-center">
             <div className="col-md-9 col-12">
-              <span className="fs-5 fw-medium">Number of Staff Required</span>:{" "}
-              <span className="fs-5">{post?.noOfStaffsReq}</span>
+              <span className="body-text fw-medium">Number of Staff Required</span>:{" "}
+              <span className="body-text">{post?.noOfStaffsReq}</span>
               <div className="mb-0 mt-2 float-end">
                 Status of Recruitment:{" "}
                 <span className="fw-medium">
@@ -269,7 +269,7 @@ const SinglePage = () => {
           <div className="single-page-contact">
             <h2 className="fs-3 subtitle-text ">Contact</h2>
             <p className="m-0 fs-normal">
-              <span className="fw-medium fs-5">Phone :</span>{" "}
+              <span className="fw-medium body-text">Phone :</span>{" "}
               {post?.cater?.phone}{" "}
             </p>
             <div className="d-flex mt-1 gap-2 mb-2 w-100">
@@ -322,7 +322,7 @@ const SinglePage = () => {
         <div className="modal-dialog">
           <div className="modal-content bg-light text-dark">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="staticBackdropLabel">
+              <h1 className="modal-title body-text" id="staticBackdropLabel">
                 Are you sure?
               </h1>
               <button
