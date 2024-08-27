@@ -235,7 +235,7 @@ const Navbar = () => {
   return (
     <div>
       <nav
-        className={`navbar pb-0  navbar-expand d-flex align-items-center justify-content-center box-shadow bg-adaptive`}
+        className={`navbar pb-1  navbar-expand d-flex align-items-center justify-content-center box-shadow bg-adaptive`}
       >
         <Toaster
           position="top-center"

@@ -21,7 +21,7 @@
   .navbar {
     top: 0;
     bottom: auto; /* Remove bottom fixation */
-    z-index: 99999;
+    z-index: 10;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
   }
