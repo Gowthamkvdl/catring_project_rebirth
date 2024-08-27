@@ -184,16 +184,19 @@ const SinglePage = () => {
                 >
                   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                 </svg>
-                <span className="text-dark body-text fw-medium">{post?.city}</span>
+                <span className="text-dark body-text fw-medium">
+                  {post?.city}
+                </span>
               </div>
             </div>
           </div>
-          <div className="address mb-1 body-text">
+          <div className="address mb-3 body-text">
             <span className="fw-medium">Address</span>: {post?.address}
           </div>
 
           <div className="extra d-flex body-text mt-2 bg-text flex-column rounded-3 py-1">
-            <div className="workingHrs body-text small-text fs-6 p-2 rounded">
+            <div className="subtitle-text p-2 fw-semibold">Details</div>
+            <div className="workingHrs body-text  p-2 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -207,7 +210,7 @@ const SinglePage = () => {
               </svg>
               Date: <span className="">{post?.startDate} </span>
             </div>
-            <div className="workingHrs  body-text small-text fs-6 p-2 rounded">
+            <div className="workingHrs  body-text  p-2 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -221,7 +224,7 @@ const SinglePage = () => {
               </svg>
               Time: <span className="">{post?.startTime} </span>
             </div>
-            <div className="workingHrs body-text small-text fs-6 p-2 rounded">
+            <div className="workingHrs body-text  p-2 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
