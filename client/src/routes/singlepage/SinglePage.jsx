@@ -104,7 +104,7 @@ const SinglePage = () => {
 
   return (
     <div className="singlePage ">
-        <div className="d-flex gap-1 justify-content-end">
+        <div className="d-flex gap-1 justify-content-end mb-2">
           <button
             className="btn btn-primary d-flex justify-content-center align-items-center"
             onClick={handleShare}
