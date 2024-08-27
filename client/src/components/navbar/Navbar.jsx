@@ -22,6 +22,7 @@ const Navbar = () => {
   const otpRef = useRef(null);
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
+  const [timer, setTimer] = useState(0);
   const [newUser, setNewUser] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
@@ -57,6 +58,17 @@ const Navbar = () => {
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
   };
+
+  useEffect(() => {
+    if (timer > 0) {
+      const countdown = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+      return () => clearInterval(countdown);
+    } else {
+      setSent(false); // Reset sent state after timer ends
+    }
+  }, [timer]);
 
   const handleNavLinkClick = () => {
     // Programmatically click the close button when a link is clicked
@@ -107,6 +119,13 @@ const Navbar = () => {
       });
     }
 
+    // Check if resend is attempted during the countdown
+    if (timer > 0) {
+      return toast.error(`Please wait ${timer}s before resending OTP`, {
+        id: "wait-timer",
+      });
+    }
+
     try {
       setSending(true);
       const response = await apiRequest.post("/otp/sendotp", {
@@ -120,6 +139,7 @@ const Navbar = () => {
       console.log(error);
       toast.error("Something went wrong!");
       setSent(true);
+      setTimer(20); // Set the countdown timer for 20 seconds
     } finally {
       setSending(false);
     }
@@ -577,7 +597,7 @@ const Navbar = () => {
 
                       <div className="col-5">
                         <button
-                          disabled={sending}
+                          disabled={sending || timer > 0} // Disable during sending or countdown
                           className={`btn btn-primary w-100 ${
                             sent ? "mb-0" : "mb-4"
                           }`}
@@ -592,6 +612,8 @@ const Navbar = () => {
                             <span>
                               {sending
                                 ? "Sending..."
+                                : timer > 0
+                                ? `Resend OTP in ${timer}s`
                                 : sent
                                 ? "Resend"
                                 : "Send OTP"}
