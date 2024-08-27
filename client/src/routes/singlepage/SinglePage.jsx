@@ -175,8 +175,8 @@ const SinglePage = () => {
               <div className="location mb-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="19"
-                  height="19"
+                  width="17"
+                  height="17"
                   fill="currentColor"
                   className="bi mb-2 bi-geo-alt-fill"
                   viewBox="0 0 16 16"
@@ -188,7 +188,7 @@ const SinglePage = () => {
             </div>
           </div>
           <div className="address mb-1">
-            <span className="fw-medium fs-5">Address</span>: {post?.address}
+            <span className="fw-medium">Address</span>: {post?.address}
           </div>
 
           <div className="extra d-flex mt-2 bg-text flex-column rounded-3 py-2">
@@ -242,11 +242,11 @@ const SinglePage = () => {
           <hr />
           <div className="bar row d-flex align-items-center">
             <div className="col-md-9 col-12">
-              <span className="fs-6 fw-medium">Number of Staff Required</span>:{" "}
-              {post?.noOfStaffsReq}
+              <span className="fs-5 fw-medium">Number of Staff Required</span>:{" "}
+              <span className="fs-5">{post?.noOfStaffsReq}</span>
               <div className="mb-0 mt-2 float-end">
                 Status of Recruitment:{" "}
-                <span className="fw-medium fs-5">
+                <span className="fw-medium">
                   {post?.noOfStaffsSatisfied}/{post?.noOfStaffsReq}
                 </span>
               </div>
