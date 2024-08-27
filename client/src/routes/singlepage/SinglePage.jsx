@@ -77,7 +77,7 @@ const SinglePage = () => {
       setDeleting(false);
     }
   };
-  console.log(post)
+  console.log(post);
 
   const handleShare = () => {
     // Get the current page URL
@@ -102,50 +102,49 @@ const SinglePage = () => {
       });
   };
 
-
   return (
     <div className="singlePage ">
       <div className="row text-dark box-shadow py-3 p-md-3 mx-1 rounded-3 bg-light">
+        <div className="d-flex gap-1 justify-content-end">
+          <button
+            className="btn btn-primary d-flex justify-content-center align-items-center"
+            onClick={handleShare}
+            title="Share post"
+          >
+            <img src={shareIcon} alt="" />
+          </button>
+          <button
+            disabled={disabling}
+            type="button"
+            onClick={handleDisablePost}
+            className={`btn btn-secondary  ${
+              currentUser && post.caterId === currentUser.id ? "" : "d-none"
+            }`}
+          >
+            {postStatus ? "Enable Post" : "Disable Post"}
+          </button>
+          <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+            className={`btn btn-danger ${
+              currentUser && post.caterId === currentUser.id ? "" : "d-none"
+            }`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="bi bi-trash"
+              viewBox="0 0 16 16"
+            >
+              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+              <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+            </svg>
+          </button>
+        </div>
         <div className="col-md-7 col-12 h-auto">
-          <div className="d-flex gap-1 justify-content-end">
-            <button
-              className="btn btn-primary d-flex justify-content-center align-items-center"
-              onClick={handleShare}
-              title="Share post"
-            >
-              <img src={shareIcon} alt="" />
-            </button>
-            <button
-              disabled={disabling}
-              type="button"
-              onClick={handleDisablePost}
-              className={`btn btn-secondary  ${
-                currentUser && post.caterId === currentUser.id ? "" : "d-none"
-              }`}
-            >
-              {postStatus ? "Enable Post" : "Disable Post"}
-            </button>
-            <button
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
-              className={`btn btn-danger ${
-                currentUser && post.caterId === currentUser.id ? "" : "d-none"
-              }`}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                class="bi bi-trash"
-                viewBox="0 0 16 16"
-              >
-                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-              </svg>
-            </button>
-          </div>
           <div className="row">
             <div className="col-12 ">
               <div className="fit-content">
