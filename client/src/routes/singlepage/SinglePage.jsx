@@ -195,8 +195,8 @@ const SinglePage = () => {
           </div>
 
           <div className="extra d-flex body-text mt-2 bg-text flex-column rounded-3 py-1">
-            <div className="fs-3 p-2 fw-semibold">Details</div>
-            <div className="workingHrs body-text  p-2 ">
+            <div className="fs-4 p-2 fw-semibold">Details</div>
+            <div className="workingHrs pt-0 body-text  p-2 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -210,7 +210,7 @@ const SinglePage = () => {
               </svg>
               Date: <span className="">{post?.startDate} </span>
             </div>
-            <div className="workingHrs  body-text  p-2 ">
+            <div className="workingHrs pt-0  body-text  p-2 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -224,7 +224,7 @@ const SinglePage = () => {
               </svg>
               Time: <span className="">{post?.startTime} </span>
             </div>
-            <div className="workingHrs body-text  p-2 ">
+            <div className="workingHrs pt-0 body-text  p-2 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
