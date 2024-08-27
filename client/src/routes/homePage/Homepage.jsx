@@ -9,30 +9,13 @@ import { AuthContext } from "../../context/AuthContext";
 const HomePage = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
-  const [isVisible, setIsVisible] = useState(true);
 
   const handleClick = (e) => {
     e.preventDefault();
     navigate("new-post");
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      const height = window.innerHeight;
-      const isKeyboardOpen = height < 650; // Adjust this threshold based on your needs
-
-      setIsVisible(!isKeyboardOpen);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Initial check to set visibility on page load
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+ 
 
 
   return (
@@ -73,7 +56,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="col-12 col-md-5">
-        <img src={homeImg} alt="Lifting" className={`img-fluid ${isVisible ? "" : "d-none"}`} />
+        <img src={homeImg} alt="Lifting" className={`img-fluid`} />
       </div>
     </div>
   );
