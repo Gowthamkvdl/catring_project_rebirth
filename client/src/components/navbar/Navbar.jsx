@@ -578,7 +578,7 @@ const Navbar = () => {
                 <form action="" onSubmit={handleCreateAccount} className=" ">
                   <div className={`${newUser ? "d-none" : "d-block"}`}>
                     <div className="row">
-                      <div className="col-7">
+                      <div className="col-6">
                         <div className="d-flex ">
                           <div className="textInputWrapper mt-1">
                             <input
@@ -593,7 +593,7 @@ const Navbar = () => {
                         </div>
                       </div>
 
-                      <div className="col-5">
+                      <div className="col-6">
                         <button
                           disabled={sending || timer > 0} // Disable during sending or countdown
                           className={`btn btn-primary w-100 ${
@@ -613,7 +613,7 @@ const Navbar = () => {
                                 : timer > 0
                                 ? `Resend OTP in ${timer}s`
                                 : sent
-                                ? "Resend"
+                                ? "Resend OTP"
                                 : "Send OTP"}
                             </span>
                           </div>
