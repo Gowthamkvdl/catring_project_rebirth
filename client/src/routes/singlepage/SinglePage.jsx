@@ -175,19 +175,19 @@ const SinglePage = () => {
               <div className="location mb-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
+                  width="19"
+                  height="19"
                   fill="currentColor"
                   className="bi mb-2 bi-geo-alt-fill"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                 </svg>
-                <span className="text-dark fs-4">{post?.city}</span>
+                <span className="text-dark fs-5">{post?.city}</span>
               </div>
             </div>
           </div>
-          <div className="address mb-1 fs-5 ">
+          <div className="address mb-1">
             <span className="fw-medium fs-5">Address</span>: {post?.address}
           </div>
 
@@ -236,13 +236,13 @@ const SinglePage = () => {
             </div>
           </div>
           <div className="eventDesc fs-6 mt-2">
-            <span className="fs-5 fw-medium">Description:</span>:
+            <span className="fs-5 fw-medium">Description:</span>
             <p className="p-0 ">{post?.description}</p>
           </div>
           <hr />
           <div className="bar row d-flex align-items-center">
             <div className="col-md-9 col-12">
-              <span className="fs-5 fw-medium">Number of Staff Required</span>:{" "}
+              <span className="fs-6 fw-medium">Number of Staff Required</span>:{" "}
               {post?.noOfStaffsReq}
               <div className="mb-0 mt-2 float-end">
                 Status of Recruitment:{" "}
