@@ -104,7 +104,6 @@ const SinglePage = () => {
 
   return (
     <div className="singlePage ">
-      <div className="row text-dark box-shadow py-3 p-md-3 mx-1 rounded-3 bg-light">
         <div className="d-flex gap-1 justify-content-end">
           <button
             className="btn btn-primary d-flex justify-content-center align-items-center"
@@ -144,6 +143,7 @@ const SinglePage = () => {
             </svg>
           </button>
         </div>
+      <div className="row text-dark box-shadow py-3 p-md-3 mx-1 rounded-3 bg-light">
         <div className="col-md-7 col-12 h-auto">
           <div className="row">
             <div className="col-12 ">
