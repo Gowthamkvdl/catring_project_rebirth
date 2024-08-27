@@ -165,7 +165,7 @@ const SinglePage = () => {
                 </Link>
               </div>
               <h4 className="mt-3 fs-1 row">
-                <div className="col-9">{post?.eventName}</div>
+                <div className="col-9 d-flex align-items-center">{post?.eventName}</div>
                 <div className="col-3">
                   <div className="float-end fw-bold p-2 bg-text text-dark rounded">
                     ₹{post?.salary}
@@ -176,10 +176,10 @@ const SinglePage = () => {
               <div className="location mb-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="15"
-                  height="15"
+                  width="13"
+                  height="13"
                   fill="currentColor"
-                  className="bi mb-2 bi-geo-alt-fill"
+                  className="bi mb-1 bi-geo-alt-fill"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
@@ -192,7 +192,7 @@ const SinglePage = () => {
             <span className="fw-medium">Address</span>: {post?.address}
           </div>
 
-          <div className="extra d-flex mt-2 bg-text flex-column rounded-3 py-2">
+          <div className="extra d-flex mt-2 bg-text flex-column rounded-3 py-1">
             <div className="workingHrs  small-text fs-6 p-2 rounded">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
