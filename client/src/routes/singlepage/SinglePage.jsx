@@ -195,7 +195,7 @@ const SinglePage = () => {
           </div>
 
           <div className="extra d-flex body-text mt-2 bg-text flex-column rounded-3 py-1">
-            <div className="subtitle-text p-2 fw-semibold">Details</div>
+            <div className="fs-3 p-2 fw-semibold">Details</div>
             <div className="workingHrs body-text  p-2 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
