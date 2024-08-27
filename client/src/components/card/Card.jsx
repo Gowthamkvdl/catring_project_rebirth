@@ -68,14 +68,14 @@ const Card = ({ item }) => {
                 <img src={rollingLoading} alt="Loading..."></img>
               </div>
             )}
-            <span className="bg-white fw-bold text-dark rounded-3 px-2 ms-auto">
+            <span className="bg-white fw-bold text-dark fs-3 rounded-3 px-2 ms-auto">
               ₹{item?.salary ? item?.salary : "Salary"}
             </span>
           </div>
         )}
         <div className="m-3 ">
           <div className="eventName">
-            <div className="location pb-1">
+            <div className="location">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

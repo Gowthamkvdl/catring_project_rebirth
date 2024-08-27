@@ -1,6 +1,7 @@
 .card{
     height: auto;
     border: 0;    
+    border-bottom: 2px solid var(--primary);
 }
 
 .card-animation {
