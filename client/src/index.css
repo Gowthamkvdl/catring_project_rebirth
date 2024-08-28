@@ -116,8 +116,8 @@ button:active {
   z-index: 9;
   position: fixed;
   top: 0;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  /* border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px; */
 }
 
 .modal {
