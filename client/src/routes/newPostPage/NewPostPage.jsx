@@ -201,7 +201,7 @@ const NewPostPage = () => {
             <button
               disabled={isLoading}
               type="submit"
-              className="btn w-100 fs-4 btn-primary my-2"
+              className="btn w-100 fs-4 btn-primary mt-0 my-2"
             >
               <div className="d-flex justify-content-center align-items-center">
                 {isLoading && (
