@@ -193,6 +193,11 @@ const NewPostPage = () => {
                 className="form-control shadow-none"
               ></textarea>
             </div>
+            <p className="small-text">
+              Please note: Once you've posted this, further edits won't be
+              possible.
+            </p>
+
             <button
               disabled={isLoading}
               type="submit"
