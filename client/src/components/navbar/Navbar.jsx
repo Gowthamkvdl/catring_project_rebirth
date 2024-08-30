@@ -544,7 +544,7 @@ const Navbar = () => {
           data-bs-keyboard="false"
         >
           <Toaster
-            position="top-center"
+            position="top-right"
             toastOptions={{
               className: "",
               duration: 4000,
