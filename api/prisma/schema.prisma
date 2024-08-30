@@ -45,9 +45,10 @@ model SavedPosts {
 
 model Intersted {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  serverId  String  
-  caterId   String  
+  serverId  String
+  postId    String
   createdAt DateTime @default(now())
+
 }
 
 model Server {

@@ -1,9 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import "./singlePage.css";
 import dummyProfile from "../../assets/dummyProfilePic.jpg";
+import rollingLoading from "../../assets/rollingLoading.svg";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import apiRequest from "../../lib/apiRequest.js";
+import apiRequest from "../../lib/apiRequest.js"; 
 import { toast } from "react-hot-toast";
 import Progressbar from "../../components/progressBar/Progressbar";
 import shareIcon from "../../assets/share.svg";
@@ -18,6 +19,7 @@ const SinglePage = () => {
   const { currentUser } = useContext(AuthContext);
   const [deleting, setDeleting] = useState(false);
   const [disabling, setDisabling] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (postStatus && post.userId !== currentUser?.userId) {
@@ -42,6 +44,27 @@ const SinglePage = () => {
       });
     }
   };
+
+
+  const handleIntrested = async () => {
+    try {
+      setLoading(true)
+      const response = await apiRequest.post("post/intrested", { postId: post.postId });
+      toast.success(response.data.message, {
+        duration: 4000,
+        id:"post intrested",
+      })
+    } catch (error) {
+      console.log(error)
+      toast.error(error.response.data.message, {
+        duration: 3000,
+        id: "error post intrested",
+      });
+    } finally {
+      setLoading(false)
+    }
+  }
+
 
   const handleDisablePost = async () => {
     setDisabling(true);
@@ -142,7 +165,7 @@ const SinglePage = () => {
         </button>
       </div>
       <div className="row text-dark box-shadow py-3 p-md-3 mx-1 rounded-4 bg-light">
-        <div className="col-md-7 col-12 h-auto">
+        <div className="col-md-6 col-12 h-auto">
           <div className="row">
             <div className="col-12 ">
               <div className="fit-content">
@@ -176,10 +199,10 @@ const SinglePage = () => {
               <div className="location mb-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="13"
-                  height="13"
+                  width="16"
+                  height="16"
                   fill="currentColor"
-                  className="bi mb-1 bi-geo-alt-fill"
+                  className="bi mb-1 text-body bi-geo-alt-fill"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
@@ -195,7 +218,7 @@ const SinglePage = () => {
           </div>
 
           <div className="extra d-flex body-text mt-2 bg-text flex-column rounded-3 py-1">
-            <div className="fs-4 p-2 fw-semibold">Details:</div>
+            <div className="subtitle-text fs-3 p-2">Details:</div>
             <div className="workingHrs pt-0 body-text  p-2 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -240,8 +263,10 @@ const SinglePage = () => {
             </div>
           </div>
           <hr />
+        </div>
+        <div className="col-md-6 col-12 h-auto ">
           <div className="eventDesc  fs-6 mt-2">
-            <span className="body-text fw-medium">Description:</span>
+            <h2 className="subtitle-text fs-3 fw-medium">Description:</h2>
             <p className="p-0 body-text">{post?.description}</p>
           </div>
           <div className="bar row d-flex align-items-center">
@@ -262,14 +287,24 @@ const SinglePage = () => {
             </div>
             <div className="col-md-3 col-12 mt-1">
               <div className="join-btn">
-                <button className="btn btn-primary w-100 mb-1">
-                  I'm Interested
+                <button
+                  disabled={loading}
+                  onClick={handleIntrested}
+                  className="btn btn-primary w-100 mb-1"
+                >
+                  <div className="d-flex justify-content-center align-items-center">
+                    {loading ? (
+                      <div className="loading-indicator me-1 d-flex align-items-center">
+                        <img src={rollingLoading} alt="Loading..." />
+                      </div>
+                    ) : (
+                      <span>I'm Interested</span>
+                    )}
+                  </div>
                 </button>
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-md-5 col-12 h-auto ">
           <hr />
           <div className="single-page-contact">
             <h2 className="fs-3 subtitle-text ">Contact</h2>

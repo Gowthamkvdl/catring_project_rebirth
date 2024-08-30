@@ -9,7 +9,7 @@ export const getPosts = async (req, res) => {
   const currentDate = new Date();
   currentDate.setHours(0, 0, 0, 0); // Reset the time to midnight
 
-   const currentDateString = currentDate.toISOString();
+  const currentDateString = currentDate.toISOString();
 
   try {
     const posts = await prisma.post.findMany({
@@ -56,7 +56,6 @@ export const getPosts = async (req, res) => {
     res.status(500).json({ message: "Failed to get posts" });
   }
 };
-
 
 export const getPost = async (req, res) => {
   const paramPostId = req.params.id;
@@ -216,6 +215,44 @@ export const deletePost = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(401).json({ message: "Failed to Delete Post" });
+  }
+};
+
+export const intrested = async (req, res) => {
+  const tokenUserId = req.userId;
+  const { postId } = req.body;
+
+  try {
+    const existingIntrested = await prisma.intersted.findFirst({
+      where: {
+        serverId: tokenUserId,
+        postId: postId,
+      },
+    });
+
+    if (existingIntrested) {
+      return res.status(409).json({
+        message: "You have already shown interest in this post.",
+      });
+    }
+
+    const intrested = await prisma.intersted.create({
+      data: {
+        serverId: tokenUserId,
+        postId: postId,
+      },
+    });
+
+    res.status(200).json({
+      message:
+        "Thank you! Your interest has been successfully recorded. Our team will get in touch with you soon.",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message:
+        "Oops! Something went wrong. We couldn't record your interest. Please try again later.",
+    });
   }
 };
 
