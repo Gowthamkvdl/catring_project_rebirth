@@ -256,7 +256,7 @@ const Navbar = () => {
         className={`navbar pb-1  navbar-expand d-flex align-items-center justify-content-center box-shadow bg-adaptive`}
       >
         <Toaster
-          position="top-right"
+          position="top-center"
           toastOptions={{
             className: "",
             duration: 4000,
@@ -544,7 +544,7 @@ const Navbar = () => {
           data-bs-keyboard="false"
         >
           <Toaster
-            position="top-right"
+            position="top-center"
             toastOptions={{
               className: "",
               duration: 4000,
