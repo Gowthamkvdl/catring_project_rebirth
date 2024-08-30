@@ -261,7 +261,7 @@ const Navbar = () => {
             className: "",
             duration: 4000,
             success: {
-              duration: 2500,
+              duration: 3000,
               theme: {
                 primary: "green",
                 secondary: "black",
