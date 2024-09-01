@@ -57,7 +57,7 @@ const Navbar = () => {
     try {
       setChecking(true);
 
-      const response = await apiRequest.post("/partner/verifyID", {
+      const response = await apiRequest.post("/partner/verifyId", {
         id: ID,
       });
 
