@@ -1,0 +1,205 @@
+.navbar-nav {
+  padding: auto 0 !important;
+}
+
+.navbar {
+  transition: background-color 0.3s ease-in;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+/* Default: fixed at the bottom (for mobile devices) */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Media query for larger screens: fixed at the top */
+@media (min-width: 576px) {
+  .navbar {
+    top: 0;
+    bottom: auto; /* Remove bottom fixation */
+    z-index: 10;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+}
+
+.navbar-brand {
+  color: var(--text);
+}
+
+.navbar-brand:hover {
+  color: var(--text);
+}
+
+.navbar-nav .nav-link {
+  opacity: 0.5 !important;
+  color: var(--text) !important;
+  text-decoration: none !important;
+}
+
+.navbar-nav .nav-link.active {
+  opacity: 1 !important;
+  color: var(--text) !important;
+  background: var(--secondery);
+  color: white !important;
+  border-radius: 20px;
+  padding: 1px 7px;
+}
+
+.nav-item {
+  color: var(--text);
+}
+
+.custom-dark-btn {
+  background-color: #aeb5bc !important;
+  font-size: 25px;
+}
+
+.navProPic {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.offcanvas {
+  background-color: var(--background);
+}
+
+Link,
+a {
+  text-decoration: none !important;
+}
+
+.modal-body {
+  border: none !important;
+  outline: none !important;
+}
+
+.login-img {
+  height: 60px !important;
+}
+.trust-img {
+  height: 85px !important;
+}
+
+/* From Uiverse.io by WhiteNervosa */
+.textInputWrapper {
+  position: relative;
+  width: auto;
+  --accent-color: var(--primary);
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:before,
+.textInputWrapper:after {
+  content: "";
+  left: 0;
+  right: 0;
+  position: absolute;
+  pointer-events: none;
+  bottom: -1px;
+  z-index: 4;
+  width: 100%;
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:focus-within:after {
+  border-bottom: 2px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:after {
+  content: "";
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  will-change: transform;
+  border-bottom: 2px solid var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.textInput::placeholder {
+  transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  opacity: 0.65;
+  user-select: none;
+  color: rgba(26, 26, 26);
+}
+
+.textInputWrapper .textInput {
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 200ms;
+  transition-property: background-color;
+  width: 100%;
+  border-top: none;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+}
+
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  outline: none;
+}
+
+.textInputWrapper:focus-within .textInput,
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  background-color: #353535;
+}
+
+.textInputWrapper:focus-within .textInput::placeholder {
+  opacity: 0;
+}
+
+.phone-nav-item {
+  opacity: 0.8;
+  transition: all 0.2s ease-in-out;
+}
+
+/* .phone-nav-item p { */
+  /* display: none; */
+/* }  */
+
+.phone-nav-item.active {
+  border-bottom: 2px solid black;
+  margin-bottom: 2px;
+  opacity: 1;
+}
+
+.phone-nav-item.active svg {
+  color: var(--primary);
+  filter: drop-shadow(0px 0px 2px var(--primary));
+  /* transform: scale(1.2); */
+}
+
+.form-check-input{
+  border: 2px solid var(--primary) !important;
+  transition: 0.1s all ease-in-out;
+}
+
+.form-check-input:checked {
+  border: 5px solid var(--primary) !important;
+  background-color: var(--secondery); /* Background color when checked */
+}
+

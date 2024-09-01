@@ -11,6 +11,7 @@ import rollingLoading from "../../assets/rollingLoading.svg";
 import ScrollToTop from "../scrollToTop/ScrollToTop";
 import lock from "../../assets/lock.svg";
 import trust from "../../assets/trust.svg";
+import OtpInput from "react-otp-input";
 
 const Navbar = () => {
   const location = useLocation();
@@ -78,9 +79,7 @@ const Navbar = () => {
   const handlePhoneChange = (event) => {
     setPhone(event.target.value);
   };
-  const handleOtpChange = (event) => {
-    setOtp(event.target.value);
-  };
+
 
   const handleSendOtp = async (e) => {
     e.preventDefault();
@@ -561,7 +560,9 @@ const Navbar = () => {
             <div className="modal-content">
               <div className="modal-body p-3 h-100 box-shadow">
                 <div
-                  className={`d-flex mb-4  ${newUser ? "d-none" : "d-block"}`}
+                  className={`d-flex mb-4 mt-2  ${
+                    newUser ? "d-none" : "d-block"
+                  }`}
                 >
                   <div className="img my-auto">
                     <img
@@ -578,11 +579,11 @@ const Navbar = () => {
                 <form action="" onSubmit={handleCreateAccount} className=" ">
                   <div className={`${newUser ? "d-none" : "d-block"}`}>
                     <div className="row">
-                      <div className="col-6 pe-0">
-                        <div className="d-flex ">
-                          <div className="textInputWrapper mt-1">
+                      <div className="col-12 mb-2">
+                        <div className="">
+                          <div className="textInputWrapper mt-1 mb-1">
                             <input
-                              placeholder="Phone number"
+                              placeholder="Enter Phone number"
                               type="text"
                               className="textInput text-dark fs-5"
                               defaultValue={phone}
@@ -592,12 +593,11 @@ const Navbar = () => {
                           </div>
                         </div>
                       </div>
-
-                      <div className="col-6">
+                      <div className="col-12">
                         <button
                           disabled={sending || timer > 0} // Disable during sending or countdown
                           className={`btn btn-primary w-100 ${
-                            sent ? "mb-0" : "mb-4"
+                            sent ? "mb-0 d-none" : "mb-4"
                           }`}
                           onClick={handleSendOtp}
                         >
@@ -628,32 +628,73 @@ const Navbar = () => {
                       </span> */}
                     </div>
                     <div className={`${sent ? "d-block" : "d-none"}`}>
-                      <div className="textInputWrapper">
-                        <input
-                          placeholder="Enter OTP"
-                          type="text"
-                          className="textInput text-dark fs-5 mt-4"
-                          defaultValue={otp}
-                          onChange={handleOtpChange}
-                          ref={otpRef}
-                        ></input>
-                      </div>
-                      <button
-                        disabled={checking}
-                        className="btn btn-primary w-100 mt-3"
-                        onClick={handleVerifyOtp}
-                      >
-                        <div className="d-flex justify-content-center align-items-center">
-                          {checking && (
-                            <div className="loading-indicator me-1 d-flex align-items-center">
-                              <img src={rollingLoading} alt="Loading..." />
-                            </div>
+                      <div className="body-text mb-2 mt-2 ">Enter the OTP</div>
+                      <div className="d-flex justify-content-around align-items-center">
+                        <OtpInput
+                          value={otp}
+                          onChange={(otp) => {
+                            console.log("OTP Value: ", otp); // Debug: Log OTP value
+                            setOtp(otp);
+                          }}
+                          numInputs={4}
+                          renderInput={(props) => (
+                            <input
+                              {...props}
+                              className="form-control form-control-xl mx-2"
+                              style={{
+                                color: "black",
+                                fontSize: "24px",
+                                backgroundColor: "white",
+                                textAlign: "center",
+                              }}
+                            />
                           )}
-                          <span>
-                            {checking ? "Verifying..." : "Verify OTP"}
-                          </span>
+                        />
+                      </div>
+                      <div className="row">
+                        <div className="col-6">
+                          <button
+                            disabled={sending || timer > 0} // Disable during sending or countdown
+                            className={`btn btn-primary w-100 mt-3`}
+                            onClick={handleSendOtp}
+                          >
+                            <div className="d-flex justify-content-center align-items-center">
+                              {sending && (
+                                <div className="loading-indicator me-1 d-flex align-items-center">
+                                  <img src={rollingLoading} alt="Loading..." />
+                                </div>
+                              )}
+                              <span>
+                                {sending
+                                  ? "Sending..."
+                                  : timer > 0
+                                  ? `Resend OTP in ${timer}s`
+                                  : sent
+                                  ? "Resend OTP"
+                                  : "Send OTP"}
+                              </span>
+                            </div>
+                          </button>
                         </div>
-                      </button>
+                        <div className="col-6">
+                          <button
+                            disabled={checking}
+                            className="btn btn-primary w-100 mt-3"
+                            onClick={handleVerifyOtp}
+                          >
+                            <div className="d-flex justify-content-center align-items-center">
+                              {checking && (
+                                <div className="loading-indicator me-1 d-flex align-items-center">
+                                  <img src={rollingLoading} alt="Loading..." />
+                                </div>
+                              )}
+                              <span>
+                                {checking ? "Verifying..." : "Verify OTP"}
+                              </span>
+                            </div>
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div className={` ${newUser ? "d-block" : "d-none"}`}>

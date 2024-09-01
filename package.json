@@ -1,10 +1,11 @@
 {
   "dependencies": {
+    "axios": "^1.7.6",
     "bootstrap": "^5.3.3",
     "express": "^4.19.2",
     "prisma": "^5.16.1",
     "react-hot-toast": "^2.4.1",
-    "react-router-dom": "^6.26.0",
+    "react-router-dom": "^6.26.1",
     "react-star-ratings": "^2.3.0",
     "star-ratings-react": "^1.4.0",
     "timeago.js": "^4.0.2",

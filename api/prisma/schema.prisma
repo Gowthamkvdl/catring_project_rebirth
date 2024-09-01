@@ -48,7 +48,8 @@ model Intersted {
   serverId  String
   postId    String
   createdAt DateTime @default(now())
-
+  contacted Boolean  @default(false)
+  accepted   Boolean  @default(false)
 }
 
 model Server {
@@ -65,6 +66,7 @@ model Server {
   createdAt     DateTime           @default(now())
   savedPosts    SavedPosts[]
   starRating    ServerStarRating[]
+  remarks       String?
 }
 
 model Cater {
@@ -81,6 +83,7 @@ model Cater {
   createdAt     DateTime          @default(now())
   post          Post[]
   starRating    CaterStarRating[]
+  remarks       String?
 }
 
 model CaterStarRating {
