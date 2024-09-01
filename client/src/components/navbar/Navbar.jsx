@@ -597,7 +597,7 @@ const Navbar = () => {
                         <button
                           disabled={sending || timer > 0} // Disable during sending or countdown
                           className={`btn btn-primary w-100 ${
-                            sent ? "mb-0 d-none" : "mb-4"
+                            sent ? "mb-0 d-none" : "mb-3"
                           }`}
                           onClick={handleSendOtp}
                         >
