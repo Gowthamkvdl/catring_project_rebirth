@@ -23,16 +23,13 @@ const Navbar = () => {
   const [checking, setChecking] = useState(false);
 
   useEffect(() => {
-    if (
-      (btn.current && !localStorage.getItem("user")) ||
-      localStorage.getItem("user")
-    === null ) {
+    if (btn.current && !localStorage.getItem("user")) {
       inputRef.current.value = "";
       btn.current.click();
     }
   }, []);
 
-  useEffect(() => { 
+  useEffect(() => {
     if (btn.current && !localStorage.getItem("user")) {
       inputRef.current.value = "";
       btn.current.click();
@@ -61,7 +58,7 @@ const Navbar = () => {
       setChecking(true);
 
       const response = await apiRequest.post("/partner/verifyID", {
-        id: ID
+        id: ID,
       });
 
       toast.success("ID verified successfully", {
@@ -77,7 +74,6 @@ const Navbar = () => {
           })
         );
       }
-
     } catch (error) {
       console.log("Error:", error);
       toast.error(
