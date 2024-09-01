@@ -64,8 +64,10 @@ const Navbar = () => {
       toast.success("ID verified successfully", {
         id: "ID-verified",
       });
+      
+      console.log(response.data)
 
-      if (response.data.user) {
+      if (response.data) {
         // Set user data including category in localStorage
         localStorage.setItem(
           "partnerID",
