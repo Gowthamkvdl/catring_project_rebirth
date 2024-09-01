@@ -40,7 +40,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/otp", otpRoute);
 app.use("/api/post", postRoute)
 app.use("/api/user", userRoute)
-app.use("/api/partner", userRoute)
+app.use("/api/partner", partnerRoute)
 
 // const apiKey =
 //   "RIVC2otMhJzpw3v6A8mfWPUQrS9e0s41N5G7FOlycaZbjqkXxnOCpcjoL1ZNQvG2R3w4aVfzPxgHbu8M";
