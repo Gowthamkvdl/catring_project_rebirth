@@ -23,7 +23,7 @@ const Navbar = () => {
   const [checking, setChecking] = useState(false);
 
   useEffect(() => {
-    if (btn.current && !localStorage.getItem("user") ) {
+    if (btn.current && localStorage.getItem("user") === null ) {
       inputRef.current.value = "";
       btn.current.click();
     }
