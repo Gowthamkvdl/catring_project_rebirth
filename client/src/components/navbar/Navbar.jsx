@@ -20,7 +20,6 @@ const Navbar = () => {
   const closeButtonRef = useRef(null); // Create a ref for the close button
   const btn = useRef(null);
   const inputRef = useRef(null);
-  const otpRef = useRef(null);
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
   const [timer, setTimer] = useState(0);
@@ -36,7 +35,7 @@ const Navbar = () => {
     if (btn.current && !user) {
       setSent(false);
       inputRef.current.value = "";
-      otpRef.current.value = "";
+      setOtp("")
       btn.current.click();
       setNewUser(false);
     }
@@ -50,7 +49,7 @@ const Navbar = () => {
     if (btn.current && !localStorage.getItem("user")) {
       setSent(false);
       inputRef.current.value = "";
-      otpRef.current.value = "";
+      setOtp("");
       btn.current.click();
       setNewUser(false);
     }
