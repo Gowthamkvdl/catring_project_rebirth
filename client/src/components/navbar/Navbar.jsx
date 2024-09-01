@@ -633,7 +633,7 @@ const Navbar = () => {
                       <div className="body-text mb-2 mt-2 ">Enter the OTP</div>
                       <div className="d-flex justify-content-around align-items-center">
                         <OtpInput
-                          value={otp}
+                          value={otp? otp : ""}
                           onChange={(otp) => {
                             console.log("OTP Value: ", otp); // Debug: Log OTP value
                             setOtp(otp);
