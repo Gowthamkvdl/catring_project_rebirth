@@ -23,7 +23,7 @@ const profileUpdatePage = () => {
 
     try {
       setIsLoading(true);
-      const response = await apiRequest.put(`/user/${currentUser.id}`, {
+      const response = await apiRequest.put(`/user/${currentUser?.id}`, {
         city,
         address,
         name,
@@ -45,7 +45,7 @@ const profileUpdatePage = () => {
 
   const handleDelete = async () => {
     try {
-      await apiRequest.delete("/user/" + currentUser.id);
+      await apiRequest.delete("/user/" + currentUser?.id);
       await apiRequest.post("/auth/logout");
       localStorage.removeItem("user");
       updateUser(null);

@@ -20,7 +20,7 @@ const Navbar = () => {
   const inputRef = useRef(null);
   const otpRef = useRef(null);
   const [phone, setPhone] = useState("");
-  const [otp, setOtp] = useState("");
+  const [otp, setOtp] = useState(null);
   const [timer, setTimer] = useState(0);
   const [newUser, setNewUser] = useState(false);
   const [sending, setSending] = useState(false);
