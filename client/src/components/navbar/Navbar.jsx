@@ -635,7 +635,6 @@ const Navbar = () => {
                         <OtpInput
                           value={otp? otp : ""}
                           onChange={(otp) => {
-                            console.log("OTP Value: ", otp); // Debug: Log OTP value
                             setOtp(otp);
                           }}
                           numInputs={4}
