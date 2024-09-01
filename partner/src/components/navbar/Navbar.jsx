@@ -23,18 +23,18 @@ const Navbar = () => {
   const [checking, setChecking] = useState(false);
 
   useEffect(() => {
-    if (btn.current && !localStorage.getItem("user")) {
+    if (btn.current && !localStorage.getItem("partnerID")) {
       inputRef.current.value = "";
       btn.current.click();
     }
   }, []);
 
   useEffect(() => {
-    if (btn.current && !localStorage.getItem("user")) {
+    if (btn.current && !localStorage.getItem("partnerID")) {
       inputRef.current.value = "";
       btn.current.click();
     }
-  }, [localStorage.getItem("user")]);
+  }, [localStorage.getItem("partnerID")]);
 
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
@@ -64,7 +64,7 @@ const Navbar = () => {
       toast.success("ID verified successfully", {
         id: "ID-verified",
       });
-      
+
       console.log(response.data)
 
       if (response.data) {
