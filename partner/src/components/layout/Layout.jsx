@@ -21,7 +21,6 @@ const Layout = () => {
         <Outlet />
         <div className="mt-2"></div>
       </div>
-      
     </div>
   );
 };

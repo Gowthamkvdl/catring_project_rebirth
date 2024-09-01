@@ -1,0 +1,126 @@
+:root {
+  --primary: #0d6efd;
+  --secondery: #3d4b56b6;
+  --background: #ffffff;
+  --text: rgb(44, 44, 44);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  transition: 0.2s all ease-in-out;
+}
+
+[data-theme="dark"] {
+  --text: #ffffff;
+  --background: rgb(44, 44, 44);
+}
+
+.small-text {
+  font-size: 12.5px;
+  line-height: 10px !important;
+}
+
+
+.body-text {
+  font-size: calc(1rem + 0.4vw); /* Slightly smaller responsive font size */
+  line-height: calc(1.4rem + 0.4vw); /* Adjusted line-height */
+}
+
+.subtitle-text {
+  font-size: calc(1.75rem + 0.4vw); /* Consistent scaling with body text */
+  line-height: calc(1.5rem + 0.4vw); /* Slightly tighter line-height */
+}
+
+.title-text {
+  font-size: calc(2.2rem + 0.4vw); /* Slightly reduced for better fit on mobile */
+  line-height: calc(2.4rem + 0.4vw); /* Adjusted line-height */
+}
+
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--text);
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #d7d5d5;
+} */
+
+.box-shadow {
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+button {
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+button:active {
+  transition: 0.2s;
+  transform: scale(0.95);
+}
+
+.bg-adaptive {
+  background-color: var(--background);
+}
+.text-adaptive {
+  color: var(--text);
+}
+
+.broder {
+  border: 0.5px solid #dedede;
+}
+
+.opacity-40 {
+  opacity: 40 !important;
+}
+
+.bg-light-blue {
+  background-color: rgba(192, 192, 253, 0.514);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.my-custom {
+  margin-top: 3.3rem;
+  margin-bottom: 5.3rem;
+}
+
+@media (min-width: 576px) {
+  .my-custom {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+}
+
+.banner{
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  /* border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px; */
+}
+
+.modal {
+  z-index: 999999999;
+  color: rgb(46, 46, 46);   
+}

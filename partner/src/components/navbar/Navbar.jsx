@@ -10,6 +10,7 @@ import rollingLoading from "../../assets/rollingLoading.svg";
 import ScrollToTop from "../scrollToTop/ScrollToTop";
 import lock from "../../assets/lock.svg";
 import trust from "../../assets/trust.svg";
+import OtpInput from "react-otp-input";
 
 const Navbar = () => {
   const location = useLocation();
@@ -18,54 +19,26 @@ const Navbar = () => {
   const closeButtonRef = useRef(null); // Create a ref for the close button
   const btn = useRef(null);
   const inputRef = useRef(null);
-  const otpRef = useRef(null);
-  const [phone, setPhone] = useState("");
-  const [otp, setOtp] = useState("");
-  const [timer, setTimer] = useState(0);
-  const [newUser, setNewUser] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [ID, setID] = useState("");
   const [checking, setChecking] = useState(false);
-  const [creating, setCreating] = useState(false);
 
   useEffect(() => {
-    const user = localStorage.getItem("user"); // Read once and store in a constant
-
-    if (btn.current && !user) {
-      setSent(false);
+    if (btn.current && !localStorage.getItem("user") ) {
       inputRef.current.value = "";
-      otpRef.current.value = "";
-      btn.current.click();
-      setNewUser(false);
-    }
-
-    if (btn.current && !newUser) {
       btn.current.click();
     }
-  }, [newUser]); // Dependency array only includes `newUser`
+  }, []);
 
-  useEffect(() => {
+  useEffect(() => { 
     if (btn.current && !localStorage.getItem("user")) {
-      setSent(false);
       inputRef.current.value = "";
-      otpRef.current.value = "";
       btn.current.click();
-      setNewUser(false);
     }
   }, [localStorage.getItem("user")]);
 
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
   };
-
-  useEffect(() => {
-    if (timer > 0) {
-      const countdown = setInterval(() => {
-        setTimer((prevTimer) => prevTimer - 1);
-      }, 1000);
-      return () => clearInterval(countdown);
-    }
-  }, [timer]);
 
   const handleNavLinkClick = () => {
     // Programmatically click the close button when a link is clicked
@@ -74,178 +47,45 @@ const Navbar = () => {
     }
   };
 
-  const handlePhoneChange = (event) => {
-    setPhone(event.target.value);
-  };
-  const handleOtpChange = (event) => {
-    setOtp(event.target.value);
+  const handleIDChange = (event) => {
+    setID(event.target.value);
   };
 
-  const handleSendOtp = async (e) => {
+  const handleVerify = async (e) => {
     e.preventDefault();
-
-    // 1. Empty Phone Number
-    if (!phone) {
-      return toast.error("Phone number cannot be empty", {
-        id: "empty-phone",
-      });
-    }
-
-    // Remove +91 if present
-    let formattedPhone = phone.startsWith("+91") ? phone.slice(3) : phone;
-
-    // 2. Incorrect Length (after removing +91)
-    if (formattedPhone.length !== 10) {
-      return toast.error("Invalid Phone Number: Must be exactly 10 digits", {
-        id: "invalid-length",
-      });
-    }
-
-    // 3. Non-Numeric Characters
-    const phoneNumberRegex = /^[0-9]+$/;
-    if (!formattedPhone.match(phoneNumberRegex)) {
-      return toast.error("Phone number must contain only digits", {
-        id: "invalid-characters",
-      });
-    }
-
-    // 5. All Same Digits
-    if (/^(\d)\1+$/.test(formattedPhone)) {
-      return toast.error("Invalid Phone Number: Cannot be all the same digit", {
-        id: "same-digits",
-      });
-    }
-
-    // Check if resend is attempted during the countdown
-    if (timer > 0) {
-      return toast.error(`Please wait ${timer}s before resending OTP`, {
-        id: "wait-timer",
-      });
-    }
-
-    try {
-      setSending(true);
-      const response = await apiRequest.post("/otp/sendotp", {
-        phoneNumber: formattedPhone,
-      });
-      console.log(response);
-      toast.success("OTP sent successfully", {
-        id: "otp-sent",
-      });
-    } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong!");
-      setSent(true);
-      setTimer(20); // Set the countdown timer for 20 seconds
-    } finally {
-      setSending(false);
-    }
-  };
-
-  const handleVerifyOtp = async (e) => {
-    e.preventDefault();
-
-    // Declare formattedPhone properly
-    const formattedPhone = phone.startsWith("+91") ? phone.slice(3) : phone;
 
     try {
       setChecking(true);
 
-      const response = await apiRequest.post("/otp/verifyotp", {
-        phoneNumber: formattedPhone,
-        otp: otp,
+      const response = await apiRequest.post("/partner/verifyID", {
+        id: ID
       });
 
-      // Check the response structure
-      console.log("Response data:", response.data);
-
-      toast.success("OTP verified successfully", {
-        id: "otp-verified",
+      toast.success("ID verified successfully", {
+        id: "ID-verified",
       });
-
-      const newUser = response.data.newUser;
 
       if (response.data.user) {
         // Set user data including category in localStorage
         localStorage.setItem(
-          "user",
+          "partnerID",
           JSON.stringify({
-            ...response.data.user,
-            category: response.data.category,
+            ...response.data.id,
           })
         );
-
-        // Update user context
-        updateUser({
-          ...response.data.user,
-          category: response.data.category,
-        });
       }
 
-      setNewUser(newUser);
-
-      // Check if the button exists and newUser is false
-      if (btn.current && !newUser) {
-        btn.current.click();
-      }
     } catch (error) {
       console.log("Error:", error);
       toast.error(
         error?.response?.data?.message ||
-          "An error occurred during OTP verification",
+          "An error occurred during ID verification",
         {
-          id: "otp-verification-error",
+          id: "ID-verification-error",
         }
       );
     } finally {
       setChecking(false);
-    }
-  };
-
-  const handleCreateAccount = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const age = formData.get("age").toString();
-    const name = formData.get("name").toString();
-    const city = formData.get("city").toString();
-    const role = formData.get("role").toString();
-
-    try {
-      setCreating(true);
-      const response = await apiRequest.post("/auth/register", {
-        phone: phone,
-        age: age,
-        city: city,
-        name: name,
-        role: role,
-      });
-      toast.success("Account created", {
-        id: "account created",
-      });
-      if (response.data.user) {
-        // Set user data including category in localStorage
-        localStorage.setItem(
-          "user",
-          JSON.stringify({
-            ...response.data.user,
-            category: response.data.category,
-          })
-        );
-
-        // Update user context
-        updateUser({
-          ...response.data.user,
-          category: response.data.category,
-        });
-      }
-      if (btn.current && newUser) {
-        btn.current.click();
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error(error.response.data.message);
-    } finally {
-      setCreating(false);
     }
   };
 
@@ -559,9 +399,7 @@ const Navbar = () => {
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-body p-3 h-100 box-shadow">
-                <div
-                  className={`d-flex mb-4  ${newUser ? "d-none" : "d-block"}`}
-                >
+                <div className={`d-flex mb-4 mt-2 `}>
                   <div className="img my-auto">
                     <img
                       src={lock}
@@ -570,185 +408,45 @@ const Navbar = () => {
                     />
                   </div>
                   <div className="texts my-auto">
-                    <div className="fs-2">Login With OTP</div>
-                    <div className="fs-6">Opportunities Call, You Answer!</div>
+                    <div className="fs-2">Login With ID</div>
+                    <div className="fs-6">You Call, Servers Answer!</div>
                   </div>
                 </div>
-                <form action="" onSubmit={handleCreateAccount} className=" ">
-                  <div className={`${newUser ? "d-none" : "d-block"}`}>
+                <form action="" className=" ">
+                  <div>
                     <div className="row">
-                      <div className="col-6 pe-0">
-                        <div className="d-flex ">
-                          <div className="textInputWrapper mt-1">
+                      <div className="col-12 mb-2">
+                        <div className="">
+                          <div className="textInputWrapper mt-1 mb-1">
                             <input
-                              placeholder="Phone number"
+                              placeholder="Enter employee ID"
                               type="text"
-                              className="textInput text-dark fs-5"
-                              defaultValue={phone}
-                              onChange={handlePhoneChange}
+                              className="textInput text-dark fs-5 bg-white"
+                              defaultValue={ID}
+                              onChange={handleIDChange}
                               ref={inputRef}
                             ></input>
                           </div>
                         </div>
                       </div>
-
-                      <div className="col-6">
+                      <div className="col-12">
                         <button
-                          disabled={sending || timer > 0} // Disable during sending or countdown
-                          className={`btn btn-primary w-100 ${
-                            sent ? "mb-0" : "mb-4"
-                          }`}
-                          onClick={handleSendOtp}
+                          className={`btn btn-primary w-100 `}
+                          onClick={handleVerify}
                         >
                           <div className="d-flex justify-content-center align-items-center">
-                            {sending && (
+                            {checking && (
                               <div className="loading-indicator me-1 d-flex align-items-center">
                                 <img src={rollingLoading} alt="Loading..." />
                               </div>
                             )}
                             <span>
-                              {sending
-                                ? "Sending..."
-                                : timer > 0
-                                ? `Resend OTP in ${timer}s`
-                                : sent
-                                ? "Resend OTP"
-                                : "Send OTP"}
+                              {checking ? "Verifying..." : "Verify ID"}
                             </span>
                           </div>
                         </button>
                       </div>
-                      {/* <span
-                        className={`small-text ${
-                          sent ? "pb-0" : "pb-4"
-                        } mt-1 opacity-40`}
-                      >
-                        You will receive an OTP on this number.
-                      </span> */}
                     </div>
-                    <div className={`${sent ? "d-block" : "d-none"}`}>
-                      <div className="textInputWrapper">
-                        <input
-                          placeholder="Enter OTP"
-                          type="text"
-                          className="textInput text-dark fs-5 mt-4"
-                          defaultValue={otp}
-                          onChange={handleOtpChange}
-                          ref={otpRef}
-                        ></input>
-                      </div>
-                      <button
-                        disabled={checking}
-                        className="btn btn-primary w-100 mt-3"
-                        onClick={handleVerifyOtp}
-                      >
-                        <div className="d-flex justify-content-center align-items-center">
-                          {checking && (
-                            <div className="loading-indicator me-1 d-flex align-items-center">
-                              <img src={rollingLoading} alt="Loading..." />
-                            </div>
-                          )}
-                          <span>
-                            {checking ? "Verifying..." : "Verify OTP"}
-                          </span>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                  <div className={` ${newUser ? "d-block" : "d-none"}`}>
-                    <div className="d-flex mb-4 ">
-                      <div className="img">
-                        <img
-                          src={trust}
-                          className="trust-img me-3"
-                          alt="trust img my-auto"
-                        />
-                      </div>
-                      <div className={`texts my-auto`}>
-                        <div className="fs-3 ">Enter your details</div>
-                        <div className="fs-6">
-                          Trust Us with Your Future - Your Job, Our Promise!
-                        </div>
-                      </div>
-                    </div>
-                    <div className="textInputWrapper">
-                      <input
-                        placeholder="Name"
-                        name="name"
-                        type="text"
-                        className="textInput text-dark fs-5 mt-3"
-                        required
-                      ></input>
-                    </div>
-                    <div className="textInputWrapper">
-                      <input
-                        name="age"
-                        placeholder="Age"
-                        type="number"
-                        className="textInput text-dark fs-5 mt-4"
-                        required
-                      ></input>
-                    </div>
-                    <div className="textInputWrapper">
-                      <input
-                        name="city"
-                        placeholder="City"
-                        type="text"
-                        className="textInput text-dark fs-5 mt-4"
-                        required
-                      ></input>
-                    </div>
-                    <div className="role d-flex gap-3 mt-3">
-                      <div className="form-check d-flex gap-2 justify-content-center align-items-center">
-                        <input
-                          className="form-check-input mb-1 shadow-none"
-                          type="radio"
-                          name="role"
-                          id="roleServer"
-                          value="server"
-                          required
-                        />
-                        <label
-                          className="form-check-label text-dark"
-                          for="roleServer"
-                        >
-                          I want a job
-                        </label>
-                      </div>
-                      <div className="form-check d-flex gap-2 justify-content-center align-items-center">
-                        <input
-                          className="form-check-input mb-1 shadow-none"
-                          type="radio"
-                          name="role"
-                          id="roleCater"
-                          value="cater"
-                          required
-                        />
-                        <label
-                          className="form-check-label text-dark"
-                          for="roleCater"
-                        >
-                          I want to hire
-                        </label>
-                      </div>
-                    </div>
-
-                    <button
-                      disabled={creating}
-                      className="btn btn-primary w-100 mt-4"
-                      type="submit"
-                    >
-                      <div className="d-flex justify-content-center align-items-center">
-                        {creating && (
-                          <div className="loading-indicator me-1 d-flex align-items-center">
-                            <img src={rollingLoading} alt="Loading..." />
-                          </div>
-                        )}
-                        <span>
-                          {creating ? "Creating..." : "Create Account"}
-                        </span>
-                      </div>
-                    </button>
                   </div>
                 </form>
               </div>

@@ -5,6 +5,7 @@ import authRoute from "./routes/auth.route.js";
 import otpRoute from "./routes/otp.route.js";
 import postRoute from "./routes/post.route.js"
 import userRoute from "./routes/user.route.js"
+import partnerRoute from "./routes/partner.route.js"
 import cors from "cors";
 import mongoSanitize from "express-mongo-sanitize";
 import xss from "xss-clean";
@@ -26,6 +27,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/otp", otpRoute);
 app.use("/api/post", postRoute)
 app.use("/api/user", userRoute)
+app.use("/api/partner", userRoute)
 
 // const apiKey =
 //   "RIVC2otMhJzpw3v6A8mfWPUQrS9e0s41N5G7FOlycaZbjqkXxnOCpcjoL1ZNQvG2R3w4aVfzPxgHbu8M";
