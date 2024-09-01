@@ -164,6 +164,7 @@ const Navbar = () => {
       });
 
       const newUser = response.data.newUser;
+      console.log(response.data.user)
 
       if (response.data.user) {
         // Set user data including category in localStorage
