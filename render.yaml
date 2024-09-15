@@ -7,3 +7,12 @@ services:
       - type: rewrite
         source: /*
         destination: /index.html
+
+  - type: web
+  name: cateringboyspartner
+  env: static
+  staticPublishPath: dist  
+  routes:
+    - type: rewrite
+      source: /*
+      destination: /index.html
