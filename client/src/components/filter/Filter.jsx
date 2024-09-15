@@ -68,9 +68,9 @@ const Filter = ({ query, setQuery }) => {
         <div className=" w-100">
           <input
             type="text"
-            name="location"
+            name="location" 
             onChange={handleChange}
-            className="inputBox body-text box-shadow mt-2" 
+            className="inputBox body-text box-shadow mt-2 form-control" 
             placeholder="Search job by city or location..."
             list="locations"
             defaultValue={query.location}

@@ -1,0 +1,18 @@
+
+.blink {
+  animation: blinkAnimation 1s infinite;
+}
+
+@keyframes blinkAnimation {
+  0% {
+    color: var(--text);
+  }
+  100% {
+    color: var(--background);
+  }
+}
+
+.no-more-jobs{
+  color: var(--text);
+}
+

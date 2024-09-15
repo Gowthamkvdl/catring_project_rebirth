@@ -103,7 +103,14 @@ export const verifyOtp = async (req, res) => {
       }
     }
 
-    console.log(userExists)
+    // If user exists, check if they are banned
+    if (userExists && userExists.isBanned) {
+      console.log("hello");
+      return res.status(400).json({
+        message:
+          "Your account has been banned. Please contact our customer support for assistance.",
+      });
+    }
 
     if (userExists) {
       // Generate a cookie token and send it to the user

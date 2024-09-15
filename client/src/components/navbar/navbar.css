@@ -43,11 +43,7 @@
 
 .navbar-nav .nav-link.active {
   opacity: 1 !important;
-  color: var(--text) !important;
-  background: var(--secondery);
-  color: white !important;
-  border-radius: 20px;
-  padding: 1px 7px;
+  text-decoration: underline !important;
 }
 
 .nav-item {

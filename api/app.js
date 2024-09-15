@@ -17,9 +17,11 @@ app.use(express.json());
 app.use(cookieParser());
 const allowedOrigins = [process.env.CLIENT_URL, process.env.PARTNER_URL];
 
+
 app.use(
   cors({
     origin: (origin, callback) => {
+      const allowedOrigins = [process.env.CLIENT_URL, process.env.PARTNER_URL];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
@@ -27,8 +29,14 @@ app.use(
       }
     },
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
+
+// Handle preflight requests for all routes
+app.options('*', cors());
+
 
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize())

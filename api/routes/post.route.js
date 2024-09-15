@@ -3,6 +3,7 @@ import {
   addPost,
   deletePost,
   deletePosts,
+  getIntrestedPosts,
   getPost,
   getPosts,
   intrested,
@@ -14,6 +15,7 @@ import { verifyToken } from "../middleware/verifyToken.js";
 const router = express.Router();
 
 router.get("/", getPosts);
+router.get("/intrested", getIntrestedPosts);
 router.get("/:id", getPost);
 router.post("/", verifyToken, addPost);
 router.put("/:id", verifyToken, updatePost);

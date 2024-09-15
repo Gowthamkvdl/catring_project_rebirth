@@ -1,0 +1,63 @@
+.card{
+    height: auto;
+    border: 0;    
+    border-bottom: 2px solid var(--primary);
+}
+
+.card-animation {
+    animation-name: card !important;
+    animation-duration: 1s !important; 
+}
+
+@keyframes card {
+    0% {
+        opacity: 0 !important;
+        transform: translateY(-20px) !important;
+    }
+    100% {
+        opacity: 1 !important;
+        transform: translateY(0px) !important;
+    }
+}
+
+
+.link{
+    text-decoration: none;
+}
+
+
+.card:hover{
+    background-color: rgb(231, 233, 248)important;
+}
+
+.card .amount{
+    font-weight: bolder;
+    background-color: rgba(192, 192, 253, 0.514);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.card svg{
+    margin-bottom: 2.5px;
+}
+
+.card .post-time{
+    opacity: .8;
+    font-size: small;
+}
+
+.card .stars-count{
+    font-size: 15px;
+}
+
+.card .event-name{
+    color: rgb(116, 14, 211);
+    font-size: 1.5rem;
+}
+
+.card .cardProPic{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}

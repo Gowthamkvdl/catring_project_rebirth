@@ -44,12 +44,19 @@ model SavedPosts {
 }
 
 model Intersted {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        String          @id @default(auto()) @map("_id") @db.ObjectId
   serverId  String
   postId    String
-  createdAt DateTime @default(now())
-  contacted Boolean  @default(false)
-  accepted   Boolean  @default(false)
+  createdAt DateTime        @default(now())
+  status    InterstedStatus @default(notContactedyet)
+
+  @@unique([postId, serverId])
+}
+
+enum InterstedStatus {
+  notContactedyet
+  accepted
+  rejected
 }
 
 model Server {
@@ -65,8 +72,10 @@ model Server {
   honorScore    Int                @default(100)
   createdAt     DateTime           @default(now())
   savedPosts    SavedPosts[]
-  starRating    ServerStarRating[]
+  starRating    ServerStarRating[] 
   remarks       String?
+  isBanned      Boolean            @default(false)
+  category      String             @default("server")
 }
 
 model Cater {
@@ -82,13 +91,15 @@ model Cater {
   honorScore    Int               @default(100)
   createdAt     DateTime          @default(now())
   post          Post[]
-  starRating    CaterStarRating[]
+  starRating    CaterStarRating[] 
   remarks       String?
+  isBanned      Boolean            @default(false)
+  category      String             @default("cater")
 }
 
 model CaterStarRating {
   starRatingId String   @id @default(auto()) @map("_id") @db.ObjectId
-  cater        Cater    @relation(fields: [userId], references: [id])
+  cater        Cater    @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId       String   @db.ObjectId
   giverId      String
   starCount    Int
@@ -97,7 +108,7 @@ model CaterStarRating {
 
 model ServerStarRating {
   starRatingId String   @id @default(auto()) @map("_id") @db.ObjectId
-  server       Server   @relation(fields: [userId], references: [id])
+  server       Server   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId       String   @db.ObjectId
   giverId      String
   starCount    Int

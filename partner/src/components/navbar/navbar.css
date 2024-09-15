@@ -42,12 +42,8 @@
 }
 
 .navbar-nav .nav-link.active {
-  opacity: 1 !important;
-  color: var(--text) !important;
-  background: var(--secondery);
-  color: white !important;
-  border-radius: 20px;
-  padding: 1px 7px;
+  opacity: 1 !important; 
+  text-decoration: underline !important;
 }
 
 .nav-item {
@@ -203,3 +199,6 @@ a {
   background-color: var(--secondery); /* Background color when checked */
 }
 
+.z-index-top{
+  z-index: 99999999999999;   
+}

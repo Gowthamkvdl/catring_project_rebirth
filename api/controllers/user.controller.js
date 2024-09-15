@@ -9,6 +9,7 @@ export const getCaters = async (req, res) => {
     res.status(500).json({ message: "Failed to get caters!" });
   }
 };
+
 export const getServers = async (req, res) => {
   try {
     const users = await prisma.server.findMany();
@@ -23,34 +24,41 @@ export const getCater = async (req, res) => {
   const id = req.params.id;
   try {
     const cater = await prisma.cater.findUnique({
-      where: {
-        id: id,
-      },
-      include: {
-        post: true,
-      },
+      where: { id: id },
+      include: { post: true },
     });
+
+    if (!cater) {
+      return res.status(404).json({ message: "Cater not found" });
+    }
+
     res.status(200).json(cater);
   } catch (error) {
-    console.log(error);
+    console.error("Error fetching Cater:", error);
     res.status(500).json({ message: "Failed to get cater!" });
   }
 };
 
 export const getServer = async (req, res) => {
-  const id = req.params.id;
+  const { id } = req.params;
+
   try {
     const server = await prisma.server.findUnique({
-      where: {
-        id: id,
-      },
+      where: { id },
+      include: { savedPosts: true }, // Include related saved posts
     });
+
+    if (!server) {
+      return res.status(404).json({ message: "Server not found" });
+    }
+
     res.status(200).json(server);
   } catch (error) {
-    console.log(error);
+    console.error("Error fetching server:", error);
     res.status(500).json({ message: "Failed to get server!" });
   }
 };
+
 
 export const updateUser = async (req, res) => {
   const userId = req.params.id;
@@ -91,7 +99,7 @@ export const deleteUser = async (req, res) => {
   const tokenUserId = req.userId;
 
   if (userId !== tokenUserId) {
-    return res.status(403).json({ message: "Not Authorized!" });
+    return res.status(403).json({ message: "Not Authorized" });
   }
   try {
 
@@ -305,3 +313,58 @@ export const addUserRating = async (req, res) => {
 
 
 
+export const banUser = async (req, res) => {
+  const { userId, banStatus, category } = req.body;
+  try {
+    console.log(userId, banStatus);
+    const user = await prisma[category].update({
+      where: { id: userId },
+      data: { isBanned: banStatus },
+    });
+    return res
+      .status(200)
+      .json({ message: "User ban status updated successfully" });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ message: "Failed to update ban status of user" });
+  }
+};
+
+export const addRemarks = async (req, res) => {
+  const { userId, remarks, category } = req.body;
+  try {   
+    console.log(userId, remarks);
+    const user = await prisma[category].update({
+      where: { id: userId },
+      data: { remarks: remarks },
+    });
+    return res
+      .status(200)
+      .json({ message: "User remarks updated successfully" });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ message: "Failed to update remarks of user" });
+  }
+};
+
+export const deleteUserByPartner = async (req, res) => {
+  const { userId, category } = req.body;
+  console.log(category, userId);
+  try {
+    const user = await prisma[category].delete({
+      where: { id: userId },
+    });
+    return res
+      .status(200)
+      .json({ message: "User deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ message: "Failed to delete user" });
+  }
+};

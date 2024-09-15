@@ -9,8 +9,6 @@ import dummyProfilePic from "../../assets/dummyProfilePic.jpg";
 import rollingLoading from "../../assets/rollingLoading.svg";
 import ScrollToTop from "../scrollToTop/ScrollToTop";
 import lock from "../../assets/lock.svg";
-import trust from "../../assets/trust.svg";
-import OtpInput from "react-otp-input";
 
 const Navbar = () => {
   const location = useLocation();
@@ -65,8 +63,6 @@ const Navbar = () => {
         id: "ID-verified",
       });
 
-      console.log(response.data)
-
       if (response.data) {
         // Set user data including category in localStorage
         localStorage.setItem(
@@ -75,6 +71,11 @@ const Navbar = () => {
             ...response.data.id,
           })
         );
+      }
+
+      if (btn.current) {
+        inputRef.current.value = "";
+        btn.current.click();
       }
     } catch (error) {
       console.log("Error:", error);
@@ -95,20 +96,6 @@ const Navbar = () => {
       <nav
         className={`navbar pb-1  navbar-expand d-flex align-items-center justify-content-center box-shadow bg-adaptive`}
       >
-        <Toaster
-          position="top-center"
-          toastOptions={{
-            className: "",
-            duration: 4000,
-            success: {
-              duration: 3000,
-              theme: {
-                primary: "green",
-                secondary: "black",
-              },
-            },
-          }}
-        />
         <ScrollToTop />
         <div className="">
           {/* <a className="navbar-brand d-sm-block d-none fs-3" href="/">
@@ -145,12 +132,14 @@ const Navbar = () => {
             >
               <ul className="navbar-nav align-items-center w-100 gap-sm-3 justify-content-around  pt-3 pt-sm-0 justify-content-sm-end flex-grow-1">
                 <li className={`px-3 px-2 d-sm-block d-none`}>
-                  <div className={`text-adaptive fs-2`}>Catring Boys</div>
+                  <div className={`text-adaptive fs-2`}>
+                    Catring Boys Partner
+                  </div>
                 </li>
                 <Link to="/" onClick={handleNavLinkClick}>
-                  <li className={`nav-item px-3 px-2`}>
+                  <li className={`nav-item px-3 `}>
                     <div
-                      className={`d-block d-sm-none phone-nav-item d-flex justify-content-center align-items-center flex-column d-flex flex-column ${isActive(
+                      className={`d-block d-sm-none phone-nav-item d-flex justify-content-center align-items-center flex-column ${isActive(
                         "/"
                       )}`}
                     >
@@ -159,27 +148,59 @@ const Navbar = () => {
                         width="28.5"
                         height="28.5"
                         fill="currentColor"
-                        className="bi bi-house mx-auto mb-1"
+                        class="bi bi-balloon-heart mx-auto mb-1"
                         viewBox="0 0 16 16"
                       >
-                        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+                        <path
+                          fill-rule="evenodd"
+                          d="m8 2.42-.717-.737c-1.13-1.161-3.243-.777-4.01.72-.35.685-.451 1.707.236 3.062C4.16 6.753 5.52 8.32 8 10.042c2.479-1.723 3.839-3.29 4.491-4.577.687-1.355.587-2.377.236-3.061-.767-1.498-2.88-1.882-4.01-.721zm-.49 8.5c-10.78-7.44-3-13.155.359-10.063q.068.062.132.129.065-.067.132-.129c3.36-3.092 11.137 2.624.357 10.063l.235.468a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3 3 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.235-.468ZM6.013 2.06c-.649-.18-1.483.083-1.85.798-.131.258-.245.689-.08 1.335.063.244.414.198.487-.043.21-.697.627-1.447 1.359-1.692.217-.073.304-.337.084-.398"
+                        />
                       </svg>
-                      <p className="text-center small-text mb-1">Home</p>
+                      <p className="text-center small-text mb-1">Intrested</p>
                     </div>
                     <div
-                      className={`nav-link text-decoration-none d-none d-sm-block body-text ${isActive(
+                      className={`nav-link body-text d-none d-sm-block ${isActive(
                         "/"
                       )}`}
                     >
-                      Home
+                      Intrested
                     </div>
                   </li>
                 </Link>
-                <Link to="/about" onClick={handleNavLinkClick}>
+                <Link to="/posts" onClick={handleNavLinkClick}>
+                  <li className={`nav-item px-3 px-2`}>
+                    <div
+                      className={`d-block d-sm-none phone-nav-item d-flex justify-content-center align-items-center flex-column d-flex flex-column ${isActive(
+                        "/posts"
+                      )}`}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="28.5"
+                        height="28.5"
+                        fill="currentColor"
+                        class="bi bi-file-post-fill mx-auto mb-1 "
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M4 3.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5z" />
+                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1" />
+                      </svg>
+                      <p className="text-center small-text mb-1">Posts</p>
+                    </div>
+                    <div
+                      className={`nav-link text-decoration-none d-none d-sm-block body-text ${isActive(
+                        "/posts"
+                      )}`}
+                    >
+                      Posts
+                    </div>
+                  </li>
+                </Link>
+                <Link to="/caters-profiles" onClick={handleNavLinkClick}>
                   <li className={`nav-item px-3 `}>
                     <div
                       className={`d-block d-sm-none phone-nav-item d-flex justify-content-center align-items-center flex-column ${isActive(
-                        "/about"
+                        "/caters-profiles"
                       )}`}
                     >
                       <svg
@@ -190,90 +211,24 @@ const Navbar = () => {
                         className="bi bi-info-circle mx-auto mb-1"
                         viewBox="0 0 16 16"
                       >
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z" />
                       </svg>
-                      <p className="text-center small-text mb-1">About</p>
+                      <p className="text-center small-text mb-1">Caters</p>
                     </div>
                     <div
                       className={`nav-link text-decoration-none d-none d-sm-block body-text ${isActive(
-                        "/about"
+                        "/caters-profiles"
                       )}`}
                     >
-                      About
+                      Caters
                     </div>
                   </li>
                 </Link>
-
-                {currentUser?.category === "server" && (
-                  <Link
-                    to="/list?location=&date=&maxWorkingDays=&minSalary=&limit="
-                    onClick={handleNavLinkClick}
-                  >
-                    <li className={`nav-item px-3 `}>
-                      <div
-                        className={`d-block d-sm-none phone-nav-item d-flex justify-content-center align-items-center flex-column ${isActive(
-                          "/list"
-                        )}`}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="28.5"
-                          height="28.5"
-                          fill="currentColor"
-                          className="bi bi-search mx-auto mb-1"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                        </svg>
-                        <p className="text-center small-text mb-1">Jobs</p>
-                      </div>
-                      <div
-                        className={`nav-link text-decoration-none d-none d-sm-block body-text ${isActive(
-                          "/list"
-                        )}`}
-                      >
-                        Find jobs
-                      </div>
-                    </li>
-                  </Link>
-                )}
-                {currentUser?.category === "cater" && (
-                  <Link to="/new-post" onClick={handleNavLinkClick}>
-                    <li className={`nav-item px-3 `}>
-                      <div
-                        className={`d-block d-sm-none phone-nav-item d-flex justify-content-center align-items-center flex-column ${isActive(
-                          "/new-post"
-                        )}`}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="28.5"
-                          height="28.5"
-                          fill="currentColor"
-                          className="bi bi-plus-circle mx-auto mb-1"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-                        </svg>
-                        <p className="text-center small-text mb-1">Post</p>
-                      </div>
-                      <div
-                        className={`nav-link text-decoration-none d-none d-sm-block body-text ${isActive(
-                          "/new-post"
-                        )}`}
-                      >
-                        New post
-                      </div>
-                    </li>
-                  </Link>
-                )}
-                <Link to="/contact" onClick={handleNavLinkClick}>
+                <Link to="/servers-profiles" onClick={handleNavLinkClick}>
                   <li className={`nav-item px-3 `}>
                     <div
                       className={`d-block d-sm-none phone-nav-item d-flex justify-content-center align-items-center flex-column ${isActive(
-                        "/contact"
+                        "/servers-profiles"
                       )}`}
                     >
                       <svg
@@ -281,91 +236,38 @@ const Navbar = () => {
                         width="28.5"
                         height="28.5"
                         fill="currentColor"
-                        className="bi bi-envelope mx-auto mb-1"
+                        class="bi bi-people-fill"
                         viewBox="0 0 16 16"
                       >
-                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
                       </svg>
-                      <p className="text-center small-text mb-1">Contact</p>
+                      <p className="text-center small-text mb-1">Servers</p>
                     </div>
                     <div
-                      className={`nav-link body-text d-none d-sm-block ${isActive(
-                        "/contact"
+                      className={`nav-link text-decoration-none d-none d-sm-block body-text ${isActive(
+                        "/servers-profiles"
                       )}`}
                     >
-                      Contact
+                      Servers
                     </div>
                   </li>
                 </Link>
-                <Link to="/profile" onClick={handleNavLinkClick}>
-                  <li className={`nav-item px-3 d-block  d-sm-none`}>
-                    <div
-                      className={`d-block d-sm-none phone-nav-item d-flex justify-content-center align-items-center flex-column ${isActive(
-                        "/profile"
-                      )}`}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="28.5"
-                        height="28.5"
-                        fill="currentColor"
-                        className="bi bi-person mx-auto mb-1"
-                        viewBox="0 0 16 16"
+                <div className="d-flex d-none flex-column flex-md-row align-items-center">
+                  <li className="nav-item mx-3">
+                    <div className="nav-link body-text">
+                      <button
+                        ref={btn}
+                        type="button"
+                        className="btn btn-primary shadow-none"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                        id="staticBackdrop"
                       >
-                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
-                      </svg>
-                      <p className="text-center small-text mb-1">Profile</p>
-                    </div>
-                    <div
-                      className={`nav-link body-text d-none d-sm-block ${isActive(
-                        "/profile"
-                      )}`}
-                    >
-                      Profile
+                        Login / Register
+                      </button>
                     </div>
                   </li>
-                </Link>
-                {/* <li className="m-2 d-none d-sm-block">
-                  <Theme />
-                </li> */}
-                {currentUser ? (
-                  <Link to="/profile">
-                    <div
-                      title="Profile "
-                      className="ms-3  d-none d-sm-block nav-item userInfo d-flex align-items-center gap-2"
-                    >
-                      <img
-                        src={
-                          currentUser.avatar
-                            ? currentUser.avatar
-                            : dummyProfilePic
-                        }
-                        className="navProPic me-2 mb-1"
-                        alt=""
-                      />
-                      <span className="fs-5 text-uppercase">
-                        {currentUser.name}
-                      </span>
-                    </div>
-                  </Link>
-                ) : (
-                  <div className="d-flex d-none flex-column flex-md-row align-items-center">
-                    <li className="nav-item mx-3">
-                      <div className="nav-link body-text">
-                        <button
-                          ref={btn}
-                          type="button"
-                          className="btn btn-primary shadow-none"
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
-                          id="staticBackdrop"
-                        >
-                          Login / Register
-                        </button>
-                      </div>
-                    </li>
-                  </div>
-                )}
+                </div>
               </ul>
             </div>
           </div>

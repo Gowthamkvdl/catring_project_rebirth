@@ -57,6 +57,91 @@ export const getPosts = async (req, res) => {
   }
 };
 
+export const getIntrestedPosts = async (req, res) => {
+  const limit = parseInt(req.query.limit) || 5;
+  const { location, minSalary, maxWorkingDays, date } = req.query;
+
+  // Get the current date without time for accurate filtering
+  const currentDate = new Date();
+  currentDate.setHours(0, 0, 0, 0); // Reset the time to midnight
+  const currentDateString = currentDate.toISOString();
+
+  try {
+    // Fetch the count of interests for each post
+    const interestCounts = await prisma.intersted.groupBy({
+      by: ["postId"],
+      _count: {
+        postId: true,
+      },
+    });
+
+    // Convert the counts into a map for easier access later
+    const interestCountMap = interestCounts.reduce(
+      (acc, { postId, _count }) => {
+        acc[postId] = _count.postId;
+        return acc;
+      },
+      {}
+    );
+
+    // Fetch the posts based on the filtering criteria
+    const posts = await prisma.post.findMany({
+      where: {
+        city: location
+          ? { contains: location, mode: "insensitive" }
+          : undefined,
+        disabled: false,
+        salary: {
+          gte: minSalary ? parseInt(minSalary) : 0,
+        },
+        workingDays: {
+          lte: maxWorkingDays ? parseInt(maxWorkingDays) : 1000000,
+        },
+        startDate: date
+          ? {
+              equals: date,
+            }
+          : {
+              gte: currentDateString, // If no date is provided, get posts with startDate in the future
+            },
+        postId: {
+          in: interestCounts.map(({ postId }) => postId),
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        cater: {
+          select: {
+            name: true,
+            avatar: true,
+            id: true,
+            phone: true,
+            totalRating: true,
+            averageRating: true,
+          },
+        },
+      },
+      take: limit,
+    });
+
+    // Add the interest count to each post
+    const postsWithInterestCount = posts.map((post) => ({
+      ...post,
+      interestCount: interestCountMap[post.postId] || 0,
+    }));
+
+    res
+      .status(200)
+      .json({ postData: postsWithInterestCount, total: posts.length });
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    res.status(500).json({ message: "Failed to get posts" });
+  }
+};
+
+
 export const getPost = async (req, res) => {
   const paramPostId = req.params.id;
 
@@ -171,7 +256,7 @@ export const updatePostStatus = async (req, res) => {
     });
 
     if (post.caterId !== tokenUserId) {
-      res.status(403).json({ message: "Not Authorized!" });
+      res.status(403).json({ message: "Not Authorized" });
     }
 
     const updatedPostStatus = await prisma.post.update({

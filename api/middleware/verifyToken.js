@@ -4,7 +4,7 @@ export const verifyToken = (req, res, next) => {
   const token = req.cookies.token;
 
   if (!token) {
-    return res.status(401).json({ message: "Please Login First" });
+    return res.status(401).json({ message: "Please Login First!" });
   }
 
   jwt.verify(token, process.env.JWT_SECRET_KEY, (err, user) => {

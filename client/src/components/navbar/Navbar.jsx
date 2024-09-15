@@ -163,8 +163,6 @@ const Navbar = () => {
       });
 
       const newUser = response.data.newUser;
-      console.log(response.data.user)
-      console.log("rhtrfjtr")
 
       if (response.data.user) {
         // Set user data including category in localStorage
@@ -304,8 +302,10 @@ const Navbar = () => {
               className={`offcanvas-body m-0 p-0 d-flex justify-content-center align-items-center`}
             >
               <ul className="navbar-nav align-items-center w-100 gap-sm-3 justify-content-around  pt-3 pt-sm-0 justify-content-sm-end flex-grow-1">
-                <li className={`px-3 px-2 d-sm-block d-none`}>
-                  <div className={`text-adaptive fs-2`}>Catring Boys</div>
+                <li className={`px-3 px-2 d-sm-block d-none `}>
+                  <div className={`text-adaptive fs-2`}>
+                    Catring Boys
+                  </div>
                 </li>
                 <Link to="/" onClick={handleNavLinkClick}>
                   <li className={`nav-item px-3 px-2`}>
@@ -632,7 +632,7 @@ const Navbar = () => {
                       <div className="body-text mb-2 mt-2 ">Enter the OTP</div>
                       <div className="d-flex justify-content-around align-items-center">
                         <OtpInput
-                          value={otp? otp : ""}
+                          value={otp ? otp : ""}
                           onChange={(otp) => {
                             setOtp(otp);
                           }}

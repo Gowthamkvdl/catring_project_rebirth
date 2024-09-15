@@ -1,0 +1,31 @@
+.singlePage .profile h6 {
+  max-width: 200px;
+}
+
+.singlePage .link {
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+/* .singlePage svg{
+    margin-bottom: 2px;
+    margin-right: 5px;
+
+} */
+
+.fs-normal{
+  font-size: large;
+}
+
+.bg-text{
+  background-color: #bfc0c050;
+}
+
+.user{
+  width: fit-content !important;
+  height: fit-content !important;
+}
+
+.fit-content {
+  width: fit-content !important;
+}
