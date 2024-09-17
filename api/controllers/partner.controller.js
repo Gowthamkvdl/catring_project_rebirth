@@ -14,7 +14,7 @@ export const verifyID = async (req, res) => {
   }
 
   // Token expiration time (1 week)
-  const tokenDuration = 1000 * 60 * 60 * 24 ;
+  const tokenDuration = 1000 * 60 * 60;
 
   const token = jwt.sign(
     {
