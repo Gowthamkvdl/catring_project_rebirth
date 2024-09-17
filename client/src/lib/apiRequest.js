@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const apiRequest = axios.create({
-  baseURL: "https://catring-project-rebirth.onrender.com/api",
+  baseURL: import.meta.env.VITE_API_BASE_URL, // This will automatically use the correct URL
   withCredentials: true,
-});   
+});
 
 export default apiRequest;

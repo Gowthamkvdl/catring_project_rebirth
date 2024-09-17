@@ -15,7 +15,6 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
-const allowedOrigins = [process.env.CLIENT_URL, process.env.PARTNER_URL];
 
 
 app.use(
@@ -29,8 +28,6 @@ app.use(
       }
     },
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
 
