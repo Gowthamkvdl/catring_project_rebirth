@@ -215,7 +215,7 @@ const handleDelete = async () => {
                 name=""
                 className="form-control shadow-none"
                 id=""
-                placeholder="Enter the information that you want to add..."
+                placeholder="Enter the information that you want to add about the user"
                 cols="30"
                 rows="10"
                 value={remarks}
