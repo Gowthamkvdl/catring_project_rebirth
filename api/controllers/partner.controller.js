@@ -33,7 +33,7 @@ export const verifyID = async (req, res) => {
         .status(200)
         .cookie("token", token, {
           httpOnly: true, // This should be true in production
-          secure: process.env.NODE_ENV === "pro",
+          secure: true,
           sameSite: "None",
           maxAge: tokenDuration,
         })
