@@ -289,7 +289,7 @@ const Navbar = () => {
                     <div
                       className={`nav-link text-decoration-none d-none d-sm-block body-text `}
                     >
-                      Servers
+                      Logout
                     </div>
                   </li>
                 </Link>
