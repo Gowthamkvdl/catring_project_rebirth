@@ -7,7 +7,7 @@ const AboutPage = () => {
   return (
     <div>
       <div className="wrapper">
-        <h1 className="title">About</h1>
+        <h1 className="title-text">About</h1>
         <div className="container ">
           <div className="row d-flex justify-content-center align-items-center">
             <div className="col-12 col-md-6">
