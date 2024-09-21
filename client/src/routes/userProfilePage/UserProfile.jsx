@@ -66,7 +66,7 @@ const profilePage = () => {
     <div className="profile ">
       <div className="row mx-1 ">
         <div className="col-12 col-md-6 px-0">
-          <h2 className="title text-uppercase">
+          <h2 className="title-text text-uppercase">
             {user?.name ? user?.name : "USER"}'S PROFILE
           </h2>
           <div className="profile bg-light text-dark py-4 mx-1 rounded-4 box-shadow mt-4 row">

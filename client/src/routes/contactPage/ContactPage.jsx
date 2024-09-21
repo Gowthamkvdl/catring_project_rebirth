@@ -34,7 +34,7 @@ const ContactPage = () => {
   return (
     <div className="contact navbarHeight mb-5">
       <div className="wrapper">
-        <h1 className="subtitle-text">Contact</h1>
+        <h1 className="title-text">Contact</h1>
         <div className="row ">
           <div className="col-xl-6 mx-auto col-12">
             <p className="text-start mb-4 body-text">
