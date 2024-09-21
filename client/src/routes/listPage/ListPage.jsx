@@ -74,6 +74,7 @@ const ListPage = () => {
       setTotalPost(postData.length);
       setIsLoadingMore(false);
     }
+    console.log(postData);
     if (postData.length > 0) {
       return postData.map((post) => <Card item={post} key={post.postId} />);
     } else {
@@ -88,7 +89,7 @@ const ListPage = () => {
     }
   };
 
-  console.log(posts);
+  
 
   return (
     <div className="listPage">
