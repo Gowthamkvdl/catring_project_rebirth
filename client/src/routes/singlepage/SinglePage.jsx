@@ -186,16 +186,16 @@ const SinglePage = () => {
                       alt=""
                     />
                     <span className="name mx-2 body-text text-uppercase">
-                      {post?.cater?.name}
+                      {post?.postData.cater?.name}
                     </span>
                   </div>
                 </Link>
               </div>
               <h4 className="mt-1 fs-1 row">
-                <div className="col-9 my-auto">{post?.eventName}</div>
+                <div className="col-9 my-auto">{post?.postData.eventName}</div>
                 <div className="col-3">
                   <div className="float-end fw-bold p-2 bg-text text-dark rounded">
-                    ₹{post?.salary}
+                    ₹{post?.postData.salary}
                   </div>
                 </div>
               </h4>
@@ -212,13 +212,13 @@ const SinglePage = () => {
                   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                 </svg>
                 <span className="text-dark subtitle-text fs-3 fw-medium">
-                  {post?.city}
+                  {post?.postData.city}
                 </span>
               </div>
             </div>
           </div>
           <div className="address mb-3 body-text">
-            <span className="fw-medium">Address</span>: {post?.address}
+            <span className="fw-medium">Address</span>: {post?.postData.address}
           </div>
 
           <div className="extra d-flex body-text mt-2 bg-text flex-column rounded-3 py-1">
@@ -235,7 +235,7 @@ const SinglePage = () => {
                 <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
               </svg>
-              Date: <span className="">{post?.startDate} </span>
+              Date: <span className="">{post?.postData.startDate} </span>
             </div>
             <div className="workingHrs pt-0  body-text  p-2 ">
               <svg
@@ -249,7 +249,7 @@ const SinglePage = () => {
                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
               </svg>
-              Time: <span className="">{post?.startTime} </span>
+              Time: <span className="">{post?.postData.startTime} </span>
             </div>
             <div className="workingHrs pt-0 body-text  p-2 ">
               <svg
@@ -263,7 +263,7 @@ const SinglePage = () => {
                 <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0" />
                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
               </svg>{" "}
-              Total working days: <span className="">{post?.workingDays}</span>
+              Total working days: <span className="">{post?.postData.workingDays}</span>
             </div>
           </div>
           <hr />
@@ -271,14 +271,14 @@ const SinglePage = () => {
         <div className="col-md-6 col-12 h-auto ">
           <div className="eventDesc  fs-6 mt-2">
             <h2 className="subtitle-text fs-3 fw-medium">Description:</h2>
-            <p className="p-0 body-text">{post?.description}</p>
+            <p className="p-0 body-text">{post?.postData.description}</p>
           </div>
           <div className="bar row d-flex align-items-center">
             <div className="col-md-9 col-12">
               <span className=" fw-medium  body-text">
                 Number of Staff Required
               </span>
-              : <span className=" body-text">{post?.noOfStaffsReq}</span>
+              : <span className=" body-text">{post?.postData.noOfStaffsReq}</span>
               <div className="mb-0 mt-2 float-end">
                 Status of Recruitment:{" "}
                 <span className="fw-medium">
@@ -323,14 +323,14 @@ const SinglePage = () => {
           <div className="single-page-contact">
             <h2 className="fs-3 subtitle-text ">Contact</h2>
             <p className="m-0 fs-normal body-text">
-              <span className="fw-medium ">Phone:</span> {post?.cater?.phone}{" "}
+              <span className="fw-medium ">Phone:</span> {post?.postData.cater?.phone}{" "}
             </p>
             <div className="d-flex mt-1 gap-2 mb-2 w-100">
               <WhatsappButton
-                phoneNumber={post?.cater?.phone}
+                phoneNumber={post?.postData.cater?.phone}
                 message={"Hi, I am interested in your job. Please contact me."}
               />{" "}
-              <CallButton phoneNumber={post?.cater?.phone} />{" "}
+              <CallButton phoneNumber={post?.postData.cater?.phone} />{" "}
             </div>
           </div>
           <div className="btns d-flex  mt-2">
