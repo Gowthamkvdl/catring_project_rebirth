@@ -142,7 +142,9 @@ const SinglePage = () => {
           type="button"
           onClick={handleDisablePost}
           className={`btn btn-secondary  ${
-            currentUser && post.caterId === currentUser.id ? "" : "d-none"
+            currentUser && post.postData.cater.id === currentUser.id
+              ? ""
+              : "d-none"
           }`}
         >
           {postStatus ? "Enable Post" : "Disable Post"}
@@ -152,7 +154,9 @@ const SinglePage = () => {
           data-bs-toggle="modal"
           data-bs-target="#staticBackdrop"
           className={`btn btn-danger ${
-            currentUser && post.caterId === currentUser.id ? "" : "d-none"
+            currentUser && post.postData.cater.id === currentUser.id
+              ? ""
+              : "d-none"
           }`}
         >
           <svg
@@ -175,12 +179,12 @@ const SinglePage = () => {
               <div className="fit-content">
                 <Link
                   className="link"
-                  to={"/user-profile/?id=" + post?.cater?.id}
+                  to={"/user-profile/?id=" + post?.postData.cater?.id}
                 >
                   <div className="user text-dark d-flex align-items-center">
                     <img
                       src={
-                        post.cater?.avatar ? post.cater?.avatar : dummyProfile
+                        post.postData.cater?.avatar ? post.cater?.avatar : dummyProfile
                       }
                       className="navProPic"
                       alt=""
@@ -263,7 +267,8 @@ const SinglePage = () => {
                 <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0" />
                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
               </svg>{" "}
-              Total working days: <span className="">{post?.postData.workingDays}</span>
+              Total working days:{" "}
+              <span className="">{post?.postData.workingDays}</span>
             </div>
           </div>
           <hr />
@@ -278,7 +283,8 @@ const SinglePage = () => {
               <span className=" fw-medium  body-text">
                 Number of Staff Required
               </span>
-              : <span className=" body-text">{post?.postData.noOfStaffsReq}</span>
+              :{" "}
+              <span className=" body-text">{post?.postData.noOfStaffsReq}</span>
               <div className="mb-0 mt-2 float-end">
                 Status of Recruitment:{" "}
                 <span className="fw-medium">
@@ -323,7 +329,8 @@ const SinglePage = () => {
           <div className="single-page-contact">
             <h2 className="fs-3 subtitle-text ">Contact</h2>
             <p className="m-0 fs-normal body-text">
-              <span className="fw-medium ">Phone:</span> {post?.postData.cater?.phone}{" "}
+              <span className="fw-medium ">Phone:</span>{" "}
+              {post?.postData.cater?.phone}{" "}
             </p>
             <div className="d-flex mt-1 gap-2 mb-2 w-100">
               <WhatsappButton
