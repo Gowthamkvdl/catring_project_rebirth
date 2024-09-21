@@ -186,7 +186,9 @@ const SinglePage = () => {
                   <div className="user text-dark d-flex align-items-center">
                     <img
                       src={
-                        post.postData.cater?.avatar ? post.cater?.avatar : dummyProfile
+                        post.postData.cater?.avatar
+                          ? post.postData.cater?.avatar
+                          : dummyProfile
                       }
                       className="navProPic"
                       alt=""
