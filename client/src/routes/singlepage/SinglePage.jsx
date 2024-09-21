@@ -123,6 +123,8 @@ const SinglePage = () => {
       });
   };
 
+  console.log(post)
+
   return (
     <div className="singlePage ">
       <h1 className="title-text text-uppercase">Job Details</h1>
