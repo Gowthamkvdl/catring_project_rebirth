@@ -4,7 +4,7 @@ import dummyProfile from "../../assets/dummyProfilePic.jpg";
 import rollingLoading from "../../assets/rollingLoading.svg";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import apiRequest from "../../lib/apiRequest.js"; 
+import apiRequest from "../../lib/apiRequest.js";
 import { toast } from "react-hot-toast";
 import Progressbar from "../../components/progressBar/Progressbar";
 import shareIcon from "../../assets/share.svg";
@@ -20,14 +20,14 @@ const SinglePage = () => {
   const { currentUser } = useContext(AuthContext);
   const [deleting, setDeleting] = useState(false);
   const [disabling, setDisabling] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (postStatus && post.postData.userId !== currentUser?.userId) {
       navigate("/profile");
       toast("That post is not available", { id: "postStatus" });
     }
-    console.log(post)
+    console.log(post);
   }, [postStatus, post.postData.userId, currentUser?.userId, navigate]);
 
   const handleSave = async () => {
@@ -47,26 +47,26 @@ const SinglePage = () => {
     }
   };
 
-
   const handleIntrested = async () => {
     try {
-      setLoading(true)
-      const response = await apiRequest.post("post/intrested", { postId: post.postData.postId });
+      setLoading(true);
+      const response = await apiRequest.post("post/intrested", {
+        postId: post.postData.postId,
+      });
       toast.success(response.data.message, {
         duration: 4000,
-        id:"post intrested",
-      })
+        id: "post intrested",
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       toast.error(error.response.data.message, {
         duration: 3000,
         id: "error post intrested",
       });
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
-
+  };
 
   const handleDisablePost = async () => {
     setDisabling(true);
@@ -281,13 +281,18 @@ const SinglePage = () => {
               <div className="mb-0 mt-4 float-end">
                 Status of Recruitment:{" "}
                 <span className="fw-medium">
-                  {post.postData?.noOfStaffsSatisfied}/
-                  {post.postData?.noOfStaffsReq}
+                  {
+                    post.servers.filter(
+                      (server) => server.status === "accepted"
+                    ).length
+                  }
+                  /{post.postData?.noOfStaffsReq}
                 </span>
               </div>
               <Progressbar
                 width={
-                  (post.postData?.noOfStaffsSatisfied /
+                  (post.servers.filter((server) => server.status === "accepted")
+                    .length /
                     post.postData?.noOfStaffsReq) *
                   100
                 }
@@ -385,7 +390,7 @@ const SinglePage = () => {
           </div>
         </div>
       </div>
-                <hr className="mt-5" />
+      <hr className="mt-5" />
       <div className="mt-3 mx-1 mb-2 ">
         <div className="mt-3 mb-2  d-flex gap-2 flex-wrap">
           <div className="body-text">
