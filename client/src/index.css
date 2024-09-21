@@ -24,20 +24,19 @@ body {
 
 
 .body-text {
-  font-size: calc(1rem + 0.4vw); /* Slightly smaller responsive font size */
-  line-height: calc(1.4rem + 0.4vw); /* Adjusted line-height */
+  font-size: clamp(1rem, 1rem + 0.4vw, 1.125rem); /* Responsive body text */
+  line-height: 1.6; /* Balanced line-height for readability */
 }
 
 .subtitle-text {
-  font-size: calc(1.75rem + 0.4vw); /* Consistent scaling with body text */
-  line-height: calc(1.5rem + 0.4vw); /* Slightly tighter line-height */
+  font-size: clamp(1.5rem, 1.75rem + 0.4vw, 2rem); /* Adaptive subtitle size */
+  line-height: 1.4; /* Slightly tighter for subtitles */
 }
 
 .title-text {
-  font-size: calc(2.2rem + 0.4vw); /* Slightly reduced for better fit on mobile */
-  line-height: calc(2.4rem + 0.4vw); /* Adjusted line-height */
+  font-size: clamp(2rem, 2.2rem + 0.4vw, 2.5rem); /* Responsive title size */
+  line-height: 1.3; /* Adjusted line-height for titles */
 }
-
 
 
 
