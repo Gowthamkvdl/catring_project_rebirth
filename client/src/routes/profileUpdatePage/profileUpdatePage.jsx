@@ -62,7 +62,7 @@ const profileUpdatePage = () => {
       <div className="updateProfile bg-white ">
         <div className="row">
           <div className="col-12 col-md-7">
-            <h2 className="title-text">
+            <h2 className="title-text text-uppercase">
               EDIT PROFILE
               <button
                 type="button"
@@ -85,8 +85,8 @@ const profileUpdatePage = () => {
                     cloudName: "gowthamk",
                     uploadPreset: "catring",
                     multiple: false,
-                    maxImageFileSze: 2621440, 
-                    sources: ["local", "camera"], 
+                    maxImageFileSze: 2621440,
+                    sources: ["local", "camera"],
                     clientAllowedFormats: ["image"],
                     folder: "avatar",
                   }}

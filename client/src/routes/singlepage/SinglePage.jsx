@@ -125,6 +125,8 @@ const SinglePage = () => {
 
   return (
     <div className="singlePage ">
+      <h1 className="title-text text-uppercase">Job Details</h1>
+
       <div className="d-flex gap-1 justify-content-end mb-2 mx-1">
         <button
           className="btn btn-primary d-flex justify-content-center align-items-center"
