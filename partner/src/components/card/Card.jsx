@@ -110,13 +110,13 @@ const Card = ({ item, intrested }) => {
             <span className="fw-medium">Number of staffs required</span>:{" "}
             {item?.noOfStaffsReq ? item?.noOfStaffsReq : "No of Staffs"}
             <br />
-            <div className="float-end">
+            {/* <div className="float-end">
               status: {item?.noOfStaffsSatisfied} /{" "}
               {item?.noOfStaffsReq ? item?.noOfStaffsReq : "No of Staffs"}
             </div>
             <ProgressBar
               width={(item?.noOfStaffsSatisfied / item?.noOfStaffsReq) * 100}
-            />
+            /> */}
           </div>
           <div className="extras text-dark">
             <div className=" mb-3 float-end">
