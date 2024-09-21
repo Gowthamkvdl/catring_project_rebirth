@@ -88,6 +88,8 @@ const ListPage = () => {
     }
   };
 
+  console.log(posts);
+
   return (
     <div className="listPage">
       <h1 className="title-text text-uppercase">Jobs</h1>
