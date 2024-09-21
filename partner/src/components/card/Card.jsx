@@ -75,7 +75,7 @@ const Card = ({ item, intrested }) => {
         )}
         <div className="m-3 ">
           <div className="eventName">
-            <div className="location mb-2">
+            <div className="location">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -90,7 +90,7 @@ const Card = ({ item, intrested }) => {
                 {item?.city ? item?.city : "City"}
               </span>
             </div>
-            <h4 className="d-flex justify-content-between mb-2 p-0 m-0">
+            <h4 className="d-flex justify-content-between p-0 m-0">
               <span className="event-name text-dark">
                 {item?.eventName ? item?.eventName : "Event Name"}
                 <span className="fs-6">
@@ -101,21 +101,22 @@ const Card = ({ item, intrested }) => {
             </h4>
           </div>
 
-          <div className="eventDesc text-dark mb-2">
+          <div className="eventDesc text-dark">
             <span className="fw-medium">Address</span>:{" "}
             {item?.address ? item?.address : "Address"}
           </div>
+          <hr className="my-2" />
           <div className="content text-dark fs-6">
             <span className="fw-medium">Number of staffs required</span>:{" "}
             {item?.noOfStaffsReq ? item?.noOfStaffsReq : "No of Staffs"}
             <br />
-            {/* <div className="float-end">
+            <div className="float-end">
               status: {item?.noOfStaffsSatisfied} /{" "}
               {item?.noOfStaffsReq ? item?.noOfStaffsReq : "No of Staffs"}
             </div>
             <ProgressBar
               width={(item?.noOfStaffsSatisfied / item?.noOfStaffsReq) * 100}
-            /> */}
+            />
           </div>
           <div className="extras text-dark">
             <div className=" mb-3 float-end">
