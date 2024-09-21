@@ -282,11 +282,21 @@ const SinglePage = () => {
               <div className="mb-0 mt-2 float-end">
                 Status of Recruitment:{" "}
                 <span className="fw-medium">
-                  {post?.noOfStaffsSatisfied}/{post?.noOfStaffsReq}
+                  {
+                    post.servers.filter(
+                      (server) => server.status === "accepted"
+                    ).length
+                  }
+                  /{post.postData?.noOfStaffsReq}
                 </span>
               </div>
               <Progressbar
-                width={(post?.noOfStaffsSatisfied / post?.noOfStaffsReq) * 100}
+                width={
+                  (post.servers.filter((server) => server.status === "accepted")
+                    .length /
+                    post.postData?.noOfStaffsReq) *
+                  100
+                }
               />
             </div>
             <div className="col-md-3 col-12 mt-1">

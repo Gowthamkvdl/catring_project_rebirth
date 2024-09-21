@@ -3,7 +3,7 @@ import apiRequest from "./apiRequest";
 
 export const singlePageLoader = async ({ params }) => {
   const { id } = params;
-  const response = await apiRequest.get("/post/" + id);
+  const response = await apiRequest.get("/partner/post/" + id);
   return response.data;
 };
 
