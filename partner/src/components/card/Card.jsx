@@ -105,7 +105,6 @@ const Card = ({ item, intrested }) => {
             <span className="fw-medium">Address</span>:{" "}
             {item?.address ? item?.address : "Address"}
           </div>
-          <hr className="my-2" />
           <div className="content text-dark fs-6">
             <span className="fw-medium">Number of staffs required</span>:{" "}
             {item?.noOfStaffsReq ? item?.noOfStaffsReq : "No of Staffs"}
