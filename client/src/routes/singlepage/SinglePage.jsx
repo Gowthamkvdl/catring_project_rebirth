@@ -22,7 +22,7 @@ const SinglePage = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (postStatus && post.userId !== currentUser?.userId) {
+    if (postStatus && post.postData.cater.id !== currentUser?.userId) {
       navigate("/profile");
       toast("That post is not available", { id: "postStatus" });
     }
@@ -34,7 +34,7 @@ const SinglePage = () => {
       navigate("/login");
     }
     try {
-      await apiRequest.post("user/save", { postId: post.postId });
+      await apiRequest.post("user/save", { postId: post.postData.postId });
     } catch (error) {
       console.log(error);
       setSaved((prev) => !prev);
@@ -49,7 +49,9 @@ const SinglePage = () => {
   const handleIntrested = async () => {
     try {
       setLoading(true)
-      const response = await apiRequest.post("post/intrested", { postId: post.postId });
+      const response = await apiRequest.post("post/intrested", {
+        postId: post.postData.postId,
+      });
       toast.success(response.data.message, {
         duration: 4000,
         id:"post intrested",
@@ -69,9 +71,9 @@ const SinglePage = () => {
   const handleDisablePost = async () => {
     setDisabling(true);
     setPostStatus((prev) => !prev);
-    console.log(post.postId);
+    console.log(post.postData.postId);
     try {
-      await apiRequest.put("post/status/" + post.postId);
+      await apiRequest.put("post/status/" + post.postData.postId);
     } catch (error) {
       console.log(error);
       setPostStatus((prev) => !prev);
@@ -89,7 +91,7 @@ const SinglePage = () => {
   const handleDelete = async () => {
     try {
       setDeleting(true);
-      await apiRequest.delete(`post/${post.postId}`);
+      await apiRequest.delete(`post/${post.postData.postId}`);
       navigate(-1);
       toast.success("Your Post Deleted Successfully!");
     } catch (error) {
