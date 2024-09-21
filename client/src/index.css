@@ -28,12 +28,12 @@ body {
 }
 
 .subtitle-text {
-  font-size: clamp(1.2rem, 1.5rem + 0.35vw, 1.75rem); /* Slightly larger subtitle size */
+  font-size: clamp(1.2rem, 1.5rem + 0.35vw, 1.5rem); /* Slightly larger subtitle size */
   line-height: 1.4; /* Balanced line-height */
 }
 
 .title-text {
-  font-size: clamp(2rem, 2rem + 0.35vw, 2.4rem); /* Slightly larger title size */
+  font-size: clamp(2rem, 2rem + 0.35vw, 2.15rem); /* Slightly larger title size */
   line-height: 1.35; /* Balanced line-height for titles */
 }
 
