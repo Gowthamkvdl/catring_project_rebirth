@@ -74,7 +74,7 @@ const ListPage = () => {
       setTotalPost(postData.length);
       setIsLoadingMore(false);
     }
-    console.log(postData);
+    console.log(postResponse.data);
     if (postData.length > 0) {
       return postData.map((post) => <Card item={post} key={post.postId} />);
     } else {
