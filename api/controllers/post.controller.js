@@ -45,24 +45,26 @@ export const getPosts = async (req, res) => {
             averageRating: true,
           },
         },
-        _count: {
-          select: {
-            intersted: {
-              where: {
-                status: "accepted", // Only count 'accepted' intersted entries
-              },
-            },
-          },
-        },
       },
       take: limit,
     });
 
-    // Format response to include the count of 'accepted' intersted entries
-    const formattedPosts = posts.map((post) => ({
-      ...post,
-      acceptedInterstedCount: post._count.intersted, // Add the count of 'accepted' statuses
-    }));
+    // For each post, count the number of 'accepted' interests
+    const formattedPosts = await Promise.all(
+      posts.map(async (post) => {
+        const acceptedInterstedCount = await prisma.intersted.count({
+          where: {
+            postId: post.postId,
+            status: "accepted",
+          },
+        });
+
+        return {
+          ...post,
+          acceptedInterstedCount, // Add the count of 'accepted' statuses
+        };
+      })
+    );
 
     res
       .status(200)
@@ -72,6 +74,7 @@ export const getPosts = async (req, res) => {
     res.status(500).json({ message: "Failed to get posts" });
   }
 };
+
 
 
 export const getIntrestedPosts = async (req, res) => {
