@@ -8,7 +8,6 @@ export const getPosts = async (req, res) => {
   // Get the current date without time for accurate filtering
   const currentDate = new Date();
   currentDate.setHours(0, 0, 0, 0); // Reset the time to midnight
-
   const currentDateString = currentDate.toISOString();
 
   try {
@@ -50,7 +49,7 @@ export const getPosts = async (req, res) => {
           select: {
             intersted: {
               where: {
-                status: "accepted", // Count only "accepted" status
+                status: "accepted",
               },
             },
           },
@@ -65,6 +64,7 @@ export const getPosts = async (req, res) => {
     res.status(500).json({ message: "Failed to get posts" });
   }
 };
+
 
 export const getIntrestedPosts = async (req, res) => {
   const limit = parseInt(req.query.limit) || 5;
