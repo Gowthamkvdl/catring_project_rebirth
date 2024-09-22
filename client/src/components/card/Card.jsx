@@ -108,14 +108,14 @@ const Card = ({ item }) => {
           <hr className="my-2" />
           <div className="content text-dark fs-6">
             <span className="fw-medium">Number of staffs required</span>:{" "}
-            {item?.noOfStaffsReq ? item?.noOfStaffsReq : "No of Staffs"}
+            {item?.noOfStaffsReq ? item?.noOfStaffsReq : ""}
             <br />
             <div className="float-end">
-              status: {item?.noOfStaffsSatisfied} /{" "}
-              {item?.noOfStaffsReq ? item?.noOfStaffsReq : "No of Staffs"}
+              status: {item?.acceptedInterstedCount} /{" "}
+              {item?.noOfStaffsReq ? item?.noOfStaffsReq : ""}
             </div>
             <ProgressBar
-              width={(item?.noOfStaffsSatisfied / item?.noOfStaffsReq) * 100}
+              width={(item?.acceptedInterstedCount / item?.noOfStaffsReq) * 100}
             />
           </div>
           <div className="extras text-dark">
