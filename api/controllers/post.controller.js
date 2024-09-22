@@ -49,16 +49,24 @@ export const getPosts = async (req, res) => {
           select: {
             intersted: {
               where: {
-                status: "accepted",
+                status: "accepted", // Only count 'accepted' intersted entries
               },
             },
           },
         },
       },
-      take: parseInt(limit),
+      take: limit,
     });
 
-    res.status(200).json({ postData: posts, total: posts.length });
+    // Format response to include the count of 'accepted' intersted entries
+    const formattedPosts = posts.map((post) => ({
+      ...post,
+      acceptedInterstedCount: post._count.intersted, // Add the count of 'accepted' statuses
+    }));
+
+    res
+      .status(200)
+      .json({ postData: formattedPosts, total: formattedPosts.length });
   } catch (error) {
     console.error("Error fetching posts:", error);
     res.status(500).json({ message: "Failed to get posts" });
