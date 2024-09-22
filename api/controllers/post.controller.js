@@ -46,6 +46,15 @@ export const getPosts = async (req, res) => {
             averageRating: true,
           },
         },
+        _count: {
+          select: {
+            intersted: {
+              where: {
+                status: "accepted", // Count only "accepted" status
+              },
+            },
+          },
+        },
       },
       take: parseInt(limit),
     });
