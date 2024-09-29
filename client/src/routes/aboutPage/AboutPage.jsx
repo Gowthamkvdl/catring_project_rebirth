@@ -7,7 +7,7 @@ const AboutPage = () => {
   return (
     <div>
       <div className="wrapper">
-        <h1 className="title-text text-uppercase">About</h1>
+        <h1 className="subtitle-text text-uppercase">About</h1>
         <div className="container ">
           <div className="row d-flex justify-content-center align-items-center">
             <div className="col-12 col-md-6">
@@ -18,7 +18,7 @@ const AboutPage = () => {
                 The Challenges We Address
               </div>
               <div className="mt-2">
-                <h1 className="title-text mb-3 px-0">Our Story</h1>
+                <h1 className="subtitle-text mb-3 px-0">Our Story</h1>
                 <p className="body-text">
                   At CATRING, we effortlessly bridge the gap between catering
                   contractors and skilled server staff. Whether you're a server
@@ -37,7 +37,7 @@ const AboutPage = () => {
             </div>
             <div className="col-12 col-lg-5 mx-auto px-0">
               <div className="">
-                <h3 className="title-text fs-1 mb-1">For Server Staff</h3>
+                <h3 className="subtitle-text fs-1 mb-1">For Server Staff</h3>
                 <p className=" body-text">
                   Finding it hard to discover exciting job opportunities in the
                   catering industry? Our platform allows you to connect with top
@@ -49,7 +49,7 @@ const AboutPage = () => {
             </div>
             <div className="col-12 col-lg-5 mx-auto px-0">
               <div className="">
-                <h3 className="title-text fs-1 mb-1">For Contractors</h3>
+                <h3 className="subtitle-text fs-1 mb-1">For Contractors</h3>
                 <p className=" body-text">
                   Struggling to find reliable and skilled staff for your
                   catering events? Our platform connects you with experienced

@@ -93,7 +93,7 @@ const ListPage = () => {
 
   return (
     <div className="listPage">
-      <h1 className="title-text text-uppercase">Jobs</h1>
+      <h1 className="subtitle-text text-uppercase">Jobs</h1>
       <div className="cards mb-5">
         <Filter query={query} setQuery={setQuery} />
         <Suspense

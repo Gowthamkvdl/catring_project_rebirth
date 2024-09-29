@@ -62,7 +62,7 @@ const profileUpdatePage = () => {
       <div className="updateProfile bg-white ">
         <div className="row">
           <div className="col-12 col-md-7">
-            <h2 className="title-text text-uppercase">
+            <h2 className="subtitle-text text-uppercase">
               EDIT PROFILE
               <button
                 type="button"
