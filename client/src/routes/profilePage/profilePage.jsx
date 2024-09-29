@@ -81,7 +81,7 @@ const profilePage = () => {
     <div className="profile bg-white">
       <div className="row ">
         <div className="col-12 col-lg-7">
-          <h2 className="title-text text-uppercase">
+          <h2 className="subtitle-text text-uppercase">
             USER PROFILE
             <button
               className=" ms-2 float-end btn btn-primary"
