@@ -639,8 +639,9 @@ const Navbar = () => {
                           numInputs={6}
                           renderInput={(props) => (
                             <input
+                            type="number"
                               {...props}
-                              className="form-control form-control-xl mx-1"
+                              className="form-control form-control-xl mx-1 mx-md-3"
                               style={{
                                 color: "black",
                                 fontSize: "24px",
