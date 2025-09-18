@@ -640,7 +640,7 @@ const Navbar = () => {
                           renderInput={(props) => (
                             <input
                               {...props}
-                              className="form-control form-control-xl mx-3"
+                              className="form-control form-control-xl mx-1"
                               style={{
                                 color: "black",
                                 fontSize: "24px",
