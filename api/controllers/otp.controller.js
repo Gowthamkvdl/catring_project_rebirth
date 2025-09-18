@@ -62,7 +62,7 @@ export const verifyOtp = async (req, res) => {
     const otpExists = await prisma.otp.findFirst({
       where: {
         phone: phoneNumber,
-        // otp: otp,
+        otp: otp,
         expiresAt: {
           gte: new Date(), // Ensure OTP is not expired
         },

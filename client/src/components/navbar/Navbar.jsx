@@ -131,10 +131,10 @@ const Navbar = () => {
       toast.success("OTP sent successfully", {
         id: "otp-sent",
       });
+      setSent(true);
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong!");
-      setSent(true);
       setTimer(20); // Set the countdown timer for 20 seconds
     } finally {
       setSending(false);
@@ -636,7 +636,7 @@ const Navbar = () => {
                           onChange={(otp) => {
                             setOtp(otp);
                           }}
-                          numInputs={4}
+                          numInputs={6}
                           renderInput={(props) => (
                             <input
                               {...props}
