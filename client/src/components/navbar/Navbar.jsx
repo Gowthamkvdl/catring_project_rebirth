@@ -628,7 +628,7 @@ const Navbar = () => {
                         You will receive an OTP on this number.
                       </span> */}
                     </div>  
-                    <div className={`${true ? "d-block" : "d-none"}`}>
+                    <div className={`${sent ? "d-block" : "d-none"}`}>
                       <div className="body-text mb-2 mt-2 ">Enter the OTP</div>
                       <div className="d-flex justify-content-around align-items-center">
                         <OtpInput
